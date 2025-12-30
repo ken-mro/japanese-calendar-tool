@@ -1,6 +1,7 @@
 {
   "common": {
     "title": "Japanese Calendar Tool",
+    "titleMobile": "Japanese Calendar Tool",
     "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a birthdate",
     "language": "Language",
     "japanese": "Japanese",
