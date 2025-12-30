@@ -277,6 +277,13 @@ body {
   color: rgba(255, 255, 255, 0.3);
 }
 
+.zodiac-icons {
+  display: flex !important;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
 .calculate-btn {
   background: var(--primary-gradient);
   border: none;
