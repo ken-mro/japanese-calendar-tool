@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/config";
 
-const notoSansJP = Noto_Sans_JP({
-  variable: "--font-noto-sans-jp",
+const notoSerifJP = Noto_Serif_JP({
+  variable: "--font-noto-serif-jp",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
@@ -61,7 +61,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${notoSansJP.variable}`}>
+      <body className={`${notoSerifJP.variable}`}>
         <I18nProvider>{children}</I18nProvider>
       </body>
     </html>
