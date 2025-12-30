@@ -1,0 +1,60 @@
+{
+  "common": {
+    "title": "和暦・干支・九星 計算ツール",
+    "description": "生年月日から和暦・十干十二支・星座・九星を計算します",
+    "language": "言語",
+    "japanese": "日本語",
+    "english": "English"
+  },
+  "input": {
+    "title": "生年月日を入力",
+    "year": "年",
+    "month": "月",
+    "day": "日",
+    "calculate": "計算する",
+    "westernYear": "西暦",
+    "japaneseEra": "和暦",
+    "placeholder": {
+      "year": "例: 1990",
+      "month": "例: 1",
+      "day": "例: 15"
+    }
+  },
+  "result": {
+    "title": "計算結果",
+    "westernYear": "西暦",
+    "japaneseEra": "和暦",
+    "chineseZodiac": "十干十二支",
+    "zodiacSign": "星座",
+    "nineStar": "九星",
+    "nineStarApproximate": "※立春を2月4日として計算しています",
+    "year": "年",
+    "animal": "干支の動物",
+    "reading": "読み方",
+    "element": "五行",
+    "symbol": "シンボル"
+  },
+  "months": {
+    "1": "1月",
+    "2": "2月",
+    "3": "3月",
+    "4": "4月",
+    "5": "5月",
+    "6": "6月",
+    "7": "7月",
+    "8": "8月",
+    "9": "9月",
+    "10": "10月",
+    "11": "11月",
+    "12": "12月"
+  },
+  "errors": {
+    "invalidDate": "有効な日付を入力してください",
+    "dateOutOfRange": "対応範囲外の日付です（1596年以降に対応）"
+  },
+  "seo": {
+    "title": "和暦・干支・九星 計算ツール | 生年月日から簡単計算",
+    "description": "生年月日を入力するだけで、西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。無料のオンライン計算ツール。",
+    "keywords": "和暦,西暦,変換,干支,十干十二支,九星,星座,生年月日,計算"
+  }
+}

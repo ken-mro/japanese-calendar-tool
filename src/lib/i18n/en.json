@@ -1,0 +1,60 @@
+{
+  "common": {
+    "title": "Japanese Calendar Tool",
+    "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a birthdate",
+    "language": "Language",
+    "japanese": "Japanese",
+    "english": "English"
+  },
+  "input": {
+    "title": "Enter Birth Date",
+    "year": "Year",
+    "month": "Month",
+    "day": "Day",
+    "calculate": "Calculate",
+    "westernYear": "Western Year",
+    "japaneseEra": "Japanese Era",
+    "placeholder": {
+      "year": "e.g., 1990",
+      "month": "e.g., 1",
+      "day": "e.g., 15"
+    }
+  },
+  "result": {
+    "title": "Results",
+    "westernYear": "Western Year",
+    "japaneseEra": "Japanese Era",
+    "chineseZodiac": "Chinese Zodiac",
+    "zodiacSign": "Zodiac Sign",
+    "nineStar": "Nine Star Ki",
+    "nineStarApproximate": "* Calculated using Feb 4 as Risshun (Start of Spring)",
+    "year": "Year",
+    "animal": "Animal",
+    "reading": "Reading",
+    "element": "Element",
+    "symbol": "Symbol"
+  },
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "errors": {
+    "invalidDate": "Please enter a valid date",
+    "dateOutOfRange": "Date is out of supported range (after 1596)"
+  },
+  "seo": {
+    "title": "Japanese Calendar Tool - Era, Zodiac & Nine Star Calculator",
+    "description": "Calculate Japanese era (和暦), Chinese zodiac (十干十二支), constellation, and Nine Star Ki (九星) from your birthdate. Free online tool with both English and Japanese support.",
+    "keywords": "Japanese era, wareki, Chinese zodiac, eto, nine star ki, kyusei, zodiac sign, birthday calculator"
+  }
+}
