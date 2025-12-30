@@ -1,6 +1,7 @@
 {
   "common": {
     "title": "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
+    "titleMobile": "暦変換ツール",
     "description": "生年月日から和暦・十干十二支・星座・九星を計算します",
     "language": "言語",
     "japanese": "日本語",

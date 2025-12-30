@@ -11,7 +11,10 @@ export function Header() {
       <div className="header-content">
         <div className="logo-section">
           <span className="logo-icon">🗾</span>
-          <h1 className="site-title">{t("common.title")}</h1>
+          <h1 className="site-title">
+            <span className="mobile-title">{t("common.titleMobile")}</span>
+            <span className="desktop-title">{t("common.title")}</span>
+          </h1>
         </div>
         <LanguageSwitcher />
       </div>

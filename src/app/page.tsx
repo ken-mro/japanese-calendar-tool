@@ -1,10 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Header, DateInput, ResultDisplay } from "@/components";
 
 export default function Home() {
   const [birthDate, setBirthDate] = useState<Date | null>(null);
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (birthDate && resultsRef.current) {
+      // Small timeout to ensure DOM is ready and layout is stable
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+    }
+  }, [birthDate]);
 
   const handleCalculate = (date: Date) => {
     setBirthDate(date);
@@ -15,7 +28,9 @@ export default function Home() {
       <Header />
       <main className="main-content">
         <DateInput onCalculate={handleCalculate} />
-        {birthDate && <ResultDisplay birthDate={birthDate} />}
+        <div ref={resultsRef} className="results-wrapper">
+          {birthDate && <ResultDisplay birthDate={birthDate} />}
+        </div>
       </main>
       <footer className="footer">
         <p>
