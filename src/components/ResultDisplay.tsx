@@ -41,7 +41,7 @@ export function ResultDisplay({ birthDate }: ResultDisplayProps) {
 
         {/* Japanese Era */}
         <div className="result-card japanese-era">
-          <div className="card-icon">🏯</div>
+          <div className="card-icon">🎌</div>
           <h3 className="card-title">{t("result.japaneseEra")}</h3>
           <p className="card-value">
             {japaneseEra ? formatJapaneseEra(japaneseEra, useKanji) : "-"}
