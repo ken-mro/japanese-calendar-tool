@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useI18n, useLanguage } from "@/lib/i18n/config";
-import { getEraList, convertEraToWesternYear } from "@/lib/calculations";
+import {
+  getEraList,
+  convertEraToWesternYear,
+  getJapaneseEra,
+} from "@/lib/calculations";
 
 interface DateInputProps {
   onCalculate: (date: Date) => void;
@@ -22,6 +26,20 @@ export function DateInput({ onCalculate }: DateInputProps) {
   const [error, setError] = useState("");
 
   const eraList = getEraList();
+
+  // Set default date to today
+  useEffect(() => {
+    const today = new Date();
+    setYear(today.getFullYear().toString());
+    setMonth((today.getMonth() + 1).toString());
+    setDay(today.getDate().toString());
+
+    const japaneseEra = getJapaneseEra(today);
+    if (japaneseEra) {
+      setEra(japaneseEra.nameKanji);
+      setEraYear(japaneseEra.year.toString());
+    }
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
