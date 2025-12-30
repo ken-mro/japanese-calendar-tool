@@ -10,7 +10,6 @@ export function Header() {
     <header className="header">
       <div className="header-content">
         <div className="logo-section">
-          <span className="logo-icon">🗾</span>
           <h1 className="site-title">
             <span className="mobile-title">{t("common.titleMobile")}</span>
             <span className="desktop-title">{t("common.title")}</span>
