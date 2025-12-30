@@ -18,7 +18,21 @@ export default function Home() {
         {birthDate && <ResultDisplay birthDate={birthDate} />}
       </main>
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Japanese Calendar Tool</p>
+        <p>
+          © {new Date().getFullYear()} Japanese Calendar Tool | Contact:{" "}
+          <a
+            href="#"
+            className="contact-link"
+            onClick={(e) => {
+              e.preventDefault();
+              const email = `mailto:${"bacon.dev.6396"}@${"gmail.com"}`;
+              const subject = "?subject=Japanese Calendar Tool - Inquiry";
+              window.location.href = email + subject;
+            }}
+          >
+            bacon.dev.6396@gmail.com
+          </a>
+        </p>
       </footer>
     </div>
   );
