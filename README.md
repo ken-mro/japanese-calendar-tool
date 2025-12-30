@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Japanese Calendar Tool | 和暦・干支・九星 計算ツール
 
-## Getting Started
+A web application that calculates Japanese era (和暦), Chinese zodiac (十干十二支), zodiac sign (星座), and Nine Star Ki (九星) from a given birthdate.
 
-First, run the development server:
+生年月日から西暦・和暦・十干十二支・星座・九星を計算するウェブアプリケーションです。
+
+![Japanese Calendar Tool](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+
+## Features | 機能
+
+- **Western Year (西暦)**: Display the Gregorian calendar year
+- **Japanese Era (和暦)**: Calculate Japanese era names from Keicho (1596) to Reiwa
+- **Chinese Zodiac (十干十二支)**: Calculate the 60-year cycle including Heavenly Stems and Earthly Branches
+- **Zodiac Sign (星座)**: Determine the Western zodiac sign
+- **Nine Star Ki (九星)**: Calculate the Nine Star Ki based on Setsubun year boundary
+
+## Supported Eras | 対応元号
+
+- Modern: 令和、平成、昭和、大正、明治
+- Edo Period: 慶応、元治、文久、万延、安政、嘉永、弘化、天保、文政、文化、享和、寛政、天明、安永、明和、宝暦、寛延、延享、寛保、元文、享保、正徳、宝永、元禄、貞享、天和、延宝、寛文、万治、明暦、承応、慶安、正保、寛永、元和、慶長
+
+## Tech Stack | 技術スタック
+
+- **Framework**: [Next.js](https://nextjs.org/) 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + Custom CSS
+- **Font**: Noto Sans JP
+
+## Getting Started | 使い方
+
+### Prerequisites | 前提条件
+
+- Node.js 16.x or higher
+- npm or yarn
+
+### Installation | インストール
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/japanese-calendar-tool.git
+   cd japanese-calendar-tool
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Build for Production | 本番用ビルド
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Internationalization | 多言語対応
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The application supports both Japanese and English:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Default language is detected from browser settings
+- Users can switch languages using the toggle in the header
+- Language preference is saved in localStorage
 
-## Learn More
+アプリケーションは日本語と英語に対応しています：
 
-To learn more about Next.js, take a look at the following resources:
+- デフォルトはブラウザの言語設定を検出
+- ヘッダーのトグルで言語切り替え可能
+- 言語設定は localStorage に保存
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure | プロジェクト構成
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+├── app/
+│   ├── globals.css     # Global styles
+│   ├── layout.tsx      # Root layout with SEO
+│   └── page.tsx        # Main page
+├── components/
+│   ├── DateInput.tsx   # Date input form
+│   ├── Header.tsx      # Header with language switcher
+│   ├── LanguageSwitcher.tsx
+│   └── ResultDisplay.tsx  # Results display
+├── lib/
+│   ├── calculations/
+│   │   ├── japaneseEra.ts   # 和暦計算
+│   │   ├── zodiac.ts        # 十干十二支計算
+│   │   ├── constellation.ts # 星座計算
+│   │   └── nineStar.ts      # 九星計算
+│   └── i18n/
+│       ├── config.tsx  # i18n context
+│       ├── en.json     # English translations
+│       └── ja.json     # Japanese translations
+└── types/
+    └── calendar.ts     # Type definitions
+```
 
-## Deploy on Vercel
+## SEO | SEO 対策
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Optimized meta tags for both Japanese and English
+- Open Graph and Twitter Card support
+- Structured data (JSON-LD) for WebApplication schema
+- Semantic HTML structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License | ライセンス
+
+MIT License
+
+## Contributing | 貢献
+
+Contributions are welcome! Please feel free to submit a Pull Request.
