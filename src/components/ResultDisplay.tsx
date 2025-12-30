@@ -56,7 +56,7 @@ export function ResultDisplay({ birthDate }: ResultDisplayProps) {
 
         {/* Chinese Zodiac */}
         <div className="result-card chinese-zodiac">
-          <div className="card-icon">🐉</div>
+          <div className="card-icon">{chineseZodiac.animalEmoji}</div>
           <h3 className="card-title">{t("result.chineseZodiac")}</h3>
           <p className="card-value">{chineseZodiac.combined}</p>
           <p className="card-subtitle">

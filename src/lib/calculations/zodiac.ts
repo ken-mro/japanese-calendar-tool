@@ -16,18 +16,18 @@ const HEAVENLY_STEMS = [
 
 // 十二支 (Earthly Branches)
 const EARTHLY_BRANCHES = [
-  { name: 'Zi', kanji: '子', reading: 'ね', animal: 'Rat', animalKanji: '鼠' },
-  { name: 'Chou', kanji: '丑', reading: 'うし', animal: 'Ox', animalKanji: '牛' },
-  { name: 'Yin', kanji: '寅', reading: 'とら', animal: 'Tiger', animalKanji: '虎' },
-  { name: 'Mao', kanji: '卯', reading: 'う', animal: 'Rabbit', animalKanji: '兎' },
-  { name: 'Chen', kanji: '辰', reading: 'たつ', animal: 'Dragon', animalKanji: '龍' },
-  { name: 'Si', kanji: '巳', reading: 'み', animal: 'Snake', animalKanji: '蛇' },
-  { name: 'Wu', kanji: '午', reading: 'うま', animal: 'Horse', animalKanji: '馬' },
-  { name: 'Wei', kanji: '未', reading: 'ひつじ', animal: 'Sheep', animalKanji: '羊' },
-  { name: 'Shen', kanji: '申', reading: 'さる', animal: 'Monkey', animalKanji: '猿' },
-  { name: 'You', kanji: '酉', reading: 'とり', animal: 'Rooster', animalKanji: '鶏' },
-  { name: 'Xu', kanji: '戌', reading: 'いぬ', animal: 'Dog', animalKanji: '犬' },
-  { name: 'Hai', kanji: '亥', reading: 'い', animal: 'Boar', animalKanji: '猪' },
+  { name: 'Zi', kanji: '子', reading: 'ね', animal: 'Rat', animalKanji: '鼠', emoji: '🐀' },
+  { name: 'Chou', kanji: '丑', reading: 'うし', animal: 'Ox', animalKanji: '牛', emoji: '🐂' },
+  { name: 'Yin', kanji: '寅', reading: 'とら', animal: 'Tiger', animalKanji: '虎', emoji: '🐅' },
+  { name: 'Mao', kanji: '卯', reading: 'う', animal: 'Rabbit', animalKanji: '兎', emoji: '🐇' },
+  { name: 'Chen', kanji: '辰', reading: 'たつ', animal: 'Dragon', animalKanji: '龍', emoji: '🐉' },
+  { name: 'Si', kanji: '巳', reading: 'み', animal: 'Snake', animalKanji: '蛇', emoji: '🐍' },
+  { name: 'Wu', kanji: '午', reading: 'うま', animal: 'Horse', animalKanji: '馬', emoji: '🐴' },
+  { name: 'Wei', kanji: '未', reading: 'ひつじ', animal: 'Sheep', animalKanji: '羊', emoji: '🐏' },
+  { name: 'Shen', kanji: '申', reading: 'さる', animal: 'Monkey', animalKanji: '猿', emoji: '🐒' },
+  { name: 'You', kanji: '酉', reading: 'とり', animal: 'Rooster', animalKanji: '鶏', emoji: '🐓' },
+  { name: 'Xu', kanji: '戌', reading: 'いぬ', animal: 'Dog', animalKanji: '犬', emoji: '🐕' },
+  { name: 'Hai', kanji: '亥', reading: 'い', animal: 'Boar', animalKanji: '猪', emoji: '🐗' },
 ];
 
 // Sexagenary cycle readings (60 combinations)
@@ -56,6 +56,7 @@ export interface ChineseZodiac {
   earthlyBranchKanji: string;
   animal: string;
   animalKanji: string;
+  animalEmoji: string;
   combined: string;
   combinedReading: string;
 }
@@ -79,6 +80,7 @@ export function getChineseZodiac(year: number): ChineseZodiac {
     earthlyBranchKanji: branch.kanji,
     animal: branch.animal,
     animalKanji: branch.animalKanji,
+    animalEmoji: branch.emoji,
     combined,
     combinedReading: SEXAGENARY_READINGS[combined] || stem.reading + branch.reading,
   };
