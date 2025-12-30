@@ -25,8 +25,8 @@ A web application that calculates Japanese era (和暦), Chinese zodiac (十干�
 
 - **Framework**: [Next.js](https://nextjs.org/) 15 (App Router)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS + Custom CSS
-- **Font**: Noto Sans JP
+- **Styling**: Tailwind CSS + Custom CSS (Japanese Traditional "Wafu" Design)
+- **Font**: Noto Serif JP
 
 ## Getting Started | 使い方
 
@@ -64,6 +64,22 @@ A web application that calculates Japanese era (和暦), Chinese zodiac (十干�
 npm run build
 npm start
 ```
+
+### Deployment | デプロイ
+
+This project is optimized for deployment on [Vercel](https://vercel.com).
+
+1. Push your code to a Git repository (GitHub, GitLab, Bitbucket).
+2. Import the project into Vercel.
+3. Vercel will automatically detect Next.js and configure the build settings.
+4. Click **Deploy**.
+
+このプロジェクトは [Vercel](https://vercel.com) へのデプロイに最適化されています。
+
+1. Git リポジトリ（GitHub など）にコードをプッシュします。
+2. Vercel にプロジェクトをインポートします。
+3. 自動的に Next.js が検出され、ビルド設定が行われます。
+4. **Deploy** をクリックします。
 
 ## Internationalization | 多言語対応
 
