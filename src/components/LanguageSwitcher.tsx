@@ -18,7 +18,6 @@ export function LanguageSwitcher() {
       >
         日本語
       </button>
-      <span className="separator">|</span>
       <button
         onClick={() => handleChange("en")}
         className={`lang-btn ${language === "en" ? "active" : ""}`}
