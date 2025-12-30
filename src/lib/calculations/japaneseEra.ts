@@ -82,3 +82,26 @@ export function formatJapaneseEra(era: JapaneseEra, useKanji: boolean = true): s
   const yearStr = era.year === 1 ? (useKanji ? '元年' : '1') : era.year.toString() + (useKanji ? '年' : '');
   return useKanji ? `${eraName}${yearStr}` : `${eraName} ${yearStr}`;
 }
+
+// Get list of all eras for input selection (uses full JAPANESE_ERAS)
+export function getEraList(): { name: string; nameKanji: string; startYear: number }[] {
+  return JAPANESE_ERAS.map(era => ({
+    name: era.name,
+    nameKanji: era.nameKanji,
+    startYear: era.startYear,
+  }));
+}
+
+/**
+ * Convert Japanese era year to Western year
+ * Supports overflow years (e.g., 昭和100年 → 2025)
+ * @param eraKanji - Era name in kanji (e.g., "昭和")
+ * @param eraYear - Year within the era (e.g., 100)
+ * @returns Western year (e.g., 2025)
+ */
+export function convertEraToWesternYear(eraKanji: string, eraYear: number): number | null {
+  const era = JAPANESE_ERAS.find(e => e.nameKanji === eraKanji);
+  if (!era) return null;
+  return era.startYear + eraYear - 1;
+}
+

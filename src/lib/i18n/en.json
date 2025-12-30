@@ -8,14 +8,19 @@
   },
   "input": {
     "title": "Enter Birth Date",
+    "inputMode": "Input Mode",
+    "western": "Western Year",
+    "japaneseEra": "Japanese Era",
+    "era": "Era",
+    "eraYear": "Year",
     "year": "Year",
     "month": "Month",
     "day": "Day",
     "calculate": "Calculate",
     "westernYear": "Western Year",
-    "japaneseEra": "Japanese Era",
     "placeholder": {
       "year": "e.g., 1990",
+      "eraYear": "e.g., 64",
       "month": "e.g., 1",
       "day": "e.g., 15"
     }

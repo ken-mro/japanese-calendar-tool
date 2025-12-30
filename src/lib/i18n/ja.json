@@ -8,14 +8,19 @@
   },
   "input": {
     "title": "生年月日を入力",
+    "inputMode": "入力形式",
+    "western": "西暦",
+    "japaneseEra": "和暦",
+    "era": "元号",
+    "eraYear": "年",
     "year": "年",
     "month": "月",
     "day": "日",
     "calculate": "計算する",
     "westernYear": "西暦",
-    "japaneseEra": "和暦",
     "placeholder": {
       "year": "例: 1990",
+      "eraYear": "例: 64",
       "month": "例: 1",
       "day": "例: 15"
     }
