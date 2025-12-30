@@ -18,7 +18,7 @@ export default function Home() {
         {birthDate && <ResultDisplay birthDate={birthDate} />}
       </main>
       <footer className="footer">
-        <p>© 2024 Japanese Calendar Tool</p>
+        <p>© {new Date().getFullYear()} Japanese Calendar Tool</p>
       </footer>
     </div>
   );
