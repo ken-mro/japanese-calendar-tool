@@ -12,12 +12,12 @@ const notoSerifJP = Noto_Serif_JP({
 export const metadata: Metadata = {
   title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
   description:
-    "生年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from your birthdate.",
+    "年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a date.",
   keywords:
     "和暦,西暦,変換,干支,十干十二支,九星,星座,Japanese era,wareki,Chinese zodiac",
   openGraph: {
     title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
-    description: "生年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
+    description: "年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
     type: "website",
     locale: "ja_JP",
     alternateLocale: "en_US",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
-    description: "生年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
+    description: "年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
   },
   robots: {
     index: true,
@@ -49,7 +49,7 @@ export default function RootLayout({
               "@type": "WebApplication",
               name: "和暦・干支・九星 計算ツール",
               description:
-                "生年月日から西暦・和暦・十干十二支・星座・九星を自動計算するツール",
+                "年月日から西暦・和暦・十干十二支・星座・九星を自動計算するツール",
               applicationCategory: "UtilityApplication",
               operatingSystem: "All",
               offers: {

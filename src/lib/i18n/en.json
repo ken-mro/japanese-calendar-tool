@@ -2,13 +2,13 @@
   "common": {
     "title": "Japanese Calendar Tool",
     "titleMobile": "Japanese Calendar Tool",
-    "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a birthdate",
+    "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a date",
     "language": "Language",
     "japanese": "Japanese",
     "english": "English"
   },
   "input": {
-    "title": "Enter Birth Date",
+    "title": "Enter Date",
     "inputMode": "Input Mode",
     "western": "Western Year",
     "japaneseEra": "Japanese Era",
@@ -69,7 +69,7 @@
   },
   "seo": {
     "title": "Japanese Calendar Tool - Era, Zodiac & Nine Star Calculator",
-    "description": "Calculate Japanese era (和暦), Chinese zodiac (十干十二支), constellation, and Nine Star Ki (九星) from your birthdate. Free online tool with both English and Japanese support.",
+    "description": "Calculate Japanese era (和暦), Chinese zodiac (十干十二支), constellation, and Nine Star Ki (九星) from a date. Free online tool with both English and Japanese support.",
     "keywords": "Japanese era, wareki, Chinese zodiac, eto, nine star ki, kyusei, zodiac sign, birthday calculator"
   }
 }
