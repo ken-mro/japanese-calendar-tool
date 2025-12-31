@@ -10,13 +10,13 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
+  title: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
   description:
     "年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a date.",
   keywords:
     "和暦,西暦,変換,干支,十干十二支,九星,星座,Japanese era,wareki,Chinese zodiac",
   openGraph: {
-    title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
+    title: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
     description: "年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
     type: "website",
     locale: "ja_JP",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "暦変換ツール - 和暦・干支(十干十二支)・星座・九星",
+    title: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
     description: "年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
   },
   robots: {
