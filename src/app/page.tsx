@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import { Header, DateInput, ResultDisplay } from "@/components";
 
 export default function Home() {
-  const [birthDate, setBirthDate] = useState<Date | null>(null);
+  const [targetDate, setTargetDate] = useState<Date | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (birthDate && resultsRef.current) {
+    if (targetDate && resultsRef.current) {
       // Small timeout to ensure DOM is ready and layout is stable
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({
@@ -17,10 +17,12 @@ export default function Home() {
         });
       }, 100);
     }
-  }, [birthDate]);
+  }, [targetDate]);
 
-  const handleCalculate = (date: Date) => {
-    setBirthDate(date);
+  const handleCalculate = (date: Date, offsetDays: number) => {
+    const target = new Date(date);
+    target.setDate(date.getDate() + offsetDays);
+    setTargetDate(target);
   };
 
   return (
@@ -29,7 +31,7 @@ export default function Home() {
       <main className="main-content">
         <DateInput onCalculate={handleCalculate} />
         <div ref={resultsRef} className="results-wrapper">
-          {birthDate && <ResultDisplay birthDate={birthDate} />}
+          {targetDate && <ResultDisplay targetDate={targetDate} />}
         </div>
       </main>
       <footer className="footer">

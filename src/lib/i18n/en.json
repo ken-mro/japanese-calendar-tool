@@ -23,11 +23,20 @@
       "year": "e.g., 1990",
       "eraYear": "e.g., 64",
       "month": "e.g., 1",
-      "day": "e.g., 15"
-    }
+      "day": "e.g., 15",
+      "offset": "0"
+    },
+    "offsetLabel": "Days Later"
   },
   "result": {
     "title": "Results",
+    "elapsedTitle": "Time Elapsed",
+    "totalDays": "Total Days",
+    "duration": "Duration",
+    "daysSuffix": " days",
+    "years": " years",
+    "months": " months",
+    "days": " days",
     "westernYear": "Western Year",
     "japaneseEra": "Japanese Era",
     "chineseZodiac": "Chinese Zodiac",

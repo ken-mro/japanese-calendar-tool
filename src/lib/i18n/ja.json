@@ -23,11 +23,20 @@
       "year": "例: 1990",
       "eraYear": "例: 64",
       "month": "例: 1",
-      "day": "例: 15"
-    }
+      "day": "例: 15",
+      "offset": "0"
+    },
+    "offsetLabel": "何日後"
   },
   "result": {
     "title": "計算結果",
+    "elapsedTitle": "今日までの期間",
+    "totalDays": "総日数",
+    "duration": "期間",
+    "daysSuffix": "日",
+    "years": "年",
+    "months": "ヶ月",
+    "days": "日",
     "westernYear": "西暦",
     "japaneseEra": "和暦",
     "chineseZodiac": "十干十二支",

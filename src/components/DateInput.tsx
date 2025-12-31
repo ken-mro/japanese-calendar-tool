@@ -9,7 +9,7 @@ import {
 } from "@/lib/calculations";
 
 interface DateInputProps {
-  onCalculate: (date: Date) => void;
+  onCalculate: (date: Date, offsetDays: number) => void;
 }
 
 type InputMode = "western" | "japanese";
@@ -23,6 +23,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
   const [eraYear, setEraYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
+  const [offsetDays, setOffsetDays] = useState("0");
   const [error, setError] = useState("");
 
   const eraList = getEraList();
@@ -94,7 +95,13 @@ export function DateInput({ onCalculate }: DateInputProps) {
       return;
     }
 
-    onCalculate(date);
+    const offset = parseInt(offsetDays, 10);
+    if (isNaN(offset)) {
+      setError(t("errors.invalidDate"));
+      return;
+    }
+
+    onCalculate(date, offset);
   };
 
   return (
@@ -198,6 +205,16 @@ export function DateInput({ onCalculate }: DateInputProps) {
               placeholder={t("input.placeholder.day")}
               min="1"
               max="31"
+            />
+          </div>
+          <div className="input-field">
+            <label htmlFor="offset">{t("input.offsetLabel")}</label>
+            <input
+              type="number"
+              id="offset"
+              value={offsetDays}
+              onChange={(e) => setOffsetDays(e.target.value)}
+              placeholder={t("input.placeholder.offset")}
             />
           </div>
         </div>

@@ -10,19 +10,62 @@ import {
 } from "@/lib/calculations";
 
 interface ResultDisplayProps {
-  birthDate: Date;
+  targetDate: Date;
 }
 
-export function ResultDisplay({ birthDate }: ResultDisplayProps) {
+function calculateDuration(start: Date, end: Date) {
+  const isFuture = end < start;
+  const s = isFuture ? end : start;
+  const e = isFuture ? start : end;
+
+  let years = e.getFullYear() - s.getFullYear();
+  let months = e.getMonth() - s.getMonth();
+  let days = e.getDate() - s.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(e.getFullYear(), e.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+  return { years, months, days, isFuture };
+}
+
+export function ResultDisplay({ targetDate }: ResultDisplayProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const useKanji = language === "ja";
 
-  const year = birthDate.getFullYear();
-  const japaneseEra = getJapaneseEra(birthDate);
+  const year = targetDate.getFullYear();
+  const month = targetDate.getMonth() + 1;
+  const day = targetDate.getDate();
+  const japaneseEra = getJapaneseEra(targetDate);
   const chineseZodiac = getChineseZodiac(year);
-  const zodiacSign = getZodiacSign(birthDate);
-  const nineStar = getNineStar(birthDate);
+  const zodiacSign = getZodiacSign(targetDate);
+  const nineStar = getNineStar(targetDate);
+
+  // Elapsed Time Calculation
+  const today = new Date();
+  // Reset time part for accurate date diff
+  const todayReset = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate()
+  );
+  const targetReset = new Date(
+    targetDate.getFullYear(),
+    targetDate.getMonth(),
+    targetDate.getDate()
+  );
+
+  const diffTime = todayReset.getTime() - targetReset.getTime();
+  const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const absTotalDays = Math.abs(totalDays);
+
+  const duration = calculateDuration(targetReset, todayReset);
 
   return (
     <div className="result-container">
@@ -33,9 +76,25 @@ export function ResultDisplay({ birthDate }: ResultDisplayProps) {
         <div className="result-card western-year">
           <div className="card-icon">📅</div>
           <h3 className="card-title">{t("result.westernYear")}</h3>
-          <p className="card-value">
-            {year}
-            {useKanji ? "年" : ""}
+          <p
+            className="card-value"
+            style={{ fontSize: "1.8rem", lineHeight: "1.2" }}
+          >
+            {useKanji ? (
+              <>
+                {year}年
+                <br />
+                <span style={{ fontSize: "1.5rem" }}>
+                  {month}月{day}日
+                </span>
+              </>
+            ) : (
+              targetDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            )}
           </p>
         </div>
 
@@ -94,6 +153,40 @@ export function ResultDisplay({ birthDate }: ResultDisplayProps) {
           {nineStar.isApproximate && (
             <p className="card-note">{t("result.nineStarApproximate")}</p>
           )}
+        </div>
+
+        {/* Elapsed Time */}
+        <div
+          className="result-card elapsed-time"
+          style={{ borderTop: "4px solid #8e44ad" }}
+        >
+          <div className="card-icon">⏳</div>
+          <h3 className="card-title">{t("result.elapsedTitle")}</h3>
+          <p className="card-value">
+            {absTotalDays}
+            <span style={{ fontSize: "1rem" }}>{t("result.daysSuffix")}</span>
+            <span
+              style={{
+                fontSize: "0.8rem",
+                marginLeft: "0.5rem",
+                color: "var(--text-secondary)",
+              }}
+            >
+              {totalDays >= 0
+                ? useKanji
+                  ? "(経過)"
+                  : "(Passed)"
+                : useKanji
+                ? "(前)"
+                : "(Before)"}
+            </span>
+          </p>
+          <p className="card-subtitle">
+            {duration.years}
+            {t("result.years")} {duration.months}
+            {t("result.months")} {duration.days}
+            {t("result.days")}
+          </p>
         </div>
       </div>
     </div>
