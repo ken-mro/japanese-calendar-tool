@@ -130,7 +130,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="date-form">
-        <div className="input-group">
+        <div className={`input-group mode-${inputMode}`}>
           {inputMode === "western" ? (
             <div className="input-field">
               <label htmlFor="year">{t("input.year")}</label>
@@ -146,7 +146,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
             </div>
           ) : (
             <>
-              <div className="input-field">
+              <div className="input-field era-field">
                 <label htmlFor="era">{t("input.era")}</label>
                 <input
                   type="text"
@@ -170,7 +170,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
                   ))}
                 </datalist>
               </div>
-              <div className="input-field">
+              <div className="input-field era-year-field">
                 <label htmlFor="eraYear">{t("input.eraYear")}</label>
                 <input
                   type="number"
@@ -207,7 +207,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
               max="31"
             />
           </div>
-          <div className="input-field">
+          <div className="input-field offset-field">
             <label htmlFor="offset">{t("input.offsetLabel")}</label>
             <input
               type="number"

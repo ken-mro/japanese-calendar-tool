@@ -222,10 +222,19 @@ body {
   margin-bottom: 2rem;
 }
 
+.input-group.mode-japanese {
+  grid-template-columns: minmax(100px, 2fr) minmax(80px, 2fr) minmax(40px, 1fr) minmax(40px, 1fr);
+}
+
+.offset-field {
+  grid-column: 1 / -1;
+}
+
 .input-field {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 0; /* Critical for grid sizing */
 }
 
 .input-field label {
@@ -416,7 +425,7 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .input-group {
+  .input-group, .input-group.mode-japanese {
     grid-template-columns: 1fr;
   }
 }
@@ -428,7 +437,6 @@ body {
 .desktop-title {
   display: none;
 }
-
 @media (min-width: 768px) {
   .mobile-title {
     display: none;
