@@ -81,15 +81,23 @@ export function ResultDisplay({ targetDate }: ResultDisplayProps) {
             style={{ fontSize: "1.8rem", lineHeight: "1.2" }}
           >
             {useKanji ? (
+              <>{year}年</>
+            ) : (
+              targetDate.toLocaleDateString("en-US", { year: "numeric" })
+            )}
+          </p>
+          <p className="card-subtitle">
+            {useKanji ? (
               <>
-                {year}年
-                <br />
-                <span style={{ fontSize: "1.5rem" }}>
-                  {month}月{day}日
-                </span>
+                {year}年{month}月{day}日 (
+                {targetDate.toLocaleDateString("ja-JP", {
+                  weekday: "short",
+                })}
+                )
               </>
             ) : (
               targetDate.toLocaleDateString("en-US", {
+                weekday: "short",
                 year: "numeric",
                 month: "short",
                 day: "numeric",
