@@ -27,16 +27,45 @@ export const ShareButtons = () => {
     if (!url) return;
 
     const scriptId = "line-social-script";
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src =
+    const script = document.getElementById(scriptId) as HTMLScriptElement;
+
+    const initLine = () => {
+      if (window.LineIt) {
+        window.LineIt.loadButton();
+      }
+    };
+
+    if (!script) {
+      const newScript = document.createElement("script");
+      newScript.id = scriptId;
+      newScript.src =
         "https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    } else if (window.LineIt) {
-      window.LineIt.loadButton();
+      newScript.async = true;
+      newScript.defer = true;
+      newScript.onload = initLine;
+      document.body.appendChild(newScript);
+    } else {
+      if (window.LineIt) {
+        window.LineIt.loadButton();
+      } else {
+        // Retry if script exists but LineIt is not ready yet
+        const timer = setInterval(() => {
+          if (window.LineIt) {
+            window.LineIt.loadButton();
+            clearInterval(timer);
+          }
+        }, 500);
+
+        // Cleanup timer after 5 seconds to avoid infinite polling
+        setTimeout(() => clearInterval(timer), 5000);
+
+        // Also attach load listener if it's still loading (for safety)
+        script.addEventListener("load", initLine);
+        return () => {
+          clearInterval(timer);
+          script.removeEventListener("load", initLine);
+        };
+      }
     }
   }, [url, language]);
 
