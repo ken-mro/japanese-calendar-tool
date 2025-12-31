@@ -487,6 +487,7 @@ body {
 .share-buttons-grid {
   display: flex;
   justify-content: center;
+  align-items: center; /* Center items with different heights */
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -519,6 +520,7 @@ body {
 .share-btn-x {
   background-color: #000000;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  height: 22px;
 }
 
 .share-btn-line {
