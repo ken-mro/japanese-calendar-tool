@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Header, DateInput, ResultDisplay } from "@/components";
+import { Header, DateInput, ResultDisplay, ShareButtons } from "@/components";
 
 export default function Home() {
   const [targetDate, setTargetDate] = useState<Date | null>(null);
@@ -33,6 +33,7 @@ export default function Home() {
         <div ref={resultsRef} className="results-wrapper">
           {targetDate && <ResultDisplay targetDate={targetDate} />}
         </div>
+        <ShareButtons />
       </main>
       <footer className="footer">
         <p>

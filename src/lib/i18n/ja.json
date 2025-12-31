@@ -5,7 +5,10 @@
     "description": "年月日から和暦・十干十二支・星座・九星を計算します",
     "language": "言語",
     "japanese": "日本語",
-    "english": "English"
+    "english": "English",
+    "share": "シェア",
+    "shareNetwork": "SNSで共有",
+    "post": "ポスト"
   },
   "input": {
     "title": "年月日を入力",

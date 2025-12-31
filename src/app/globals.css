@@ -423,6 +423,85 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Share Section */
+.share-section {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-bg);
+  backdrop-filter: var(--glass-effect);
+  border-radius: 4px;
+  padding: 0.5rem 1rem 1rem;
+  border: 1px solid var(--card-border);
+  text-align: center;
+}
+
+.share-title {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.share-buttons-grid {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.6rem;
+  border-radius: 3px;
+  color: white;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  height: 20px;
+  line-height: 20px;
+}
+
+.share-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.share-btn:hover {
+  opacity: 0.9;
+}
+
+.share-btn-x {
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.share-btn-line {
+  background-color: #06C755;
+}
+
+.share-btn-hatena {
+  background-color: #00A4DE;
+}
+
+.hatena-count {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  background: white;
+  color: #00A4DE;
+  padding: 0 0.4rem;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  height: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .input-group, .input-group.mode-japanese {

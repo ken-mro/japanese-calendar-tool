@@ -5,7 +5,10 @@
     "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a date",
     "language": "Language",
     "japanese": "Japanese",
-    "english": "English"
+    "english": "English",
+    "share": "Share",
+    "shareNetwork": "Share on SNS",
+    "post": "Post"
   },
   "input": {
     "title": "Enter Date",
