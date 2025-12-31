@@ -60,6 +60,11 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2474320851633699"
+          crossOrigin="anonymous"
+        ></script>
       </head>
       <body className={`${notoSerifJP.variable}`}>
         <I18nProvider>{children}</I18nProvider>
