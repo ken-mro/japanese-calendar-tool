@@ -590,13 +590,13 @@ body {
 .offset-input-group {
   display: flex;
   gap: 0.5rem;
-  align-items: center;
+  align-items: stretch;
   flex-wrap: nowrap;
 }
 
 .offset-input-group input {
-  flex: 1;
-  min-width: 100px; /* Ensure space for 5 digits */
+  flex: 0 0 120px; /* Fixed width for approx 6 digits */
+  min-width: 0;
 }
 
 .offset-toggle {
@@ -605,25 +605,29 @@ body {
   border-radius: 4px;
   padding: 0.25rem;
   border: 1px solid rgba(198, 170, 88, 0.2);
-  flex-shrink: 0;
-  height: fit-content;
+  flex-shrink: 1;
+  flex-grow: 1; /* Allow it to take remaining space */
+  min-width: 0;
 }
 
 .toggle-btn.small {
-  padding: 0.5rem 0.8rem;
+  flex: 1;
+  padding: 0 0.5rem; /* Remove vertical padding, let flex align handle it */
   font-size: 0.9rem;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
 @media (max-width: 500px) {
   /* Removed stacking for offset-input-group to keep them on the same line */
   
-
-  
   .toggle-btn.small {
-    padding: 0.5rem 0.5rem; /* Reduce padding slightly if needed */
+    font-size: 0.8rem;
+    padding: 0 0.25rem;
   }
 }
-
-
-
