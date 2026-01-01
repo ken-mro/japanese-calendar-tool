@@ -184,27 +184,33 @@ export function DateInput({ onCalculate }: DateInputProps) {
           )}
           <div className="input-field">
             <label htmlFor="month">{t("input.month")}</label>
-            <input
-              type="number"
+            <select
               id="month"
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              placeholder={t("input.placeholder.month")}
-              min="1"
-              max="12"
-            />
+              className="date-select"
+            >
+              {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                <option key={m} value={m}>
+                  {m}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="input-field">
             <label htmlFor="day">{t("input.day")}</label>
-            <input
-              type="number"
+            <select
               id="day"
               value={day}
               onChange={(e) => setDay(e.target.value)}
-              placeholder={t("input.placeholder.day")}
-              min="1"
-              max="31"
-            />
+              className="date-select"
+            >
+              {Array.from({ length: 31 }, (_, i) => i + 1).map((d) => (
+                <option key={d} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
           </div>
           <div className="input-field offset-field">
             <label>{t("input.offsetLabel")}</label>
