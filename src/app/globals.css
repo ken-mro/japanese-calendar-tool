@@ -586,4 +586,44 @@ body {
   }
 }
 
+/* Date Input Enhancements */
+.offset-input-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.offset-input-group input {
+  flex: 1;
+  min-width: 100px; /* Ensure space for 5 digits */
+}
+
+.offset-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 0.25rem;
+  border: 1px solid rgba(198, 170, 88, 0.2);
+  flex-shrink: 0;
+  height: fit-content;
+}
+
+.toggle-btn.small {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+  /* Removed stacking for offset-input-group to keep them on the same line */
+  
+
+  
+  .toggle-btn.small {
+    padding: 0.5rem 0.5rem; /* Reduce padding slightly if needed */
+  }
+}
+
+
 

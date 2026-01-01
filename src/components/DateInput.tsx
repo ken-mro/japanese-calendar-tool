@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import {
   getEraList,
@@ -18,29 +18,26 @@ export function DateInput({ onCalculate }: DateInputProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const [inputMode, setInputMode] = useState<InputMode>("western");
-  const [year, setYear] = useState("");
-  const [era, setEra] = useState("令和");
-  const [eraYear, setEraYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
+  const [year, setYear] = useState(() => new Date().getFullYear().toString());
+  const [era, setEra] = useState(() => {
+    const e = getJapaneseEra(new Date());
+    return e ? e.nameKanji : "令和";
+  });
+  const [eraYear, setEraYear] = useState(() => {
+    const e = getJapaneseEra(new Date());
+    return e ? e.year.toString() : "";
+  });
+  const [month, setMonth] = useState(() =>
+    (new Date().getMonth() + 1).toString()
+  );
+  const [day, setDay] = useState(() => new Date().getDate().toString());
   const [offsetDays, setOffsetDays] = useState("0");
+  const [offsetDirection, setOffsetDirection] = useState<"after" | "before">(
+    "after"
+  );
   const [error, setError] = useState("");
 
   const eraList = getEraList();
-
-  // Set default date to today
-  useEffect(() => {
-    const today = new Date();
-    setYear(today.getFullYear().toString());
-    setMonth((today.getMonth() + 1).toString());
-    setDay(today.getDate().toString());
-
-    const japaneseEra = getJapaneseEra(today);
-    if (japaneseEra) {
-      setEra(japaneseEra.nameKanji);
-      setEraYear(japaneseEra.year.toString());
-    }
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,7 +98,9 @@ export function DateInput({ onCalculate }: DateInputProps) {
       return;
     }
 
-    onCalculate(date, offset);
+    const finalOffset = offsetDirection === "after" ? offset : -offset;
+
+    onCalculate(date, finalOffset);
   };
 
   return (
@@ -208,14 +207,37 @@ export function DateInput({ onCalculate }: DateInputProps) {
             />
           </div>
           <div className="input-field offset-field">
-            <label htmlFor="offset">{t("input.offsetLabel")}</label>
-            <input
-              type="number"
-              id="offset"
-              value={offsetDays}
-              onChange={(e) => setOffsetDays(e.target.value)}
-              placeholder={t("input.placeholder.offset")}
-            />
+            <label>{t("input.offsetLabel")}</label>
+            <div className="offset-input-group">
+              <input
+                type="number"
+                id="offset"
+                value={offsetDays}
+                onChange={(e) => setOffsetDays(e.target.value)}
+                placeholder={t("input.placeholder.offset")}
+                min="0"
+              />
+              <div className="offset-toggle">
+                <button
+                  type="button"
+                  className={`toggle-btn small ${
+                    offsetDirection === "after" ? "active" : ""
+                  }`}
+                  onClick={() => setOffsetDirection("after")}
+                >
+                  {t("input.daysAfter")}
+                </button>
+                <button
+                  type="button"
+                  className={`toggle-btn small ${
+                    offsetDirection === "before" ? "active" : ""
+                  }`}
+                  onClick={() => setOffsetDirection("before")}
+                >
+                  {t("input.daysBefore")}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         {error && <p className="error-message">{error}</p>}

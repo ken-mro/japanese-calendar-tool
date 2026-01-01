@@ -29,7 +29,9 @@
       "day": "e.g., 15",
       "offset": "0"
     },
-    "offsetLabel": "Days Later"
+    "offsetLabel": "Date Offset",
+    "daysAfter": "Days After",
+    "daysBefore": "Days Before"
   },
   "result": {
     "title": "Results",

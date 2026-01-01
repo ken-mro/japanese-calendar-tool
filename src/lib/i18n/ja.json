@@ -29,7 +29,9 @@
       "day": "例: 15",
       "offset": "0"
     },
-    "offsetLabel": "何日後"
+    "offsetLabel": "日数計算",
+    "daysAfter": "日後",
+    "daysBefore": "日前"
   },
   "result": {
     "title": "計算結果",
