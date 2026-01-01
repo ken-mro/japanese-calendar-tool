@@ -4,11 +4,15 @@ import { useState, useRef, useEffect } from "react";
 import { Header, DateInput, ResultDisplay, ShareButtons } from "@/components";
 
 export default function Home() {
-  const [targetDate, setTargetDate] = useState<Date | null>(null);
+  const [resultData, setResultData] = useState<{
+    targetDate: Date;
+    sourceDate: Date;
+    offsetDays: number;
+  } | null>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (targetDate && resultsRef.current) {
+    if (resultData && resultsRef.current) {
       // Small timeout to ensure DOM is ready and layout is stable
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({
@@ -17,12 +21,12 @@ export default function Home() {
         });
       }, 100);
     }
-  }, [targetDate]);
+  }, [resultData]);
 
   const handleCalculate = (date: Date, offsetDays: number) => {
     const target = new Date(date);
     target.setDate(date.getDate() + offsetDays);
-    setTargetDate(target);
+    setResultData({ targetDate: target, sourceDate: date, offsetDays });
   };
 
   return (
@@ -31,7 +35,13 @@ export default function Home() {
       <main className="main-content">
         <DateInput onCalculate={handleCalculate} />
         <div ref={resultsRef} className="results-wrapper">
-          {targetDate && <ResultDisplay targetDate={targetDate} />}
+          {resultData && (
+            <ResultDisplay
+              targetDate={resultData.targetDate}
+              sourceDate={resultData.sourceDate}
+              offsetDays={resultData.offsetDays}
+            />
+          )}
         </div>
         <ShareButtons />
       </main>

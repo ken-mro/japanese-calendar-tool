@@ -11,6 +11,8 @@ import {
 
 interface ResultDisplayProps {
   targetDate: Date;
+  sourceDate: Date;
+  offsetDays: number;
 }
 
 function calculateDuration(start: Date, end: Date) {
@@ -34,7 +36,11 @@ function calculateDuration(start: Date, end: Date) {
   return { years, months, days, isFuture };
 }
 
-export function ResultDisplay({ targetDate }: ResultDisplayProps) {
+export function ResultDisplay({
+  targetDate,
+  sourceDate,
+  offsetDays,
+}: ResultDisplayProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const useKanji = language === "ja";
@@ -67,9 +73,54 @@ export function ResultDisplay({ targetDate }: ResultDisplayProps) {
 
   const duration = calculateDuration(targetReset, todayReset);
 
+  // Format calculation context message
+  let contextMessage = "";
+  const direction =
+    offsetDays >= 0 ? t("input.daysAfter") : t("input.daysBefore");
+  const absOffset = Math.abs(offsetDays);
+
+  if (useKanji) {
+    // Japanese format: "YYYY年M月D日 の X日後/前 は"
+    const sourceEra = getJapaneseEra(sourceDate);
+    const dateStr = sourceEra
+      ? `${sourceEra.nameKanji}${
+          sourceEra.year === 1 ? "元" : sourceEra.year
+        }年 (${sourceDate.getFullYear()}年) ${
+          sourceDate.getMonth() + 1
+        }月${sourceDate.getDate()}日`
+      : `${sourceDate.getFullYear()}年${
+          sourceDate.getMonth() + 1
+        }月${sourceDate.getDate()}日`;
+
+    if (offsetDays === 0) {
+      contextMessage = `${dateStr} は、`;
+    } else {
+      contextMessage = `${dateStr} の ${absOffset}${direction}は、`;
+    }
+  } else {
+    // English format: "X days After/Before Month DD, YYYY is"
+    const dateStr = sourceDate.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    });
+    contextMessage = `${absOffset} ${direction} ${dateStr} is`;
+  }
+
   return (
     <div className="result-container">
       <h2 className="section-title">{t("result.title")}</h2>
+      <p
+        className="result-context"
+        style={{
+          textAlign: "center",
+          marginBottom: "1.5rem",
+          color: "var(--text-secondary)",
+          fontSize: "1.1rem",
+        }}
+      >
+        {contextMessage}
+      </p>
 
       <div className="result-grid">
         {/* Western Year */}
