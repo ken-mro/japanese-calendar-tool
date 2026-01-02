@@ -2,8 +2,10 @@
 
 import { useState, useRef, useEffect } from "react";
 import { Header, DateInput, ResultDisplay, ShareButtons } from "@/components";
+import { useI18n } from "@/lib/i18n/config";
 
 export default function Home() {
+  const { t } = useI18n();
   const [resultData, setResultData] = useState<{
     targetDate: Date;
     sourceDate: Date;
@@ -47,7 +49,11 @@ export default function Home() {
       </main>
       <footer className="footer">
         <p>
-          © {new Date().getFullYear()} Japanese Calendar Tool | Contact:{" "}
+          © {new Date().getFullYear()} Japanese Calendar Tool |{" "}
+          <a href="/terms" className="footer-link">
+            {t("common.terms")}
+          </a>{" "}
+          | Contact:{" "}
           <a
             href="#"
             className="contact-link"
