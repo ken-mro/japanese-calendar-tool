@@ -21,9 +21,7 @@ export default function TermsPage() {
         {language === "ja" ? (
           <div className="terms-content">
             <h1>利用規約</h1>
-            <p className="last-updated">
-              最終更新日: {new Date().toLocaleDateString("ja-JP")}
-            </p>
+            <p className="last-updated">最終更新日: 2026年1月3日</p>
 
             <section>
               <h2>1. はじめに</h2>
@@ -127,10 +125,33 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2>4. 免責事項</h2>
+              <h2>4. 九星気学（九星）に関する注意事項</h2>
+              <p>
+                九星の計算において、本アプリでは立春（通常2月4日頃）を年の区切りとして採用しています。
+                なお、立春の日付データは、Wikipedia「
+                <a
+                  href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  立春
+                </a>
+                」の記載（日本における日時）を参考にしています。
+                ただし、1965年以前または2061年以降などの一部の期間については、便宜上「2月4日」を一律で立春として計算を行っています。
+              </p>
+              <p>
+                また、本アプリは出生時間、均時差、出生地の経度による補正機能を有していません。
+                そのため、節入りの日時（立春など）の直前直後に生まれた方については、正確な鑑定結果と異なる場合があります。
+                精密な鑑定が必要な場合は、専門の書籍や鑑定士にご相談ください。
+              </p>
+            </section>
+
+            <section>
+              <h2>5. 免責事項</h2>
               <p>
                 開発者は、本サービスの利用に起因して利用者に生じたあらゆる損害（直接的、間接的を問わず）について、一切の責任を負いません。
-                特に、前項で述べた和暦や歴史的日付の計算における不正確さに起因する誤解や問題についても、開発者は責任を負いかねます。
+                特に、前項などで述べた和暦、九星、歴史的日付の計算における不正確さに起因する誤解や問題についても、開発者は責任を負いかねます。
                 利用者は、本サービスの結果を自己の責任において利用することに同意するものとします。
               </p>
             </section>
@@ -138,9 +159,7 @@ export default function TermsPage() {
         ) : (
           <div className="terms-content">
             <h1>Terms of Service</h1>
-            <p className="last-updated">
-              Last Updated: {new Date().toLocaleDateString("en-US")}
-            </p>
+            <p className="last-updated">Last Updated: January 3, 2026</p>
 
             <section>
               <h2>1. Introduction</h2>
@@ -262,14 +281,43 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2>4. Disclaimer</h2>
+              <h2>4. Notes on Nine Star Ki (Kyusei)</h2>
+              <p>
+                In calculating the Nine Star Ki, this application uses Risshun
+                (Start of Spring, usually around February 4th) as the boundary
+                for the year. Risshun dates are based on data referenced from
+                Wikipedia&apos;s &quot;
+                <a
+                  href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Risshun
+                </a>
+                &quot; article (Japan dates). However, for certain periods
+                (e.g., 1965 or earlier / 2061 or later), calculations may use
+                &quot;February 4th&quot; as a fixed date for convenience.
+              </p>
+              <p>
+                Additionally, this application does not support adjustments for
+                birth time, equation of time, or longitude of birth. Therefore,
+                results may differ for individuals born exactly near the change
+                of solar terms (such as Risshun). For precise readings, please
+                consult specialized books or professional fortune tellers.
+              </p>
+            </section>
+
+            <section>
+              <h2>5. Disclaimer</h2>
               <p>
                 The Developer assumes no responsibility for any damages or
                 losses (direct or indirect) arising from the use of this
                 Service. Specifically, the Developer is not liable for any
                 misunderstandings or issues arising from the inaccuracies in
-                historical date calculations mentioned above. You agree to use
-                the Service and its results at your own risk.
+                Japanese Era, Nine Star Ki, or historical date calculations
+                mentioned above. You agree to use the Service and its results at
+                your own risk.
               </p>
             </section>
           </div>
