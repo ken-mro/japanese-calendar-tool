@@ -95,7 +95,7 @@ export function generateShareText({
         })}\n`;
     }
 
-    text += `Chinese Zodiac: ${chineseZodiac.combinedRomaji} (Year of the ${chineseZodiac.animal})\n`;
+    text += `Sexagenary cycle: ${chineseZodiac.combinedRomaji} (Year of the ${chineseZodiac.animal})\n`;
     text += `Zodiac Sign: ${zodiacSign.name}\n`;
     text += `Nine Star Ki: ${nineStar.name}\n`;
   }

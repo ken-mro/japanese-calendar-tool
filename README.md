@@ -1,6 +1,6 @@
 # Japanese Calendar Tool | 和暦・干支・九星 計算ツール
 
-A web application that calculates Japanese era (和暦), Chinese zodiac (十干十二支), zodiac sign (星座), and Nine Star Ki (九星) from a given birthdate.
+A web application that calculates Japanese era (和暦), Sexagenary cycle (十干十二支), zodiac sign (星座), and Nine Star Ki (九星) from a given birthdate.
 
 生年月日から西暦・和暦・十干十二支・星座・九星を計算するウェブアプリケーションです。
 
@@ -12,7 +12,7 @@ A web application that calculates Japanese era (和暦), Chinese zodiac (十干�
 
 - **Western Year (西暦)**: Display the Gregorian calendar year
 - **Japanese Era (和暦)**: Calculate Japanese era names from Keicho (1596) to Reiwa
-- **Chinese Zodiac (十干十二支)**: Calculate the 60-year cycle including Heavenly Stems and Earthly Branches
+- **Sexagenary cycle (十干十二支)**: Calculate the 60-year cycle including Heavenly Stems and Earthly Branches
 - **Zodiac Sign (星座)**: Determine the Western zodiac sign
 - **Nine Star Ki (九星)**: Calculate the Nine Star Ki based on Setsubun year boundary
 

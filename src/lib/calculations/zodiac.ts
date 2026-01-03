@@ -1,4 +1,4 @@
-// Chinese Zodiac (十干十二支) calculation
+// Sexagenary cycle (十干十二支) calculation
 
 // 十干 (Heavenly Stems)
 const HEAVENLY_STEMS = [

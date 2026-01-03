@@ -173,7 +173,7 @@ export function ResultDisplay({
           )}
         </div>
 
-        {/* Chinese Zodiac */}
+        {/* Sexagenary cycle */}
         <div className="result-card chinese-zodiac">
           <div className="card-icon zodiac-icons">
             <span title={chineseZodiac.heavenlyStemKanji}>

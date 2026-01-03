@@ -2,7 +2,7 @@
   "common": {
     "title": "Japanese Calendar Tool",
     "titleMobile": "Japanese Calendar Tool",
-    "description": "Calculate Japanese era, Chinese zodiac, zodiac sign, and Nine Star Ki from a date",
+    "description": "Calculate Japanese era, Sexagenary cycle(Heavenly Stems and Earthly Branches), zodiac sign, and Nine Star Ki from a date",
     "language": "Language",
     "japanese": "Japanese",
     "english": "English",
@@ -47,7 +47,7 @@
     "days": " days",
     "westernYear": "Western Year",
     "japaneseEra": "Japanese Era",
-    "chineseZodiac": "Chinese Zodiac",
+    "chineseZodiac": "Sexagenary cycle",
     "zodiacSign": "Zodiac Sign",
     "nineStar": "Nine Star Ki",
     "nineStarApproximate": "* Calculated using Feb 4 as Risshun (Start of Spring)",
@@ -77,7 +77,7 @@
   },
   "seo": {
     "title": "Japanese Calendar Tool - Era, Zodiac & Nine Star Calculator",
-    "description": "Calculate Japanese era (和暦), Chinese zodiac (十干十二支), constellation, and Nine Star Ki (九星) from a date. Free online tool with both English and Japanese support.",
-    "keywords": "Japanese era, wareki, Chinese zodiac, eto, nine star ki, kyusei, zodiac sign, birthday calculator"
+    "description": "Calculate Japanese era (和暦), Sexagenary cycle (十干十二支), constellation, and Nine Star Ki (九星) from a date. Free online tool with both English and Japanese support.",
+    "keywords": "Japanese era, wareki, Sexagenary cycle, Heavenly Stems, Earthly Branches, Chinese zodiac, eto, nine star ki, kyusei, zodiac sign, birthday calculator"
   }
 }
