@@ -2,15 +2,15 @@
 // Uses Risshun/立春 (around Feb 4) as the year boundary
 
 const NINE_STARS = [
-  { number: 1, name: 'One White Water Star', kanji: '一白水星', element: 'Water', elementKanji: '水', color: 'White', colorKanji: '白' },
-  { number: 2, name: 'Two Black Earth Star', kanji: '二黒土星', element: 'Earth', elementKanji: '土', color: 'Black', colorKanji: '黒' },
-  { number: 3, name: 'Three Jade Wood Star', kanji: '三碧木星', element: 'Wood', elementKanji: '木', color: 'Jade', colorKanji: '碧' },
-  { number: 4, name: 'Four Green Wood Star', kanji: '四緑木星', element: 'Wood', elementKanji: '木', color: 'Green', colorKanji: '緑' },
-  { number: 5, name: 'Five Yellow Earth Star', kanji: '五黄土星', element: 'Earth', elementKanji: '土', color: 'Yellow', colorKanji: '黄' },
-  { number: 6, name: 'Six White Metal Star', kanji: '六白金星', element: 'Metal', elementKanji: '金', color: 'White', colorKanji: '白' },
-  { number: 7, name: 'Seven Red Metal Star', kanji: '七赤金星', element: 'Metal', elementKanji: '金', color: 'Red', colorKanji: '赤' },
-  { number: 8, name: 'Eight White Earth Star', kanji: '八白土星', element: 'Earth', elementKanji: '土', color: 'White', colorKanji: '白' },
-  { number: 9, name: 'Nine Purple Fire Star', kanji: '九紫火星', element: 'Fire', elementKanji: '火', color: 'Purple', colorKanji: '紫' },
+  { number: 1, name: '1 White Water', kanji: '一白水星', element: 'Water', elementKanji: '水', color: 'White', colorKanji: '白' },
+  { number: 2, name: '2 Black Earth', kanji: '二黒土星', element: 'Earth', elementKanji: '土', color: 'Black', colorKanji: '黒' },
+  { number: 3, name: '3 Blue Wood', kanji: '三碧木星', element: 'Wood', elementKanji: '木', color: 'Blue', colorKanji: '青' },
+  { number: 4, name: '4 Green Wood', kanji: '四緑木星', element: 'Wood', elementKanji: '木', color: 'Green', colorKanji: '緑' },
+  { number: 5, name: '5 Yellow Earth', kanji: '五黄土星', element: 'Earth', elementKanji: '土', color: 'Yellow', colorKanji: '黄' },
+  { number: 6, name: '6 White Metal', kanji: '六白金星', element: 'Metal', elementKanji: '金', color: 'White', colorKanji: '白' },
+  { number: 7, name: '7 Red Metal', kanji: '七赤金星', element: 'Metal', elementKanji: '金', color: 'Red', colorKanji: '赤' },
+  { number: 8, name: '8 White Earth', kanji: '八白土星', element: 'Earth', elementKanji: '土', color: 'White', colorKanji: '白' },
+  { number: 9, name: '9 Purple Fire', kanji: '九紫火星', element: 'Fire', elementKanji: '火', color: 'Purple', colorKanji: '紫' },
 ];
 
 export interface NineStar {
