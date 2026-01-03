@@ -53,6 +53,10 @@ export default function Home() {
           <a href="/terms" className="footer-link">
             {t("common.terms")}
           </a>{" "}
+          |{" "}
+          <a href="/privacy" className="footer-link">
+            {t("common.privacy")}
+          </a>{" "}
           | Contact:{" "}
           <a
             href="#"

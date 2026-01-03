@@ -9,7 +9,8 @@
     "share": "Share",
     "shareNetwork": "Share on SNS",
     "post": "Post",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
   },
   "input": {
     "title": "Enter Date",
