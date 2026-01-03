@@ -2,45 +2,44 @@
 
 // 十干 (Heavenly Stems)
 const HEAVENLY_STEMS = [
-  { name: 'Jia', kanji: '甲', reading: 'きのえ', element: 'Wood', elementKanji: '木', emoji: '🌲' },
-  { name: 'Yi', kanji: '乙', reading: 'きのと', element: 'Wood', elementKanji: '木', emoji: '🌿' },
-  { name: 'Bing', kanji: '丙', reading: 'ひのえ', element: 'Fire', elementKanji: '火', emoji: '🔥' },
-  { name: 'Ding', kanji: '丁', reading: 'ひのと', element: 'Fire', elementKanji: '火', emoji: '🕯️' },
-  { name: 'Wu', kanji: '戊', reading: 'つちのえ', element: 'Earth', elementKanji: '土', emoji: '⛰️' },
-  { name: 'Ji', kanji: '己', reading: 'つちのと', element: 'Earth', elementKanji: '土', emoji: '🏜️' },
-  { name: 'Geng', kanji: '庚', reading: 'かのえ', element: 'Metal', elementKanji: '金', emoji: '⚔️' },
-  { name: 'Xin', kanji: '辛', reading: 'かのと', element: 'Metal', elementKanji: '金', emoji: '💍' },
-  { name: 'Ren', kanji: '壬', reading: 'みずのえ', element: 'Water', elementKanji: '水', emoji: '🌊' },
-  { name: 'Gui', kanji: '癸', reading: 'みずのと', element: 'Water', elementKanji: '水', emoji: '💧' },
+  { kanji: '甲', reading: 'きのえ', romaji: 'kinoe', emoji: '🌲' },
+  { kanji: '乙', reading: 'きのと', romaji: 'kinoto', emoji: '🌿' },
+  { kanji: '丙', reading: 'ひのえ', romaji: 'hinoe', emoji: '🔥' },
+  { kanji: '丁', reading: 'ひのと', romaji: 'hinoto', emoji: '🕯️' },
+  { kanji: '戊', reading: 'つちのえ', romaji: 'tsuchinoe', emoji: '⛰️' },
+  { kanji: '己', reading: 'つちのと', romaji: 'tsuchinoto', emoji: '🏜️' },
+  { kanji: '庚', reading: 'かのえ', romaji: 'kanoe', emoji: '⚔️' },
+  { kanji: '辛', reading: 'かのと', romaji: 'kanoto', emoji: '💍' },
+  { kanji: '壬', reading: 'みずのえ', romaji: 'mizunoe', emoji: '🌊' },
+  { kanji: '癸', reading: 'みずのと', romaji: 'mizunoto', emoji: '💧' },
 ];
 
 // 十二支 (Earthly Branches)
 const EARTHLY_BRANCHES = [
-  { name: 'Zi', kanji: '子', reading: 'ね', animal: 'Rat', animalKanji: '鼠', emoji: '🐀' },
-  { name: 'Chou', kanji: '丑', reading: 'うし', animal: 'Ox', animalKanji: '牛', emoji: '🐂' },
-  { name: 'Yin', kanji: '寅', reading: 'とら', animal: 'Tiger', animalKanji: '虎', emoji: '🐅' },
-  { name: 'Mao', kanji: '卯', reading: 'う', animal: 'Rabbit', animalKanji: '兎', emoji: '🐇' },
-  { name: 'Chen', kanji: '辰', reading: 'たつ', animal: 'Dragon', animalKanji: '龍', emoji: '🐉' },
-  { name: 'Si', kanji: '巳', reading: 'み', animal: 'Snake', animalKanji: '蛇', emoji: '🐍' },
-  { name: 'Wu', kanji: '午', reading: 'うま', animal: 'Horse', animalKanji: '馬', emoji: '🐴' },
-  { name: 'Wei', kanji: '未', reading: 'ひつじ', animal: 'Sheep', animalKanji: '羊', emoji: '🐏' },
-  { name: 'Shen', kanji: '申', reading: 'さる', animal: 'Monkey', animalKanji: '猿', emoji: '🐒' },
-  { name: 'You', kanji: '酉', reading: 'とり', animal: 'Rooster', animalKanji: '鶏', emoji: '🐓' },
-  { name: 'Xu', kanji: '戌', reading: 'いぬ', animal: 'Dog', animalKanji: '犬', emoji: '🐕' },
-  { name: 'Hai', kanji: '亥', reading: 'い', animal: 'Boar', animalKanji: '猪', emoji: '🐗' },
+  { kanji: '子', reading: 'ね', romaji: 'ne', animal: 'Rat', animalKanji: '鼠', emoji: '🐀' },
+  { kanji: '丑', reading: 'うし', romaji: 'ushi', animal: 'Ox', animalKanji: '牛', emoji: '🐂' },
+  { kanji: '寅', reading: 'とら', romaji: 'tora', animal: 'Tiger', animalKanji: '虎', emoji: '🐅' },
+  { kanji: '卯', reading: 'う', romaji: 'u', animal: 'Rabbit', animalKanji: '兎', emoji: '🐇' },
+  { kanji: '辰', reading: 'たつ', romaji: 'tatsu', animal: 'Dragon', animalKanji: '龍', emoji: '🐉' },
+  { kanji: '巳', reading: 'み', romaji: 'mi', animal: 'Snake', animalKanji: '蛇', emoji: '🐍' },
+  { kanji: '午', reading: 'うま', romaji: 'uma', animal: 'Horse', animalKanji: '馬', emoji: '🐴' },
+  { kanji: '未', reading: 'ひつじ', romaji: 'hitsuji', animal: 'Sheep', animalKanji: '羊', emoji: '🐏' },
+  { kanji: '申', reading: 'さる', romaji: 'saru', animal: 'Monkey', animalKanji: '猿', emoji: '🐒' },
+  { kanji: '酉', reading: 'とり', romaji: 'tori', animal: 'Rooster', animalKanji: '鶏', emoji: '🐓' },
+  { kanji: '戌', reading: 'いぬ', romaji: 'inu', animal: 'Dog', animalKanji: '犬', emoji: '🐕' },
+  { kanji: '亥', reading: 'い', romaji: 'i', animal: 'Boar', animalKanji: '猪', emoji: '🐗' },
 ];
 
 export interface ChineseZodiac {
-  heavenlyStem: string;
   heavenlyStemKanji: string;
   heavenlyStemEmoji: string;
-  earthlyBranch: string;
   earthlyBranchKanji: string;
   animal: string;
   animalKanji: string;
   animalEmoji: string;
   combined: string;
   combinedReading: string;
+  combinedRomaji: string;
 }
 
 export function getChineseZodiac(year: number): ChineseZodiac {
@@ -57,17 +56,17 @@ export function getChineseZodiac(year: number): ChineseZodiac {
 
   // Combine readings dynamically
   const combinedReading = stem.reading + branch.reading;
+  const combinedRomaji = `${stem.romaji}-${branch.romaji}`;
   
   return {
-    heavenlyStem: stem.name,
     heavenlyStemKanji: stem.kanji,
     heavenlyStemEmoji: stem.emoji,
-    earthlyBranch: branch.name,
     earthlyBranchKanji: branch.kanji,
     animal: branch.animal,
     animalKanji: branch.animalKanji,
     animalEmoji: branch.emoji,
     combined,
     combinedReading,
+    combinedRomaji,
   };
 }
