@@ -8,6 +8,7 @@ import {
   getZodiacSign,
   getNineStar,
 } from "@/lib/calculations";
+import { NineStarIcon } from "./NineStarIcon";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -183,11 +184,13 @@ export function ResultDisplay({
             </span>
           </div>
           <h3 className="card-title">{t("result.chineseZodiac")}</h3>
-          <p className="card-value">{chineseZodiac.combined}</p>
+          <p className="card-value">
+            {useKanji ? chineseZodiac.combined : chineseZodiac.combinedRomaji}
+          </p>
           <p className="card-subtitle">
             {useKanji
-              ? `${chineseZodiac.combinedReading}（${chineseZodiac.animalKanji}年）`
-              : `${chineseZodiac.animal} (${chineseZodiac.combinedReading})`}
+              ? `${chineseZodiac.combinedReading}（${chineseZodiac.earthlyBranchKanji}年）`
+              : `${chineseZodiac.combined} (Year of the ${chineseZodiac.animal})`}
           </p>
         </div>
 
@@ -203,11 +206,15 @@ export function ResultDisplay({
 
         {/* Nine Star Ki */}
         <div className="result-card nine-star">
-          <div className="card-icon">⭐</div>
+          <div className="card-icon">
+            <NineStarIcon colorName={nineStar.color} />
+          </div>
           <h3 className="card-title">{t("result.nineStar")}</h3>
-          <p className="card-value">{nineStar.nameKanji}</p>
+          <p className="card-value">
+            {useKanji ? `${nineStar.nameKanji}` : `${nineStar.name}`}
+          </p>
           <p className="card-subtitle">
-            {useKanji ? `五行: ${nineStar.elementKanji}` : `${nineStar.name}`}
+            {!useKanji && `${nineStar.nameKanji}`}
           </p>
           {nineStar.isApproximate && (
             <p className="card-note">{t("result.nineStarApproximate")}</p>
