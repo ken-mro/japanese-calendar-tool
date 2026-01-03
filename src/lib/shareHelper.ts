@@ -100,7 +100,7 @@ export function generateShareText({
     text += `Nine Star Ki: ${nineStar.name}\n`;
   }
 
-  text += `\n${appName}\n`;
+  text += `\n${appName}`;
   
   return text;
 }
