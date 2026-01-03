@@ -1,7 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Header, DateInput, ResultDisplay, ShareButtons } from "@/components";
+import {
+  Header,
+  DateInput,
+  ResultDisplay,
+  ShareButtons,
+  ProtectedEmail,
+} from "@/components";
 import { useI18n } from "@/lib/i18n/config";
 
 export default function Home() {
@@ -48,28 +54,20 @@ export default function Home() {
         <ShareButtons />
       </main>
       <footer className="footer">
-        <p>
-          © {new Date().getFullYear()} Japanese Calendar Tool |{" "}
+        <p className="footer-links">
           <a href="/terms" className="footer-link">
             {t("common.terms")}
-          </a>{" "}
-          |{" "}
+          </a>
+          <span className="footer-separator">|</span>
           <a href="/privacy" className="footer-link">
             {t("common.privacy")}
-          </a>{" "}
-          | Contact:{" "}
-          <a
-            href="#"
-            className="contact-link"
-            onClick={(e) => {
-              e.preventDefault();
-              const email = `mailto:${"bacon.dev.6396"}@${"gmail.com"}`;
-              const subject = "?subject=Japanese Calendar Tool - Inquiry";
-              window.location.href = email + subject;
-            }}
-          >
-            bacon.dev.6396@gmail.com
           </a>
+        </p>
+        <p className="footer-contact">
+          {t("common.contact")}: <ProtectedEmail />
+        </p>
+        <p className="footer-copyright">
+          © {new Date().getFullYear()} Japanese Calendar Tool
         </p>
       </footer>
     </div>

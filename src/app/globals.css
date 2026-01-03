@@ -103,6 +103,29 @@ body {
   letter-spacing: 0.05em;
 }
 
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fbcf68; /* Link Gold */
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(251, 207, 104, 0.3);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background: rgba(251, 207, 104, 0.15);
+  border-color: #fbcf68;
+  color: #ffffff;
+  transform: translateX(-2px);
+  box-shadow: 0 0 10px rgba(198, 170, 88, 0.2);
+}
+
 /* Language Switcher */
 .language-switcher {
   display: flex;
@@ -428,29 +451,56 @@ body {
 
 /* Footer */
 .footer {
-  padding: 2rem;
+  padding: 2rem 1rem;
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.9rem;
   border-top: 1px solid var(--card-border);
   background: rgba(17, 30, 54, 0.95);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .footer p {
   margin: 0;
+  line-height: 1.5;
+}
+
+.footer-separator {
+  margin: 0 0.5rem;
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+/* Accessible Link Styles */
+.footer-link,
+.contact-link,
+.content-link {
+  color: #fbcf68; /* Brighter Kogane for better contrast against dark bg */
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: all 0.3s ease;
+}
+
+.footer-link:visited,
+.contact-link:visited,
+.content-link:visited {
+  color: #dfb550; /* Slightly darker gold for visited state */
+}
+
+.footer-link:hover,
+.contact-link:hover,
+.content-link:hover {
+  color: #ffffff;
+  text-decoration-thickness: 2px;
+  background-color: rgba(251, 207, 104, 0.1); /* Subtle highlight on hover */
 }
 
 .contact-link {
-  color: var(--color-kogane);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--color-kogane);
-  transition: all 0.3s ease;
   margin-left: 0.5rem;
-}
-
-.contact-link:hover {
-  color: var(--color-gofun);
-  border-bottom-style: solid;
 }
 
 /* Animations */

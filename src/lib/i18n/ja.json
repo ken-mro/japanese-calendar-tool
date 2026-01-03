@@ -10,7 +10,8 @@
     "shareNetwork": "SNSで共有",
     "post": "ポスト",
     "terms": "利用規約",
-    "privacy": "プライバシーポリシー"
+    "privacy": "プライバシーポリシー",
+    "contact": "お問い合わせ"
   },
   "input": {
     "title": "年月日を入力",

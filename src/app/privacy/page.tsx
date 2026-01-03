@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n/config";
+import { ProtectedEmail } from "@/components";
 
 export default function PrivacyPage() {
   const language = useLanguage();
@@ -46,7 +47,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/technologies/ads?hl=ja"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "underline" }}
+                  className="content-link"
                 >
                   Googleのポリシーと規約
                 </a>
@@ -60,7 +61,10 @@ export default function PrivacyPage() {
                 本ポリシーに関するお問い合わせは、以下のメールアドレスまでお願いいたします。
               </p>
               <p>
-                <a href="mailto:bacon.dev.6396@gmail.com">
+                <a
+                  href="mailto:bacon.dev.6396@gmail.com"
+                  className="content-link"
+                >
                   bacon.dev.6396@gmail.com
                 </a>
               </p>
@@ -97,7 +101,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/technologies/ads?hl=en"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "underline" }}
+                  className="content-link"
                 >
                   Google&apos;s Privacy &amp; Terms
                 </a>
@@ -112,7 +116,10 @@ export default function PrivacyPage() {
                 contact us at the following email address:
               </p>
               <p>
-                <a href="mailto:bacon.dev.6396@gmail.com">
+                <a
+                  href="mailto:bacon.dev.6396@gmail.com"
+                  className="content-link"
+                >
                   bacon.dev.6396@gmail.com
                 </a>
               </p>

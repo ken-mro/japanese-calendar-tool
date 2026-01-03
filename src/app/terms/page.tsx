@@ -133,7 +133,7 @@ export default function TermsPage() {
                   href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "underline" }}
+                  className="content-link"
                 >
                   立春
                 </a>
@@ -291,7 +291,7 @@ export default function TermsPage() {
                   href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ textDecoration: "underline" }}
+                  className="content-link"
                 >
                   Risshun
                 </a>
