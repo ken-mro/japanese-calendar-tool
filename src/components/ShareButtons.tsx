@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useI18n, useLanguage } from "@/lib/i18n/config";
+import { generateShareText } from "@/lib/shareHelper";
 
 declare global {
   interface Window {
@@ -11,16 +12,35 @@ declare global {
   }
 }
 
-export const ShareButtons = () => {
+interface ShareButtonsProps {
+  resultData?: {
+    targetDate: Date;
+    sourceDate: Date;
+    offsetDays: number;
+  } | null;
+}
+
+export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
   const { t } = useI18n();
   const language = useLanguage();
   const [url, setUrl] = useState("");
-  const [title, setTitle] = useState("");
+  const [shareText, setShareText] = useState("");
 
   useEffect(() => {
     setUrl(window.location.href);
-    setTitle(document.title);
-  }, []);
+    if (resultData) {
+      setShareText(
+        generateShareText({
+          targetDate: resultData.targetDate,
+          sourceDate: resultData.sourceDate,
+          offsetDays: resultData.offsetDays,
+          language,
+        })
+      );
+    } else {
+      setShareText(document.title);
+    }
+  }, [resultData, t, language]);
 
   // Load LINE script
   useEffect(() => {
@@ -120,7 +140,7 @@ export const ShareButtons = () => {
         <div style={{ height: "20px", display: "flex", alignItems: "center" }}>
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              title
+              shareText
             )}&url=${encodeURIComponent(url)}`}
             target="_blank"
             rel="noopener noreferrer"

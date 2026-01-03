@@ -51,7 +51,7 @@ export default function Home() {
             />
           )}
         </div>
-        <ShareButtons />
+        <ShareButtons resultData={resultData} />
       </main>
       <footer className="footer">
         <p className="footer-links">
