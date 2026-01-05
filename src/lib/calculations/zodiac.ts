@@ -56,7 +56,8 @@ export function getChineseZodiac(year: number): ChineseZodiac {
 
   // Combine readings dynamically
   const combinedReading = stem.reading + branch.reading;
-  const combinedRomaji = `${stem.romaji}-${branch.romaji}`;
+  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+  const combinedRomaji = `${capitalize(stem.romaji)}-${capitalize(branch.romaji)}`;
   
   return {
     heavenlyStemKanji: stem.kanji,
