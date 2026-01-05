@@ -79,8 +79,8 @@
     "dateOutOfRange": "Date is out of supported range (after 1596)"
   },
   "seo": {
-    "title": "Japanese Calendar Tool - Era, Zodiac & Nine Star Calculator",
-    "description": "Calculate Japanese era (和暦), Sexagenary cycle (十干十二支), constellation, and Nine Star Ki (九星) from a date. Free online tool with both English and Japanese support.",
-    "keywords": "Japanese era, wareki, Sexagenary cycle, Heavenly Stems, Earthly Branches, Chinese zodiac, eto, nine star ki, kyusei, zodiac sign, birthday calculator"
+    "title": "Japanese Calendar Tool - Era, Rokuyo, Moon Phase & Nine Star",
+    "description": "Calculate Japanese Era (Wareki), Rokuyo, Moon Phase, Sexagenary cycle, and Nine Star Ki from any date. Free online Japanese calendar tool.",
+    "keywords": "Japanese era, Rokuyo, Moon Phase, Moon Age, Sexagenary cycle, Nine Star Ki, zodiac, wareki, calendar calculator"
   }
 }
