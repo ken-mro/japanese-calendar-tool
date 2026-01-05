@@ -7,8 +7,11 @@ import {
   getChineseZodiac,
   getZodiacSign,
   getNineStar,
+  getRokuyo,
+  getMoonPhase,
 } from "@/lib/calculations";
 import { NineStarIcon } from "./NineStarIcon";
+import { MoonPhaseIcon } from "./MoonPhaseIcon";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -53,6 +56,8 @@ export function ResultDisplay({
   const chineseZodiac = getChineseZodiac(year);
   const zodiacSign = getZodiacSign(targetDate);
   const nineStar = getNineStar(targetDate);
+  const rokuyo = getRokuyo(targetDate);
+  const moonPhase = getMoonPhase(targetDate);
 
   // Elapsed Time Calculation
   const today = new Date();
@@ -219,6 +224,32 @@ export function ResultDisplay({
           {nineStar.isApproximate && (
             <p className="card-note">{t("result.nineStarApproximate")}</p>
           )}
+        </div>
+
+        {/* Rokuyo */}
+        <div className="result-card rokuyo">
+          <div className="card-icon">📅</div>
+          <h3 className="card-title">{t("result.rokuyo")}</h3>
+          <p className="card-value">
+            {useKanji ? rokuyo.nameKanji : rokuyo.name}
+          </p>
+          <p className="card-subtitle">
+            {useKanji ? rokuyo.reading : rokuyo.nameKanji}
+          </p>
+        </div>
+
+        {/* Moon Phase */}
+        <div className="result-card moon-phase">
+          <div className="card-icon">
+            <MoonPhaseIcon phase={moonPhase} />
+          </div>
+          <h3 className="card-title">{t("result.moonPhase")}</h3>
+          <p className="card-value">
+            {useKanji ? moonPhase.phaseKanji : moonPhase.phase}
+          </p>
+          <p className="card-subtitle">
+            {t("result.moonAge")}: {moonPhase.age}
+          </p>
         </div>
 
         {/* Elapsed Time */}

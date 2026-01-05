@@ -363,16 +363,19 @@ body {
 }
 
 .result-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 285px));
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  max-width: 1000px;
+  gap: 1.5rem;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 }
 
 .result-card {
+  flex: 0 1 calc(25% - 1.5rem); /* 4 columns minus gap */
+  min-width: 250px;
+  max-width: 320px;
   background: var(--card-bg);
   backdrop-filter: var(--glass-effect);
   border-radius: 4px;
@@ -429,6 +432,8 @@ body {
 .chinese-zodiac { border-top: 4px solid #43e97b; } /* Spring Green */
 .zodiac-sign { border-top: 4px solid #4facfe; } /* Sky Blue */
 .nine-star { border-top: 4px solid #fa709a; } /* Peach */
+.rokuyo { border-top: 4px solid #FF9F1C; } /* Orange */
+.moon-phase { border-top: 4px solid #F5D547; } /* Moon Yellow */
 
 /* Specific Card Overrides for gradients removed in favor of solid Wafu borders */
 

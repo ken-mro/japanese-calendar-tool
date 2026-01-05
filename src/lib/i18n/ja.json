@@ -55,7 +55,10 @@
     "animal": "干支の動物",
     "reading": "読み方",
     "element": "五行",
-    "symbol": "シンボル"
+    "symbol": "シンボル",
+    "rokuyo": "六曜",
+    "moonPhase": "月の満ち欠け",
+    "moonAge": "月齢"
   },
   "months": {
     "1": "1月",

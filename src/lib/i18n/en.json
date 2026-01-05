@@ -55,7 +55,10 @@
     "animal": "Animal",
     "reading": "Reading",
     "element": "Element",
-    "symbol": "Symbol"
+    "symbol": "Symbol",
+    "rokuyo": "Rokuyo",
+    "moonPhase": "Moon Phase",
+    "moonAge": "Moon Age"
   },
   "months": {
     "1": "January",
