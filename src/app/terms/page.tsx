@@ -21,7 +21,7 @@ export default function TermsPage() {
         {language === "ja" ? (
           <div className="terms-content">
             <h1>利用規約</h1>
-            <p className="last-updated">最終更新日: 2026年1月3日</p>
+            <p className="last-updated">最終更新日: 2026年1月6日</p>
 
             <section>
               <h2>1. はじめに</h2>
@@ -172,7 +172,7 @@ export default function TermsPage() {
         ) : (
           <div className="terms-content">
             <h1>Terms of Service</h1>
-            <p className="last-updated">Last Updated: January 3, 2026</p>
+            <p className="last-updated">Last Updated: January 6, 2026</p>
 
             <section>
               <h2>1. Introduction</h2>
