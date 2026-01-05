@@ -148,7 +148,20 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2>5. 免責事項</h2>
+              <h2>5. 六曜・月齢（月の満ち欠け）に関する注意事項</h2>
+              <p>
+                <strong>六曜:</strong>{" "}
+                本アプリの六曜は、日付（太陽暦）から簡易的な旧暦変換計算を行って算出しています。
+                特定の暦注における「旧暦の閏月」や「節月」の扱いの違いにより、市販のカレンダー等の表記と異なる場合があります。
+              </p>
+              <p>
+                <strong>月齢・月の満ち欠け:</strong>{" "}
+                簡易計算による目安値を表示しており、天文学的な厳密さを保証するものではありません。
+              </p>
+            </section>
+
+            <section>
+              <h2>6. 免責事項</h2>
               <p>
                 開発者は、本サービスの利用に起因して利用者に生じたあらゆる損害（直接的、間接的を問わず）について、一切の責任を負いません。
                 特に、前項などで述べた和暦、九星、歴史的日付の計算における不正確さに起因する誤解や問題についても、開発者は責任を負いかねます。
@@ -309,7 +322,23 @@ export default function TermsPage() {
             </section>
 
             <section>
-              <h2>5. Disclaimer</h2>
+              <h2>5. Notes on Rokuyo and Moon Phase</h2>
+              <p>
+                <strong>Rokuyo:</strong> The Rokuyo results are calculated using
+                a simplified conversion from the solar calendar to the lunisolar
+                calendar. Results may differ from other calendars due to
+                variations in how &quot;leap months&quot; or solar terms are
+                handled in different systems.
+              </p>
+              <p>
+                <strong>Moon Phase:</strong> The Moon Age and Phase displayed
+                are approximate values based on simplified calculations and are
+                not guaranteed to be astronomically precise.
+              </p>
+            </section>
+
+            <section>
+              <h2>6. Disclaimer</h2>
               <p>
                 The Developer assumes no responsibility for any damages or
                 losses (direct or indirect) arising from the use of this
