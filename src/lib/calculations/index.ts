@@ -4,3 +4,5 @@ export { getJapaneseEra, formatJapaneseEra, getEraList, convertEraToWesternYear,
 export { getChineseZodiac, type ChineseZodiac } from './zodiac';
 export { getZodiacSign, type ZodiacSign } from './constellation';
 export { getNineStar, type NineStar } from './nineStar';
+export { getRokuyo, type Rokuyo } from './rokuyo';
+export { getMoonPhase, type MoonPhase } from './moon';
