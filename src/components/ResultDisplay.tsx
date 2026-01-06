@@ -165,7 +165,14 @@ export function ResultDisplay({
 
         {/* Japanese Era */}
         <div className="result-card japanese-era">
-          <div className="card-icon">🎌</div>
+          <div className="card-icon">
+            <img
+              src="/images/japanese-era-icon.svg"
+              alt="Japanese Era"
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </div>
           <h3 className="card-title">{t("result.japaneseEra")}</h3>
           <p className="card-value">
             {japaneseEra ? formatJapaneseEra(japaneseEra, useKanji) : "-"}
