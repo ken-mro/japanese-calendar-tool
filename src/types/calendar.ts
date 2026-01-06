@@ -21,7 +21,6 @@ export interface ChineseZodiac {
 export interface ZodiacSign {
   name: string;
   nameKanji: string;
-  symbol: string;
   element: string;
 }
 

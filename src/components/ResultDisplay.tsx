@@ -219,7 +219,14 @@ export function ResultDisplay({
 
         {/* Zodiac Sign */}
         <div className="result-card zodiac-sign">
-          <div className="card-icon">{zodiacSign.symbol}</div>
+          <div className="card-icon">
+            <img
+              src={zodiacSign.icon}
+              alt={zodiacSign.name}
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </div>
           <h3 className="card-title">{t("result.zodiacSign")}</h3>
           <p className="card-value">
             {useKanji ? zodiacSign.nameKanji : zodiacSign.name}
