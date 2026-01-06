@@ -195,9 +195,13 @@ export function ResultDisplay({
         {/* Sexagenary cycle */}
         <div className="result-card chinese-zodiac">
           <div className="card-icon zodiac-icons">
-            <span title={chineseZodiac.heavenlyStemKanji}>
-              {chineseZodiac.heavenlyStemEmoji}
-            </span>
+            <img
+              src={chineseZodiac.heavenlyStemIcon}
+              alt={chineseZodiac.heavenlyStemKanji}
+              title={chineseZodiac.heavenlyStemKanji}
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
             <img
               src={chineseZodiac.icon}
               alt={chineseZodiac.animal}

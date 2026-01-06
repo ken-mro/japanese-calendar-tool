@@ -2,16 +2,16 @@
 
 // 十干 (Heavenly Stems)
 const HEAVENLY_STEMS = [
-  { kanji: '甲', reading: 'きのえ', romaji: 'kinoe', emoji: '🌲' },
-  { kanji: '乙', reading: 'きのと', romaji: 'kinoto', emoji: '🌿' },
-  { kanji: '丙', reading: 'ひのえ', romaji: 'hinoe', emoji: '🔥' },
-  { kanji: '丁', reading: 'ひのと', romaji: 'hinoto', emoji: '🕯️' },
-  { kanji: '戊', reading: 'つちのえ', romaji: 'tsuchinoe', emoji: '⛰️' },
-  { kanji: '己', reading: 'つちのと', romaji: 'tsuchinoto', emoji: '🏜️' },
-  { kanji: '庚', reading: 'かのえ', romaji: 'kanoe', emoji: '⚔️' },
-  { kanji: '辛', reading: 'かのと', romaji: 'kanoto', emoji: '💍' },
-  { kanji: '壬', reading: 'みずのえ', romaji: 'mizunoe', emoji: '🌊' },
-  { kanji: '癸', reading: 'みずのと', romaji: 'mizunoto', emoji: '💧' },
+  { kanji: '甲', reading: 'きのえ', romaji: 'kinoe', emoji: '🌲', icon: '/images/heavenly_stems/kinoe.svg' },
+  { kanji: '乙', reading: 'きのと', romaji: 'kinoto', emoji: '🌿', icon: '/images/heavenly_stems/kinoto.svg' },
+  { kanji: '丙', reading: 'ひのえ', romaji: 'hinoe', emoji: '🔥', icon: '/images/heavenly_stems/hinoe.svg' },
+  { kanji: '丁', reading: 'ひのと', romaji: 'hinoto', emoji: '🕯️', icon: '/images/heavenly_stems/hinoto.svg' },
+  { kanji: '戊', reading: 'つちのえ', romaji: 'tsuchinoe', emoji: '⛰️', icon: '/images/heavenly_stems/tsuchinoe.svg' },
+  { kanji: '己', reading: 'つちのと', romaji: 'tsuchinoto', emoji: '🏜️', icon: '/images/heavenly_stems/tsuchinoto.svg' },
+  { kanji: '庚', reading: 'かのえ', romaji: 'kanoe', emoji: '⚔️', icon: '/images/heavenly_stems/kanoe.svg' },
+  { kanji: '辛', reading: 'かのと', romaji: 'kanoto', emoji: '💍', icon: '/images/heavenly_stems/kanoto.svg' },
+  { kanji: '壬', reading: 'みずのえ', romaji: 'mizunoe', emoji: '🌊', icon: '/images/heavenly_stems/mizunoe.svg' },
+  { kanji: '癸', reading: 'みずのと', romaji: 'mizunoto', emoji: '💧', icon: '/images/heavenly_stems/mizunoto.svg' },
 ];
 
 // 十二支 (Earthly Branches)
@@ -41,6 +41,7 @@ export interface ChineseZodiac {
   combinedReading: string;
   combinedRomaji: string;
   icon: string;
+  heavenlyStemIcon: string;
 }
 
 export function getChineseZodiac(year: number): ChineseZodiac {
@@ -71,5 +72,6 @@ export function getChineseZodiac(year: number): ChineseZodiac {
     combinedReading,
     combinedRomaji,
     icon: branch.icon,
+    heavenlyStemIcon: stem.icon,
   };
 }
