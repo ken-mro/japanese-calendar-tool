@@ -184,9 +184,13 @@ export function ResultDisplay({
             <span title={chineseZodiac.heavenlyStemKanji}>
               {chineseZodiac.heavenlyStemEmoji}
             </span>
-            <span title={chineseZodiac.animalKanji}>
-              {chineseZodiac.animalEmoji}
-            </span>
+            <img
+              src={chineseZodiac.icon}
+              alt={chineseZodiac.animal}
+              title={chineseZodiac.animalKanji}
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
           </div>
           <h3 className="card-title">{t("result.chineseZodiac")}</h3>
           <p className="card-value">
