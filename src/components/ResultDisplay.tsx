@@ -261,7 +261,14 @@ export function ResultDisplay({
           className="result-card elapsed-time"
           style={{ borderTop: "4px solid #8e44ad" }}
         >
-          <div className="card-icon">⏳</div>
+          <div className="card-icon">
+            <img
+              src="/images/hourglass.svg"
+              alt="Hourglass"
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </div>
           <h3 className="card-title">{t("result.elapsedTitle")}</h3>
           <p className="card-value">
             {absTotalDays}
