@@ -253,7 +253,14 @@ export function ResultDisplay({
 
         {/* Rokuyo */}
         <div className="result-card rokuyo">
-          <div className="card-icon">📅</div>
+          <div className="card-icon">
+            <img
+              src={`/images/rokuyo/${rokuyo.reading}.svg`}
+              alt={rokuyo.name}
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </div>
           <h3 className="card-title">{t("result.rokuyo")}</h3>
           <p className="card-value">
             {useKanji ? rokuyo.nameKanji : rokuyo.name}
