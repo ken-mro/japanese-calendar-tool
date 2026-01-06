@@ -24,17 +24,16 @@ export function NineStarIcon({ colorName, className }: NineStarIconProps) {
     height: "1em",
     stroke: colorName === "Black" ? "white" : "none",
     strokeWidth: colorName === "Black" ? "2px" : "0",
+    strokeLinejoin: "round",
   };
 
   return (
     <svg
-      height="800px"
-      width="800px"
       version="1.1"
       id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 47.94 47.94"
+      viewBox="-3 -3 54 54"
       xmlSpace="preserve"
       className={className}
       style={style}
