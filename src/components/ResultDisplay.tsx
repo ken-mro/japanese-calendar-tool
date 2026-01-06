@@ -131,7 +131,14 @@ export function ResultDisplay({
       <div className="result-grid">
         {/* Western Year */}
         <div className="result-card western-year">
-          <div className="card-icon">📅</div>
+          <div className="card-icon">
+            <img
+              src="/images/calendar.svg"
+              alt="Calendar"
+              className="w-12 h-12 object-contain"
+              style={{ width: "3rem", height: "3rem" }}
+            />
+          </div>
           <h3 className="card-title">{t("result.westernYear")}</h3>
           <p
             className="card-value"
