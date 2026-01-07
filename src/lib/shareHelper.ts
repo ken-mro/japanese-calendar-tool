@@ -3,6 +3,8 @@ import {
   getChineseZodiac,
   getZodiacSign,
   getNineStar,
+  getRokuyo,
+  getMoonPhase,
 } from "@/lib/calculations";
 
 interface GenerateShareTextParams {
@@ -30,6 +32,8 @@ export function generateShareText({
   const chineseZodiac = getChineseZodiac(year);
   const zodiacSign = getZodiacSign(targetDate);
   const nineStar = getNineStar(targetDate);
+  const rokuyo = getRokuyo(targetDate);
+  const moonPhase = getMoonPhase(targetDate);
 
   let text = "";
 
@@ -70,6 +74,8 @@ export function generateShareText({
     text += `十干十二支：${chineseZodiac.combined}(${chineseZodiac.combinedReading})\n`;
     text += `星座：${zodiacSign.nameKanji}\n`;
     text += `九星：${nineStar.nameKanji}\n`;
+    text += `六曜：${rokuyo.nameKanji}\n`;
+    text += `月齢：${moonPhase.phaseKanji} (月齢 ${moonPhase.age})\n`; // Added Moon Phase
 
   } else {
     // English Logic (Mirroring structure)
@@ -98,6 +104,8 @@ export function generateShareText({
     text += `Sexagenary cycle: ${chineseZodiac.combinedRomaji} (Year of the ${chineseZodiac.animal})\n`;
     text += `Zodiac Sign: ${zodiacSign.name}\n`;
     text += `Nine Star Ki: ${nineStar.name}\n`;
+    text += `Rokuyo: ${rokuyo.name}\n`;
+    text += `Moon Phase: ${moonPhase.phase} (Moon Age: ${moonPhase.age})\n`; // Added Moon Phase
   }
 
   text += `\n${appName}`;
