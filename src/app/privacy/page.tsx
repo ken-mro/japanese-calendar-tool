@@ -61,12 +61,7 @@ export default function PrivacyPage() {
                 本ポリシーに関するお問い合わせは、以下のメールアドレスまでお願いいたします。
               </p>
               <p>
-                <a
-                  href="mailto:bacon.dev.6396@gmail.com"
-                  className="content-link"
-                >
-                  bacon.dev.6396@gmail.com
-                </a>
+                <ProtectedEmail className="content-link" />
               </p>
             </section>
           </div>
@@ -116,12 +111,7 @@ export default function PrivacyPage() {
                 contact us at the following email address:
               </p>
               <p>
-                <a
-                  href="mailto:bacon.dev.6396@gmail.com"
-                  className="content-link"
-                >
-                  bacon.dev.6396@gmail.com
-                </a>
+                <ProtectedEmail className="content-link" />
               </p>
             </section>
           </div>
