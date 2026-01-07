@@ -16,8 +16,8 @@ const HEAVENLY_STEMS = [
 
 // 十二支 (Earthly Branches)
 const EARTHLY_BRANCHES = [
-  { kanji: '子', reading: 'ね', romaji: 'ne', animal: 'Rat', animalKanji: '鼠', emoji: '🐀', icon: '/images/zodiac/mouse.svg' },
-  { kanji: '丑', reading: 'うし', romaji: 'ushi', animal: 'Ox', animalKanji: '牛', emoji: '🐂', icon: '/images/zodiac/cow.svg' },
+  { kanji: '子', reading: 'ね', romaji: 'ne', animal: 'Rat', animalKanji: '鼠', emoji: '🐀', icon: '/images/zodiac/rat.svg' },
+  { kanji: '丑', reading: 'うし', romaji: 'ushi', animal: 'Ox', animalKanji: '牛', emoji: '🐂', icon: '/images/zodiac/ox.svg' },
   { kanji: '寅', reading: 'とら', romaji: 'tora', animal: 'Tiger', animalKanji: '虎', emoji: '🐅', icon: '/images/zodiac/tiger.svg' },
   { kanji: '卯', reading: 'う', romaji: 'u', animal: 'Rabbit', animalKanji: '兎', emoji: '🐇', icon: '/images/zodiac/rabbit.svg' },
   { kanji: '辰', reading: 'たつ', romaji: 'tatsu', animal: 'Dragon', animalKanji: '龍', emoji: '🐉', icon: '/images/zodiac/dragon.svg' },
@@ -25,7 +25,7 @@ const EARTHLY_BRANCHES = [
   { kanji: '午', reading: 'うま', romaji: 'uma', animal: 'Horse', animalKanji: '馬', emoji: '🐴', icon: '/images/zodiac/horse.svg' },
   { kanji: '未', reading: 'ひつじ', romaji: 'hitsuji', animal: 'Sheep', animalKanji: '羊', emoji: '🐏', icon: '/images/zodiac/sheep.svg' },
   { kanji: '申', reading: 'さる', romaji: 'saru', animal: 'Monkey', animalKanji: '猿', emoji: '🐒', icon: '/images/zodiac/monkey.svg' },
-  { kanji: '酉', reading: 'とり', romaji: 'tori', animal: 'Rooster', animalKanji: '鶏', emoji: '🐓', icon: '/images/zodiac/bird.svg' },
+  { kanji: '酉', reading: 'とり', romaji: 'tori', animal: 'Rooster', animalKanji: '鶏', emoji: '🐓', icon: '/images/zodiac/rooster.svg' },
   { kanji: '戌', reading: 'いぬ', romaji: 'inu', animal: 'Dog', animalKanji: '犬', emoji: '🐕', icon: '/images/zodiac/dog.svg' },
   { kanji: '亥', reading: 'い', romaji: 'i', animal: 'Boar', animalKanji: '猪', emoji: '🐗', icon: '/images/zodiac/boar.svg' },
 ];
