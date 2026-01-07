@@ -37,6 +37,7 @@ export function NineStarIcon({ colorName, className }: NineStarIconProps) {
       xmlSpace="preserve"
       className={className}
       style={style}
+      aria-hidden="true"
     >
       <path
         d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
