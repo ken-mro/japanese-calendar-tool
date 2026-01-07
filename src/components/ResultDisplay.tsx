@@ -274,9 +274,7 @@ export function ResultDisplay({
           <p className="card-value">
             {useKanji ? rokuyo.nameKanji : rokuyo.name}
           </p>
-          <p className="card-subtitle">
-            {useKanji ? rokuyo.reading : rokuyo.nameKanji}
-          </p>
+          {!useKanji && <p className="card-subtitle">{rokuyo.nameKanji}</p>}
         </div>
 
         {/* Moon Phase */}
