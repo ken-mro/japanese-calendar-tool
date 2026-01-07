@@ -110,7 +110,12 @@ export function ResultDisplay({
       month: "short",
       day: "numeric",
     });
-    contextMessage = `${absOffset} ${direction} ${dateStr} is`;
+
+    if (offsetDays === 0) {
+      contextMessage = `${dateStr} is`;
+    } else {
+      contextMessage = `${absOffset} ${direction} ${dateStr} is`;
+    }
   }
 
   return (
