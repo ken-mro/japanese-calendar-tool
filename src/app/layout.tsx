@@ -15,6 +15,12 @@ export const metadata: Metadata = {
     "年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Sexagenary cycle(Heavenly Stems and Earthly Branches), zodiac sign, and Nine Star Ki from a date.",
   keywords:
     "和暦,西暦,変換,干支,十干十二支,九星,星座,Japanese era,wareki, Sexagenary cycle, Heavenly Stems, Earthly Branches, Chinese zodiac",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"
+  ),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
     description: "年月日から西暦・和暦・十干十二支・星座・九星を自動計算",
