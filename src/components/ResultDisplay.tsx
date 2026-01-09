@@ -125,6 +125,7 @@ export function ResultDisplay({
         className="result-context"
         style={{
           textAlign: "center",
+          marginTop: "-0.5rem",
           marginBottom: "1.5rem",
           color: "var(--text-secondary)",
           fontSize: "1.1rem",
