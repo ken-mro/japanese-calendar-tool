@@ -4,4 +4,5 @@ export { LanguageSwitcher } from './LanguageSwitcher';
 export { Header } from './Header';
 export { ShareButtons } from './ShareButtons';
 export { ProtectedEmail } from './ProtectedEmail';
+export { default as HomeDescription } from './HomeDescription';
 

@@ -7,6 +7,7 @@ import {
   ResultDisplay,
   ShareButtons,
   ProtectedEmail,
+  HomeDescription,
 } from "@/components";
 import { useI18n } from "@/lib/i18n/config";
 
@@ -52,6 +53,7 @@ export default function Home() {
           )}
         </div>
         <ShareButtons resultData={resultData} />
+        <HomeDescription />
       </main>
       <footer className="footer">
         <p className="footer-links">
