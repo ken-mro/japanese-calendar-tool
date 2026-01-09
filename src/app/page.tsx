@@ -18,6 +18,7 @@ export default function Home() {
     sourceDate: Date;
     offsetDays: number;
   } | null>(null);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,9 +39,13 @@ export default function Home() {
     setResultData({ targetDate: target, sourceDate: date, offsetDays });
   };
 
+  const toggleAbout = () => {
+    setIsAboutOpen(!isAboutOpen);
+  };
+
   return (
     <div className="app-container">
-      <Header />
+      <Header onToggleAbout={toggleAbout} />
       <main className="main-content">
         <DateInput onCalculate={handleCalculate} />
         <div ref={resultsRef} className="results-wrapper">
@@ -53,7 +58,7 @@ export default function Home() {
           )}
         </div>
         <ShareButtons resultData={resultData} />
-        <HomeDescription />
+        <HomeDescription isOpen={isAboutOpen} onToggle={toggleAbout} />
       </main>
       <footer className="footer">
         <p className="footer-links">

@@ -1,9 +1,11 @@
-"use client";
-
 import { useI18n } from "@/lib/i18n/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-export function Header() {
+interface HeaderProps {
+  onToggleAbout?: () => void;
+}
+
+export function Header({ onToggleAbout }: HeaderProps) {
   const { t } = useI18n();
 
   return (
@@ -19,10 +21,16 @@ export function Header() {
         <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           <button
             onClick={() => {
-              const element = document.getElementById("about-section");
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
+              if (onToggleAbout) {
+                onToggleAbout();
               }
+              // Small delay to allow the section to open before scrolling
+              setTimeout(() => {
+                const element = document.getElementById("about-section");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }, 100);
             }}
             className="info-btn"
             title={t("common.aboutThisTool")}

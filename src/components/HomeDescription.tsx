@@ -2,14 +2,61 @@
 
 import { useLanguage } from "@/lib/i18n/config";
 
-export default function HomeDescription() {
+export default function HomeDescription({
+  isOpen = false,
+  onToggle,
+}: {
+  isOpen?: boolean;
+  onToggle?: () => void;
+}) {
   const language = useLanguage();
+
+  if (!isOpen) {
+    return (
+      <section
+        id="about-section"
+        className="description-container"
+        style={{ paddingBottom: 0 }}
+      >
+        <div
+          className="description-section"
+          style={{ border: "none", marginBottom: 0 }}
+        >
+          <h2
+            onClick={onToggle}
+            style={{
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <span style={{ fontSize: "0.8em", opacity: 0.7 }}>▶</span>
+            {language === "ja" ? "このツールについて" : "About This Tool"}
+          </h2>
+        </div>
+      </section>
+    );
+  }
 
   if (language === "ja") {
     return (
       <section id="about-section" className="description-container">
         <div className="description-section">
-          <h2>このツールについて</h2>
+          <h2
+            onClick={onToggle}
+            style={{
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.5rem",
+            }}
+          >
+            <span style={{ fontSize: "0.8em", opacity: 0.7 }}>▼</span>
+            このツールについて
+          </h2>
           <p>
             この「暦計算ツール」は、西暦の日付から和暦（元号）、干支（十干・十二支）、星座だけでなく、九星、六曜、月の満ち欠けを計算することができるツールです。
           </p>
@@ -86,7 +133,19 @@ export default function HomeDescription() {
   return (
     <section id="about-section" className="description-container">
       <div className="description-section">
-        <h2>About This Tool</h2>
+        <h2
+          onClick={onToggle}
+          style={{
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <span style={{ fontSize: "0.8em", opacity: 0.7 }}>▼</span>
+          About This Tool
+        </h2>
         <p>
           This &quot;Japanese Calendar Tool&quot; allows you to calculate the
           Japanese Era (Wareki), Sexagenary Cycle (Eto), and Zodiac sign, as
