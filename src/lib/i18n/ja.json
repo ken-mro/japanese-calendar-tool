@@ -11,7 +11,8 @@
     "post": "ポスト",
     "terms": "利用規約",
     "privacy": "プライバシーポリシー",
-    "contact": "お問い合わせ"
+    "contact": "お問い合わせ",
+    "aboutThisTool": "このツールについて"
   },
   "input": {
     "title": "年月日を入力",
