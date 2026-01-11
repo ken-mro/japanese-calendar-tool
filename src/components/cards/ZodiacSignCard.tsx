@@ -3,6 +3,7 @@
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { type ZodiacSign } from "@/lib/calculations";
 import { ResultCard } from "./ResultCard";
+import Icon from "../icons/Icon";
 
 interface ZodiacSignCardProps {
   sign: ZodiacSign;
@@ -16,14 +17,7 @@ export function ZodiacSignCard({ sign }: ZodiacSignCardProps) {
   return (
     <ResultCard
       className="zodiac-sign"
-      icon={
-        <img
-          src={sign.icon}
-          alt={sign.name}
-          className="w-12 h-12 object-contain"
-          style={{ width: "3rem", height: "3rem" }}
-        />
-      }
+      icon={<Icon src={sign.icon} alt={sign.name} />}
       title={t("result.zodiacSign")}
       value={useKanji ? sign.nameKanji : sign.name}
       subtitle={!useKanji ? sign.nameKanji : undefined}

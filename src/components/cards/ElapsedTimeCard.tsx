@@ -2,6 +2,7 @@
 
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { ResultCard } from "./ResultCard";
+import Icon from "../icons/Icon";
 
 interface Duration {
   years: number;
@@ -29,14 +30,7 @@ export function ElapsedTimeCard({
     <ResultCard
       className="elapsed-time"
       style={{ borderTop: "4px solid #8e44ad" }}
-      icon={
-        <img
-          src="/images/hourglass.svg"
-          alt="Hourglass"
-          className="w-12 h-12 object-contain"
-          style={{ width: "3rem", height: "3rem" }}
-        />
-      }
+      icon={<Icon src="/images/hourglass.svg" alt="Hourglass" />}
       title={t("result.elapsedTitle")}
       value={
         <>

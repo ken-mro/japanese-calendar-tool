@@ -2,6 +2,7 @@
 
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { ResultCard } from "./ResultCard";
+import Icon from "../icons/Icon";
 
 interface WesternYearCardProps {
   date: Date;
@@ -19,14 +20,7 @@ export function WesternYearCard({ date }: WesternYearCardProps) {
   return (
     <ResultCard
       className="western-year"
-      icon={
-        <img
-          src="/images/calendar.svg"
-          alt="Calendar"
-          className="w-12 h-12 object-contain"
-          style={{ width: "3rem", height: "3rem" }}
-        />
-      }
+      icon={<Icon src="/images/calendar.svg" alt="Calendar" />}
       title={t("result.westernYear")}
       value={
         useKanji ? (

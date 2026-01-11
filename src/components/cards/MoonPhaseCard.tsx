@@ -2,7 +2,7 @@
 
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { type MoonPhase } from "@/lib/calculations";
-import { MoonPhaseIcon } from "../MoonPhaseIcon";
+import { MoonPhaseIcon } from "../icons/MoonPhaseIcon";
 import { ResultCard } from "./ResultCard";
 
 interface MoonPhaseCardProps {

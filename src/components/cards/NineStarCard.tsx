@@ -2,7 +2,7 @@
 
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { type NineStar } from "@/lib/calculations";
-import { NineStarIcon } from "../NineStarIcon";
+import { NineStarIcon } from "../icons/NineStarIcon";
 import { ResultCard } from "./ResultCard";
 
 interface NineStarCardProps {
