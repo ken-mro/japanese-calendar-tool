@@ -1,5 +1,6 @@
 import React from "react";
 import { MoonPhase } from "@/lib/calculations";
+import Icon from "./Icon";
 
 interface MoonPhaseIconProps {
   phase: MoonPhase;
@@ -47,13 +48,7 @@ export const MoonPhaseIcon: React.FC<MoonPhaseIconProps> = ({
         justifyContent: "center",
       }}
     >
-      <img
-        src={`/images/moon/${filename}`}
-        alt={phase.phase || iconType}
-        width={size}
-        height={size}
-        style={{ width: size, height: size }}
-      />
+      <Icon src={`/images/moon/${filename}`} alt={phase.phase || iconType} />
     </div>
   );
 };
