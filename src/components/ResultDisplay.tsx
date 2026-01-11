@@ -3,15 +3,20 @@
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import {
   getJapaneseEra,
-  formatJapaneseEra,
   getChineseZodiac,
   getZodiacSign,
   getNineStar,
   getRokuyo,
   getMoonPhase,
 } from "@/lib/calculations";
-import { NineStarIcon } from "./NineStarIcon";
-import { MoonPhaseIcon } from "./MoonPhaseIcon";
+import { WesternYearCard } from "./cards/WesternYearCard";
+import { JapaneseEraCard } from "./cards/JapaneseEraCard";
+import { ChineseZodiacCard } from "./cards/ChineseZodiacCard";
+import { ZodiacSignCard } from "./cards/ZodiacSignCard";
+import { NineStarCard } from "./cards/NineStarCard";
+import { RokuyoCard } from "./cards/RokuyoCard";
+import { MoonPhaseCard } from "./cards/MoonPhaseCard";
+import { ElapsedTimeCard } from "./cards/ElapsedTimeCard";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -49,11 +54,8 @@ export function ResultDisplay({
   const language = useLanguage();
   const useKanji = language === "ja";
 
-  const year = targetDate.getFullYear();
-  const month = targetDate.getMonth() + 1;
-  const day = targetDate.getDate();
   const japaneseEra = getJapaneseEra(targetDate);
-  const chineseZodiac = getChineseZodiac(year);
+  const chineseZodiac = getChineseZodiac(targetDate.getFullYear());
   const zodiacSign = getZodiacSign(targetDate);
   const nineStar = getNineStar(targetDate);
   const rokuyo = getRokuyo(targetDate);
@@ -135,203 +137,18 @@ export function ResultDisplay({
       </p>
 
       <div className="result-grid">
-        {/* Western Year */}
-        <div className="result-card western-year">
-          <div className="card-icon">
-            <img
-              src="/images/calendar.svg"
-              alt="Calendar"
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.westernYear")}</h3>
-          <p
-            className="card-value"
-            style={{ fontSize: "1.8rem", lineHeight: "1.2" }}
-          >
-            {useKanji ? (
-              <>{year}年</>
-            ) : (
-              targetDate.toLocaleDateString("en-US", { year: "numeric" })
-            )}
-          </p>
-          <p className="card-subtitle">
-            {useKanji ? (
-              <>
-                {year}年{month}月{day}日 (
-                {targetDate.toLocaleDateString("ja-JP", {
-                  weekday: "short",
-                })}
-                )
-              </>
-            ) : (
-              targetDate.toLocaleDateString("en-US", {
-                weekday: "short",
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })
-            )}
-          </p>
-        </div>
-
-        {/* Japanese Era */}
-        <div className="result-card japanese-era">
-          <div className="card-icon">
-            <img
-              src="/images/japanese-era-icon.svg"
-              alt="Japanese Era"
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.japaneseEra")}</h3>
-          <p className="card-value">
-            {japaneseEra ? formatJapaneseEra(japaneseEra, useKanji) : "-"}
-          </p>
-          {japaneseEra && !useKanji && (
-            <p className="card-subtitle">
-              {japaneseEra.nameKanji}
-              {japaneseEra.year === 1 ? "元年" : japaneseEra.year + "年"}
-            </p>
-          )}
-        </div>
-
-        {/* Sexagenary cycle */}
-        <div className="result-card chinese-zodiac">
-          <div className="card-icon zodiac-icons">
-            <img
-              src={chineseZodiac.heavenlyStemIcon}
-              alt={chineseZodiac.heavenlyStemKanji}
-              title={chineseZodiac.heavenlyStemKanji}
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-            <img
-              src={chineseZodiac.icon}
-              alt={chineseZodiac.animal}
-              title={chineseZodiac.animalKanji}
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.chineseZodiac")}</h3>
-          <p className="card-value">
-            {useKanji ? chineseZodiac.combined : chineseZodiac.combinedRomaji}
-          </p>
-          <p className="card-subtitle">
-            {useKanji
-              ? `${chineseZodiac.combinedReading}（${chineseZodiac.earthlyBranchKanji}年）`
-              : `${chineseZodiac.combined} (Year of the ${chineseZodiac.animal})`}
-          </p>
-        </div>
-
-        {/* Zodiac Sign */}
-        <div className="result-card zodiac-sign">
-          <div className="card-icon">
-            <img
-              src={zodiacSign.icon}
-              alt={zodiacSign.name}
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.zodiacSign")}</h3>
-          <p className="card-value">
-            {useKanji ? zodiacSign.nameKanji : zodiacSign.name}
-          </p>
-          {!useKanji && <p className="card-subtitle">{zodiacSign.nameKanji}</p>}
-        </div>
-
-        {/* Nine Star Ki */}
-        <div className="result-card nine-star">
-          <div className="card-icon">
-            <NineStarIcon colorName={nineStar.color} />
-          </div>
-          <h3 className="card-title">{t("result.nineStar")}</h3>
-          <p className="card-value">
-            {useKanji ? `${nineStar.nameKanji}` : `${nineStar.name}`}
-          </p>
-          <p className="card-subtitle">
-            {!useKanji && `${nineStar.nameKanji}`}
-          </p>
-          {nineStar.isApproximate && (
-            <p className="card-note">{t("result.nineStarApproximate")}</p>
-          )}
-        </div>
-
-        {/* Rokuyo */}
-        <div className="result-card rokuyo">
-          <div className="card-icon">
-            <img
-              src={`/images/rokuyo/${rokuyo.reading}.svg`}
-              alt={rokuyo.name}
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.rokuyo")}</h3>
-          <p className="card-value">
-            {useKanji ? rokuyo.nameKanji : rokuyo.name}
-          </p>
-          {!useKanji && <p className="card-subtitle">{rokuyo.nameKanji}</p>}
-        </div>
-
-        {/* Moon Phase */}
-        <div className="result-card moon-phase">
-          <div className="card-icon">
-            <MoonPhaseIcon phase={moonPhase} />
-          </div>
-          <h3 className="card-title">{t("result.moonPhase")}</h3>
-          <p className="card-value">
-            {useKanji ? moonPhase.phaseKanji : moonPhase.phase}
-          </p>
-          <p className="card-subtitle">
-            {t("result.moonAge")}: {moonPhase.age}
-          </p>
-        </div>
-
-        {/* Elapsed Time */}
-        <div
-          className="result-card elapsed-time"
-          style={{ borderTop: "4px solid #8e44ad" }}
-        >
-          <div className="card-icon">
-            <img
-              src="/images/hourglass.svg"
-              alt="Hourglass"
-              className="w-12 h-12 object-contain"
-              style={{ width: "3rem", height: "3rem" }}
-            />
-          </div>
-          <h3 className="card-title">{t("result.elapsedTitle")}</h3>
-          <p className="card-value">
-            {absTotalDays}
-            <span style={{ fontSize: "1rem" }}>{t("result.daysSuffix")}</span>
-            <span
-              style={{
-                fontSize: "0.8rem",
-                marginLeft: "0.5rem",
-                color: "var(--text-secondary)",
-              }}
-            >
-              {totalDays >= 0
-                ? useKanji
-                  ? "(経過)"
-                  : "(Passed)"
-                : useKanji
-                ? "(前)"
-                : "(Before)"}
-            </span>
-          </p>
-          <p className="card-subtitle">
-            {duration.years}
-            {t("result.years")} {duration.months}
-            {t("result.months")} {duration.days}
-            {t("result.days")}
-          </p>
-        </div>
+        <WesternYearCard date={targetDate} />
+        <JapaneseEraCard era={japaneseEra} />
+        <ChineseZodiacCard zodiac={chineseZodiac} />
+        <ZodiacSignCard sign={zodiacSign} />
+        <NineStarCard nineStar={nineStar} />
+        <RokuyoCard rokuyo={rokuyo} />
+        <MoonPhaseCard phase={moonPhase} />
+        <ElapsedTimeCard
+          totalDays={totalDays}
+          absTotalDays={absTotalDays}
+          duration={duration}
+        />
       </div>
     </div>
   );
