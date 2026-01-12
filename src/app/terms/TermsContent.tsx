@@ -21,7 +21,7 @@ export default function TermsContent() {
         {language === "ja" ? (
           <div className="terms-content">
             <h1>利用規約</h1>
-            <p className="last-updated">最終更新日: 2026年1月6日</p>
+            <p className="last-updated">最終更新日: 2026年1月12日</p>
 
             <section>
               <h2>1. はじめに</h2>
