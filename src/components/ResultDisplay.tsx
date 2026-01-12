@@ -17,6 +17,8 @@ import { NineStarCard } from "./cards/NineStarCard";
 import { RokuyoCard } from "./cards/RokuyoCard";
 import { MoonPhaseCard } from "./cards/MoonPhaseCard";
 import { ElapsedTimeCard } from "./cards/ElapsedTimeCard";
+import { MonthCard } from "./cards/MonthCard";
+import { DayCard } from "./cards/DayCard";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -120,6 +122,23 @@ export function ResultDisplay({
     }
   }
 
+  const renderSectionHeader = (title: string) => (
+    <div
+      style={{
+        width: "100%",
+        textAlign: "left",
+        padding: "1rem 0 0.5rem",
+        marginBottom: "1rem",
+        borderBottom: "1px solid var(--card-border)",
+        color: "var(--color-kogane)",
+        fontWeight: "bold",
+        fontSize: "1.2rem",
+      }}
+    >
+      {title}
+    </div>
+  );
+
   return (
     <div className="result-container">
       <h2 className="section-title">{t("result.title")}</h2>
@@ -137,11 +156,21 @@ export function ResultDisplay({
       </p>
 
       <div className="result-grid">
+        {/* Year Section */}
+        {renderSectionHeader(t("result.year"))}
         <WesternYearCard date={targetDate} />
         <JapaneseEraCard era={japaneseEra} />
         <ChineseZodiacCard zodiac={chineseZodiac} />
-        <ZodiacSignCard sign={zodiacSign} />
         <NineStarCard nineStar={nineStar} />
+
+        {/* Month Section */}
+        {renderSectionHeader(t("result.month"))}
+        <MonthCard date={targetDate} />
+        <ZodiacSignCard sign={zodiacSign} />
+
+        {/* Day Section */}
+        {renderSectionHeader(t("result.day"))}
+        <DayCard date={targetDate} />
         <RokuyoCard rokuyo={rokuyo} />
         <MoonPhaseCard phase={moonPhase} />
         <ElapsedTimeCard
