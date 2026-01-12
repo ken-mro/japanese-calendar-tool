@@ -15,11 +15,15 @@ export function DayCard({ date }: DayCardProps) {
 
   const day = date.getDate();
 
+  const weekday = useKanji
+    ? date.toLocaleDateString("ja-JP", { weekday: "long" })
+    : date.toLocaleDateString("en-US", { weekday: "long" });
+
   return (
     <ResultCard
       className="day-card"
       icon={<Icon src="/images/calendar-day.svg" alt="Day" />}
-      title={t("result.day")} // We might need to add this key
+      title={t("result.day")}
       value={
         useKanji ? (
           <>{day}日</>
@@ -27,12 +31,8 @@ export function DayCard({ date }: DayCardProps) {
           date.toLocaleDateString("en-US", { day: "numeric" })
         )
       }
-      subtitle={
-        useKanji
-          ? date.toLocaleDateString("ja-JP", { weekday: "long" })
-          : date.toLocaleDateString("en-US", { weekday: "long" })
-      }
       valueStyle={{ fontSize: "1.8rem", lineHeight: "1.2" }}
+      subtitle={weekday}
     />
   );
 }

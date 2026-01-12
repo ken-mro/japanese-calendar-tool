@@ -7,9 +7,13 @@ import { ResultCard } from "./ResultCard";
 
 interface NineStarCardProps {
   nineStar: NineStar;
+  hideNote?: boolean;
 }
 
-export function NineStarCard({ nineStar }: NineStarCardProps) {
+export function NineStarCard({
+  nineStar,
+  hideNote = false,
+}: NineStarCardProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const useKanji = language === "ja";
@@ -22,7 +26,9 @@ export function NineStarCard({ nineStar }: NineStarCardProps) {
       value={useKanji ? `${nineStar.nameKanji}` : `${nineStar.name}`}
       subtitle={!useKanji ? `${nineStar.nameKanji}` : undefined}
       note={
-        nineStar.isApproximate ? t("result.nineStarApproximate") : undefined
+        !hideNote && nineStar.isApproximate
+          ? t("result.nineStarApproximate")
+          : undefined
       }
     />
   );
