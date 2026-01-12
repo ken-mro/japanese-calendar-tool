@@ -1,5 +1,4 @@
-// Nine Star Ki (九星) calculation
-// Uses Risshun/立春 (around Feb 4) as the year boundary
+import { getStarDate } from './solarTerms';
 
 const NINE_STARS = [
   { number: 1, name: '1 White Water', kanji: '一白水星', element: 'Water', elementKanji: '水', color: 'White', colorKanji: '白' },
@@ -24,24 +23,6 @@ export interface NineStar {
   isApproximate?: boolean; // True if Risshun date is approximated (year < 1966 or > 2060)
 }
 
-// Specific Risshun (立春) dates for years that differ from the default Feb 4
-// Feb 5: leap year pattern in late Showa/early Heisei
-// Feb 3: pattern starting from 2021
-const RISSHUN_DATES: Record<number, number> = {
-  // Years with Risshun on Feb 5
-  1968: 5, 1972: 5, 1976: 5, 1980: 5, 1984: 5,
-  // Years with Risshun on Feb 3
-  2021: 3, 2025: 3, 2029: 3, 2033: 3, 2037: 3,
-  2041: 3, 2045: 3, 2049: 3, 2053: 3, 2057: 3, 2058: 3,
-};
-
-// Get the Risshun (立春) date for a given year
-// Risshun marks the beginning of spring in the traditional Japanese calendar
-function getRisshunDate(year: number): Date {
-  const day = RISSHUN_DATES[year] ?? 4; // Default to Feb 4
-  return new Date(year, 1, day);
-}
-
 // Sum digits until the result is 10 or less
 function sumDigitsUntilSmall(num: number): number {
   let sum = num;
@@ -56,7 +37,8 @@ export function getNineStar(birthDate: Date): NineStar {
   const originalYear = year;
   
   // Check if before Risshun (立春) - use previous year
-  const risshun = getRisshunDate(year);
+  // Risshun is the 2nd solar term (Month 2 in our config)
+  const risshun = getStarDate(year, 2);
   if (birthDate < risshun) {
     year -= 1;
   }
