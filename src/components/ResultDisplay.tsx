@@ -8,6 +8,11 @@ import {
   getNineStar,
   getRokuyo,
   getMoonPhase,
+  getMonthZodiac,
+  getMonthNineStar,
+  getDayZodiac,
+  getDayNineStar,
+  getJuniChoku,
 } from "@/lib/calculations";
 import { WesternYearCard } from "./cards/WesternYearCard";
 import { JapaneseEraCard } from "./cards/JapaneseEraCard";
@@ -17,6 +22,9 @@ import { NineStarCard } from "./cards/NineStarCard";
 import { RokuyoCard } from "./cards/RokuyoCard";
 import { MoonPhaseCard } from "./cards/MoonPhaseCard";
 import { ElapsedTimeCard } from "./cards/ElapsedTimeCard";
+import { MonthCard } from "./cards/MonthCard";
+import { DayCard } from "./cards/DayCard";
+import { JuniChokuCard } from "./cards/JuniChokuCard";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -60,6 +68,13 @@ export function ResultDisplay({
   const nineStar = getNineStar(targetDate);
   const rokuyo = getRokuyo(targetDate);
   const moonPhase = getMoonPhase(targetDate);
+
+  // Additional Month/Day calculations
+  const monthZodiac = getMonthZodiac(targetDate);
+  const monthNineStar = getMonthNineStar(targetDate);
+  const dayZodiac = getDayZodiac(targetDate);
+  const dayNineStar = getDayNineStar(targetDate);
+  const juniChoku = getJuniChoku(targetDate);
 
   // Elapsed Time Calculation
   const today = new Date();
@@ -120,6 +135,23 @@ export function ResultDisplay({
     }
   }
 
+  const renderSectionHeader = (title: string) => (
+    <div
+      style={{
+        width: "100%",
+        textAlign: "left",
+        padding: "1rem 0 0.5rem",
+        marginBottom: "1rem",
+        borderBottom: "1px solid var(--card-border)",
+        color: "var(--color-kogane)",
+        fontWeight: "bold",
+        fontSize: "1.2rem",
+      }}
+    >
+      {title}
+    </div>
+  );
+
   return (
     <div className="result-container">
       <h2 className="section-title">{t("result.title")}</h2>
@@ -137,13 +169,28 @@ export function ResultDisplay({
       </p>
 
       <div className="result-grid">
+        {/* Year Section */}
+        {renderSectionHeader(t("result.year"))}
         <WesternYearCard date={targetDate} />
         <JapaneseEraCard era={japaneseEra} />
-        <ChineseZodiacCard zodiac={chineseZodiac} />
-        <ZodiacSignCard sign={zodiacSign} />
+        <ChineseZodiacCard zodiac={chineseZodiac} variant="year" />
         <NineStarCard nineStar={nineStar} />
+
+        {/* Month Section */}
+        {renderSectionHeader(t("result.month"))}
+        <MonthCard date={targetDate} />
+        <ZodiacSignCard sign={zodiacSign} />
+        <ChineseZodiacCard zodiac={monthZodiac} variant="month" />
+        <NineStarCard nineStar={monthNineStar} hideNote={true} />
+
+        {/* Day Section */}
+        {renderSectionHeader(t("result.day"))}
+        <DayCard date={targetDate} />
         <RokuyoCard rokuyo={rokuyo} />
+        <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
+        <NineStarCard nineStar={dayNineStar} hideNote={true} />
         <MoonPhaseCard phase={moonPhase} />
+        <JuniChokuCard choku={juniChoku} />
         <ElapsedTimeCard
           totalDays={totalDays}
           absTotalDays={absTotalDays}

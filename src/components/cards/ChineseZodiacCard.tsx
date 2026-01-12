@@ -5,12 +5,29 @@ import Icon from "../icons/Icon";
 
 interface ChineseZodiacCardProps {
   zodiac: ChineseZodiac;
+  variant?: "year" | "month" | "day";
 }
 
-export function ChineseZodiacCard({ zodiac }: ChineseZodiacCardProps) {
+export function ChineseZodiacCard({
+  zodiac,
+  variant = "year",
+}: ChineseZodiacCardProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const useKanji = language === "ja";
+
+  const getSubtitle = () => {
+    if (useKanji) {
+      if (variant === "year")
+        return `${zodiac.combinedReading}（${zodiac.earthlyBranchKanji}年）`;
+      return zodiac.combinedReading;
+    } else {
+      let variantText = "Year";
+      if (variant === "month") variantText = "Month";
+      if (variant === "day") variantText = "Day";
+      return `${zodiac.combined} (${variantText} of the ${zodiac.animal})`;
+    }
+  };
 
   return (
     <ResultCard
@@ -32,11 +49,7 @@ export function ChineseZodiacCard({ zodiac }: ChineseZodiacCardProps) {
       }
       title={t("result.chineseZodiac")}
       value={useKanji ? zodiac.combined : zodiac.combinedRomaji}
-      subtitle={
-        useKanji
-          ? `${zodiac.combinedReading}（${zodiac.earthlyBranchKanji}年）`
-          : `${zodiac.combined} (Year of the ${zodiac.animal})`
-      }
+      subtitle={getSubtitle()}
     />
   );
 }

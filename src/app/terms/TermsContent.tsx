@@ -34,7 +34,7 @@ export default function TermsContent() {
             <section>
               <h2>2. サービスの性質</h2>
               <p>
-                本サービスは、日付、和暦、干支などの計算機能を提供するツールです。
+                本サービスは、日付、和暦、干支、九星、六曜、十二直などの計算機能を提供するツールです。
                 開発者は、本サービスの機能や内容を利用者への事前の通知なく変更・終了する権利を保有します。
               </p>
             </section>
@@ -125,43 +125,36 @@ export default function TermsContent() {
             </section>
 
             <section>
-              <h2>4. 九星気学（九星）に関する注意事項</h2>
+              <h2>4. 各種計算の仕様と制約事項</h2>
               <p>
-                九星の計算において、本アプリでは立春（通常2月4日頃）を年の区切りとして採用しています。
-                なお、立春の日付データは、Wikipedia「
-                <a
-                  href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="content-link"
-                >
-                  立春
-                </a>
-                」の記載（日本における日時）を参考にしています。
-                ただし、1965年以前または2061年以降などの一部の期間については、便宜上「2月4日」を一律で立春として計算を行っています。
+                <strong>干支（月干支）:</strong>{" "}
+                月干支については、占いなどで用いられる伝統的な「節切り（二十四節気）」ではなく、現代の「新暦（グレゴリオ暦）」の月区切りに基づいて算出する方式を採用しています。
               </p>
               <p>
-                また、本アプリは出生時間、均時差、出生地の経度による補正機能を有していません。
-                そのため、節入りの日時（立春など）の直前直後に生まれた方については、正確な鑑定結果と異なる場合があります。
-                精密な鑑定が必要な場合は、専門の書籍や鑑定士にご相談ください。
+                <strong>九星（年・月・日）:</strong> <br />・
+                <strong>年九星:</strong>{" "}
+                原則として「立春（通常2月4日頃）」を年の区切りとして採用しています。立春の日付は、1966年から2060年まではWikipedia「立春」の日付データ（日本時間）を参照しており、それ以外の期間については一般的に立春とされる日付を使用しています。出生時間、均時差、経度による補正は行っていません。
+                <br />・<strong>月九星:</strong>{" "}
+                「節切り（節月）」を採用しています。
+                <br />・<strong>日九星:</strong>{" "}
+                冬至・夏至に「最も近い甲子日（きのえね）」を陰遁・陽遁の切り替え日とする方式を採用しています。流派によって切り替え日が異なる場合があります。
               </p>
-            </section>
-
-            <section>
-              <h2>5. 六曜・月齢（月の満ち欠け）に関する注意事項</h2>
               <p>
                 <strong>六曜:</strong>{" "}
-                本アプリの六曜は、日付（太陽暦）から簡易的な旧暦変換計算を行って算出しています。
-                特定の暦注における「旧暦の閏月」や「節月」の扱いの違いにより、市販のカレンダー等の表記と異なる場合があります。
+                日付（太陽暦）から簡易的な旧暦変換計算を行って算出しています。旧暦の閏月などの扱いの違いにより、他のカレンダーと異なる場合があります。
               </p>
               <p>
-                <strong>月齢・月の満ち欠け:</strong>{" "}
+                <strong>十二直:</strong>{" "}
+                日干支と節月（節切り）に基づいて算出しています。節月の日付は、1966年から2060年まではWikipediaの各節月の日付データ（日本時間）を参照しており、それ以外の期間については一般的にその節月とされる日付を使用しています。
+              </p>
+              <p>
+                <strong>月齢:</strong>{" "}
                 簡易計算による目安値を表示しており、天文学的な厳密さを保証するものではありません。
               </p>
             </section>
 
             <section>
-              <h2>6. 免責事項</h2>
+              <h2>5. 免責事項</h2>
               <p>
                 開発者は、本サービスの利用に起因して利用者に生じたあらゆる損害（直接的、間接的を問わず）について、一切の責任を負いません。
                 特に、前項などで述べた和暦、九星、歴史的日付の計算における不正確さに起因する誤解や問題についても、開発者は責任を負いかねます。
@@ -186,9 +179,9 @@ export default function TermsContent() {
               <h2>2. Nature of Service</h2>
               <p>
                 This Service provides tools for calculating dates, Japanese
-                eras, zodiac signs, etc. The Developer reserves the right to
-                modify or discontinue the Service at any time without prior
-                notice.
+                eras, zodiac signs, Nine Star Ki, Rokuyo, 12 Choku, etc. The
+                Developer reserves the right to modify or discontinue the
+                Service at any time without prior notice.
               </p>
             </section>
 
@@ -294,51 +287,46 @@ export default function TermsContent() {
             </section>
 
             <section>
-              <h2>4. Notes on Nine Star Ki (Kyusei)</h2>
+              <h2>4. Specifications and Constraints</h2>
               <p>
-                In calculating the Nine Star Ki, this application uses Risshun
-                (Start of Spring, usually around February 4th) as the boundary
-                for the year. Risshun dates are based on data referenced from
-                Wikipedia&apos;s &quot;
-                <a
-                  href="https://ja.wikipedia.org/wiki/%E7%AB%8B%E6%98%A5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="content-link"
-                >
-                  Risshun
-                </a>
-                &quot; article (Japan dates). However, for certain periods
-                (e.g., 1965 or earlier / 2061 or later), calculations may use
-                &quot;February 4th&quot; as a fixed date for convenience.
+                <strong>Month Eto:</strong> Calculated based on Gregorian
+                calendar month boundaries (Civil Month), not the traditional
+                Solar Term (Setsu-giri) boundaries used in some fortune-telling
+                methods.
               </p>
               <p>
-                Additionally, this application does not support adjustments for
-                birth time, equation of time, or longitude of birth. Therefore,
-                results may differ for individuals born exactly near the change
-                of solar terms (such as Risshun). For precise readings, please
-                consult specialized books or professional fortune tellers.
-              </p>
-            </section>
-
-            <section>
-              <h2>5. Notes on Rokuyo and Moon Phase</h2>
-              <p>
-                <strong>Rokuyo:</strong> The Rokuyo results are calculated using
-                a simplified conversion from the solar calendar to the lunisolar
-                calendar. Results may differ from other calendars due to
-                variations in how &quot;leap months&quot; or solar terms are
-                handled in different systems.
+                <strong>Nine Star Ki (Year/Month/Day):</strong>
+                <br />- <strong>Year Star:</strong> Uses Risshun (approx. Feb 4)
+                as the year boundary. For the period 1966-2060, dates are based
+                on Japanese Wikipedia data (Japan Standard Time). For other
+                periods, generally accepted dates are used. No adjustments are
+                made for birth time, equation of time, or longitude.
+                <br />- <strong>Month Star:</strong> Based on traditional Solar
+                Terms (Setsu-giri).
+                <br />- <strong>Day Star:</strong> Follows the method where the
+                Yin/Yang Dun cycle switches on the &quot;Kinoe-Ne&quot; day
+                closest to the Solstice. Results may differ from other schools
+                of thought.
               </p>
               <p>
-                <strong>Moon Phase:</strong> The Moon Age and Phase displayed
-                are approximate values based on simplified calculations and are
-                not guaranteed to be astronomically precise.
+                <strong>Rokuyo:</strong> Calculated using a simplified
+                conversion to the lunisolar calendar. May differ from other
+                sources due to variations in how leap months are handled.
+              </p>
+              <p>
+                <strong>12 Choku:</strong> Calculated based on the Day Eto and
+                Solar Month. For Solar Month dates, Japanese Wikipedia data
+                (Japan Standard Time) is used for the period 1966-2060, and
+                generally accepted dates are used for other periods.
+              </p>
+              <p>
+                <strong>Moon Phase:</strong> Values are approximations based on
+                simplified calculations.
               </p>
             </section>
 
             <section>
-              <h2>6. Disclaimer</h2>
+              <h2>5. Disclaimer</h2>
               <p>
                 The Developer assumes no responsibility for any damages or
                 losses (direct or indirect) arising from the use of this
