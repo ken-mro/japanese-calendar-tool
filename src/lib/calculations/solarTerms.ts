@@ -106,3 +106,56 @@ export function getStarDate(year: number, month: number): Date {
   // Create date object (Month is 0-indexed in JS Date)
   return new Date(year, month - 1, day);
 }
+
+/**
+ * Returns the day of the month for the Solar Term (Setsu).
+ */
+export function getSolarTermStartDay(year: number, month: number): number {
+  return getStarDate(year, month).getDate();
+}
+
+/**
+ * Returns the Solar Year for a given date.
+ * If the date is before Risshun (Feb Setsu), it counts as the previous year.
+ */
+export function getSolarYear(date: Date): number {
+  let year = date.getFullYear();
+  const risshun = getStarDate(year, 2); // Risshun is Feb ( Month 2)
+  if (date < risshun) {
+    year -= 1;
+  }
+  return year;
+}
+
+/**
+ * Returns the Solar Month Branch Index.
+ * This corresponds to the Earthly Branch of the month.
+ * Jan (Ox) = 1, Feb (Tiger) = 2, ..., Dec (Rat) = 0.
+ * Logic matches traditional solar month boundaries (Setsu).
+ */
+export function getSolarMonthBranchIndex(date: Date): number {
+    const year = date.getFullYear();
+    // Month is 1-12
+    let month = date.getMonth() + 1;
+    
+    // Get the Setsu date for this month
+    const setsu = getStarDate(year, month);
+    
+    // If before the Setsu date, it belongs to the previous solar month
+    if (date < setsu) {
+        month -= 1;
+    }
+    
+    // Normalize logic:
+    // If month becomes 0 (Dec previous year), we want to map it to 0 (Rat) or 12?
+    // The requirement implies 1..12 mapping or 0..11?
+    // Based on "Dec->0 (Rat)", it seems `month % 12` is the correct mapping.
+    // 1(Jan) -> 1
+    // 12(Dec) -> 0
+    // 13(Jan next year if logic exceeded) -> 1
+    
+    // Adjust for 0 (Dec prev year) case
+    if (month === 0) return 0; // Dec of prev year is Rat (0)
+    
+    return month % 12;
+}
