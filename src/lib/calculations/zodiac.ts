@@ -2,32 +2,32 @@
 
 // 十干 (Heavenly Stems)
 export const HEAVENLY_STEMS = [
-  { kanji: '甲', reading: 'きのえ', romaji: 'kinoe', icon: '/images/heavenly_stems/kinoe.svg' },
-  { kanji: '乙', reading: 'きのと', romaji: 'kinoto', icon: '/images/heavenly_stems/kinoto.svg' },
-  { kanji: '丙', reading: 'ひのえ', romaji: 'hinoe', icon: '/images/heavenly_stems/hinoe.svg' },
-  { kanji: '丁', reading: 'ひのと', romaji: 'hinoto', icon: '/images/heavenly_stems/hinoto.svg' },
-  { kanji: '戊', reading: 'つちのえ', romaji: 'tsuchinoe', icon: '/images/heavenly_stems/tsuchinoe.svg' },
-  { kanji: '己', reading: 'つちのと', romaji: 'tsuchinoto', icon: '/images/heavenly_stems/tsuchinoto.svg' },
-  { kanji: '庚', reading: 'かのえ', romaji: 'kanoe', icon: '/images/heavenly_stems/kanoe.svg' },
-  { kanji: '辛', reading: 'かのと', romaji: 'kanoto', icon: '/images/heavenly_stems/kanoto.svg' },
-  { kanji: '壬', reading: 'みずのえ', romaji: 'mizunoe', icon: '/images/heavenly_stems/mizunoe.svg' },
-  { kanji: '癸', reading: 'みずのと', romaji: 'mizunoto', icon: '/images/heavenly_stems/mizunoto.svg' },
+  { kanji: '甲', reading: 'きのえ', romaji: 'kinoe', icon: '/images/heavenly_stems/kinoe.svg', meaningJa: '大樹・直立', meaningEn: 'Big Tree (Nature: Wood/Yang)' },
+  { kanji: '乙', reading: 'きのと', romaji: 'kinoto', icon: '/images/heavenly_stems/kinoto.svg', meaningJa: '草花・柔軟', meaningEn: 'Grass/Flower (Nature: Wood/Yin)' },
+  { kanji: '丙', reading: 'ひのえ', romaji: 'hinoe', icon: '/images/heavenly_stems/hinoe.svg', meaningJa: '太陽・情熱', meaningEn: 'Sun (Nature: Fire/Yang)' },
+  { kanji: '丁', reading: 'ひのと', romaji: 'hinoto', icon: '/images/heavenly_stems/hinoto.svg', meaningJa: '灯火・温厚', meaningEn: 'Candle/Fire (Nature: Fire/Yin)' },
+  { kanji: '戊', reading: 'つちのえ', romaji: 'tsuchinoe', icon: '/images/heavenly_stems/tsuchinoe.svg', meaningJa: '山岳・不動', meaningEn: 'Mountain (Nature: Earth/Yang)' },
+  { kanji: '己', reading: 'つちのと', romaji: 'tsuchinoto', icon: '/images/heavenly_stems/tsuchinoto.svg', meaningJa: '田畑・育成', meaningEn: 'Soil/Field (Nature: Earth/Yin)' },
+  { kanji: '庚', reading: 'かのえ', romaji: 'kanoe', icon: '/images/heavenly_stems/kanoe.svg', meaningJa: '鉱石・剛毅', meaningEn: 'Sword/Metal (Nature: Metal/Yang)' },
+  { kanji: '辛', reading: 'かのと', romaji: 'kanoto', icon: '/images/heavenly_stems/kanoto.svg', meaningJa: '宝石・繊細', meaningEn: 'Gem/Jewelry (Nature: Metal/Yin)' },
+  { kanji: '壬', reading: 'みずのえ', romaji: 'mizunoe', icon: '/images/heavenly_stems/mizunoe.svg', meaningJa: '大海・包容', meaningEn: 'Ocean (Nature: Water/Yang)' },
+  { kanji: '癸', reading: 'みずのと', romaji: 'mizunoto', icon: '/images/heavenly_stems/mizunoto.svg', meaningJa: '雨露・知性', meaningEn: 'Rain/Dew (Nature: Water/Yin)' },
 ];
 
 // 十二支 (Earthly Branches)
 export const EARTHLY_BRANCHES = [
-  { kanji: '子', reading: 'ね', romaji: 'ne', animal: 'Rat', animalKanji: '鼠', icon: '/images/zodiac/rat.svg' },
-  { kanji: '丑', reading: 'うし', romaji: 'ushi', animal: 'Ox', animalKanji: '牛', icon: '/images/zodiac/ox.svg' },
-  { kanji: '寅', reading: 'とら', romaji: 'tora', animal: 'Tiger', animalKanji: '虎', icon: '/images/zodiac/tiger.svg' },
-  { kanji: '卯', reading: 'う', romaji: 'u', animal: 'Rabbit', animalKanji: '兎', icon: '/images/zodiac/rabbit.svg' },
-  { kanji: '辰', reading: 'たつ', romaji: 'tatsu', animal: 'Dragon', animalKanji: '龍', icon: '/images/zodiac/dragon.svg' },
-  { kanji: '巳', reading: 'み', romaji: 'mi', animal: 'Snake', animalKanji: '蛇', icon: '/images/zodiac/snake.svg' },
-  { kanji: '午', reading: 'うま', romaji: 'uma', animal: 'Horse', animalKanji: '馬', icon: '/images/zodiac/horse.svg' },
-  { kanji: '未', reading: 'ひつじ', romaji: 'hitsuji', animal: 'Sheep', animalKanji: '羊', icon: '/images/zodiac/sheep.svg' },
-  { kanji: '申', reading: 'さる', romaji: 'saru', animal: 'Monkey', animalKanji: '猿', icon: '/images/zodiac/monkey.svg' },
-  { kanji: '酉', reading: 'とり', romaji: 'tori', animal: 'Rooster', animalKanji: '鶏', icon: '/images/zodiac/rooster.svg' },
-  { kanji: '戌', reading: 'いぬ', romaji: 'inu', animal: 'Dog', animalKanji: '犬', icon: '/images/zodiac/dog.svg' },
-  { kanji: '亥', reading: 'い', romaji: 'i', animal: 'Boar', animalKanji: '猪', icon: '/images/zodiac/boar.svg' },
+  { kanji: '子', reading: 'ね', romaji: 'ne', animal: 'Rat', animalKanji: '鼠', icon: '/images/zodiac/rat.svg', meaningJa: '子孫繁栄・行動力', meaningEn: 'Prosperity/Action' },
+  { kanji: '丑', reading: 'うし', romaji: 'ushi', animal: 'Ox', animalKanji: '牛', icon: '/images/zodiac/ox.svg', meaningJa: '粘り強さ・堅実', meaningEn: 'Tenacity/Patience' },
+  { kanji: '寅', reading: 'とら', romaji: 'tora', animal: 'Tiger', animalKanji: '虎', icon: '/images/zodiac/tiger.svg', meaningJa: '決断力・才知', meaningEn: 'Decisiveness/Bravery' },
+  { kanji: '卯', reading: 'う', romaji: 'u', animal: 'Rabbit', animalKanji: '兎', icon: '/images/zodiac/rabbit.svg', meaningJa: '温厚・家内安全', meaningEn: 'Safety/Gentleness' },
+  { kanji: '辰', reading: 'たつ', romaji: 'tatsu', animal: 'Dragon', animalKanji: '龍', icon: '/images/zodiac/dragon.svg', meaningJa: '正義感・権力', meaningEn: 'Authority/Justice' },
+  { kanji: '巳', reading: 'み', romaji: 'mi', animal: 'Snake', animalKanji: '蛇', icon: '/images/zodiac/snake.svg', meaningJa: '探究心・情熱', meaningEn: 'Wisdom/Passion' },
+  { kanji: '午', reading: 'うま', romaji: 'uma', animal: 'Horse', animalKanji: '馬', icon: '/images/zodiac/horse.svg', meaningJa: '陽気・健康', meaningEn: 'Cheerfulness/Health' },
+  { kanji: '未', reading: 'ひつじ', romaji: 'hitsuji', animal: 'Sheep', animalKanji: '羊', icon: '/images/zodiac/sheep.svg', meaningJa: '穏やか・人脈', meaningEn: 'Peace/Family Security' },
+  { kanji: '申', reading: 'さる', romaji: 'saru', animal: 'Monkey', animalKanji: '猿', icon: '/images/zodiac/monkey.svg', meaningJa: '器用・臨機応変', meaningEn: 'Adaptability/Dexterity' },
+  { kanji: '酉', reading: 'とり', romaji: 'tori', animal: 'Rooster', animalKanji: '鶏', icon: '/images/zodiac/rooster.svg', meaningJa: '親切・商売繁盛', meaningEn: 'Kindness/Prosperity' },
+  { kanji: '戌', reading: 'いぬ', romaji: 'inu', animal: 'Dog', animalKanji: '犬', icon: '/images/zodiac/dog.svg', meaningJa: '誠実・忠義', meaningEn: 'Loyalty/Honesty' },
+  { kanji: '亥', reading: 'い', romaji: 'i', animal: 'Boar', animalKanji: '猪', icon: '/images/zodiac/boar.svg', meaningJa: '勇気・無病息災', meaningEn: 'Determination/Courage' },
 ];
 
 export interface ChineseZodiac {
@@ -48,10 +48,10 @@ export function getChineseZodiac(year: number): ChineseZodiac {
   // Sexagenary cycle starts from 4 AD
   const baseYear = 4;
   const cyclePosition = ((year - baseYear) % 60 + 60) % 60;
-  
+
   const stemIndex = cyclePosition % 10;
   const branchIndex = cyclePosition % 12;
-  
+
   return createZodiac(stemIndex, branchIndex);
 }
 
@@ -61,9 +61,9 @@ export function getMonthZodiac(date: Date): ChineseZodiac {
   // User Requirement: Civil Month Logic
   // Jan = Tiger (2), Feb = Rabbit (3), ..., Dec = Ox (1)
   // This aligns with "Hinoe-Tora" for Jan 2024.
-  
+
   const month = date.getMonth(); // 0(Jan) - 11(Dec)
-  
+
   // Map Gregorian Month to Branch Index
   // Jan(0) -> Tiger(2)
   // Feb(1) -> Rabbit(3)
@@ -77,9 +77,9 @@ export function getMonthZodiac(date: Date): ChineseZodiac {
   // Oct(9) -> Boar(11).
   // Nov(10) -> Rat(0).
   // Dec(11) -> Ox(1).
-  
+
   const monthBranchIndex = (month + 2) % 12;
-  
+
   // Calculate Stem
   // Use Gregorian Year for Stem calculation base?
   // 2024 (Kinoe). Jan 2024.
@@ -87,7 +87,7 @@ export function getMonthZodiac(date: Date): ChineseZodiac {
   // Year 2024 is Kinoe (0).
   // Jan 2024 is Tiger (2).
   // (0 * 2 + 2) % 10 = 2 (Hinoe). Correct.
-  
+
   // We need the Stem of the CIVIL year.
   // 2024 Jan 1 -> Still 2024 for this purpose?
   // User said Jan 1 2024 is Hinoe-Tora.
@@ -95,13 +95,13 @@ export function getMonthZodiac(date: Date): ChineseZodiac {
   // If we calculated 2023 Stem (Mizunoto), we would get: (9%5 * 2 + 2) = (4*2+2)=10=0(Kinoe).
   // So we MUST use the 2024 Year Stem.
   // This means getChineseZodiac(date.getFullYear()).
-  
+
   const civilYear = date.getFullYear();
   const yearZodiac = getChineseZodiac(civilYear);
   const yearStemIndex = HEAVENLY_STEMS.findIndex(s => s.kanji === yearZodiac.heavenlyStemKanji);
-  
+
   const monthStemIndex = ((yearStemIndex % 5) * 2 + monthBranchIndex) % 10;
-  
+
   return createZodiac(monthStemIndex, monthBranchIndex);
 }
 
@@ -113,15 +113,15 @@ export function getDayZodiac(date: Date): ChineseZodiac {
   d.setHours(12, 0, 0, 0);
   const ref = new Date(refDate);
   ref.setHours(12, 0, 0, 0);
-  
+
   const diffTime = d.getTime() - ref.getTime();
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-  
+
   const cyclePosition = ((diffDays % 60) + 60) % 60;
-  
+
   const stemIndex = cyclePosition % 10;
   const branchIndex = cyclePosition % 12;
-  
+
   return createZodiac(stemIndex, branchIndex);
 }
 
@@ -134,7 +134,7 @@ function createZodiac(stemIndex: number, branchIndex: number): ChineseZodiac {
   const combinedReading = stem.reading + branch.reading;
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const combinedRomaji = `${capitalize(stem.romaji)}-${capitalize(branch.romaji)}`;
-  
+
   return {
     heavenlyStemKanji: stem.kanji,
     earthlyBranchKanji: branch.kanji,
