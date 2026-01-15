@@ -3,29 +3,23 @@ import React from "react";
 interface NineStarIconProps {
   colorName: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const COLOR_MAP: Record<string, string> = {
-  White: "#bdc3c7", // Silver/Light Gray for visibility
-  Black: "#2c3e50", // Dark Blue/Gray
-  Blue: "#3498db",
-  Green: "#2ecc71",
-  Yellow: "#f1c40f",
-  Red: "#e74c3c",
-  Purple: "#9b59b6",
-};
-
-export function NineStarIcon({ colorName, className }: NineStarIconProps) {
-  const fill = COLOR_MAP[colorName] || "#ED8A19"; // Default orange from original SVG
-
-  const style: React.CSSProperties = {
-    fill,
-    width: "1em",
-    height: "1em",
-    stroke: colorName === "Black" ? "white" : "none",
-    strokeWidth: colorName === "Black" ? "2px" : "0",
-    strokeLinejoin: "round",
+export const NineStarIcon = ({ colorName, className = "w-[1em] h-[1em]", style }: NineStarIconProps) => {
+  const colorMap: Record<string, string> = {
+    White: "#ffffff",
+    Black: "#000000",
+    Blue: "#3498db",
+    Green: "#2ecc71",
+    Yellow: "#f1c40f",
+    Red: "#e74c3c",
+    Purple: "#9b59b6",
   };
+
+  const color = colorMap[colorName] || "#bdc3c7";
+  const stroke = colorName === "Black" ? "white" : "none";
+  const strokeWidth = colorName === "Black" ? "2px" : "0";
 
   return (
     <svg
@@ -40,6 +34,10 @@ export function NineStarIcon({ colorName, className }: NineStarIconProps) {
       aria-hidden="true"
     >
       <path
+        fill={color}
+        stroke={stroke}
+        strokeWidth={strokeWidth}
+        strokeLinejoin="round"
         d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
 	c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
 	c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685

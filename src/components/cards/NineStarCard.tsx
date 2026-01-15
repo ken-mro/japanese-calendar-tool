@@ -21,7 +21,7 @@ export function NineStarCard({
   return (
     <ResultCard
       className="nine-star"
-      icon={<NineStarIcon colorName={nineStar.color} />}
+      icon={<NineStarIcon colorName={nineStar.color} style={{ width: '3rem', height: '3rem' }} />}
       title={t("result.nineStar")}
       value={useKanji ? `${nineStar.nameKanji}` : `${nineStar.name}`}
       subtitle={!useKanji ? `${nineStar.nameKanji}` : undefined}
