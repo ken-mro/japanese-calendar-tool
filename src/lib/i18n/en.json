@@ -12,7 +12,9 @@
     "terms": "Terms of Service",
     "privacy": "Privacy Policy",
     "contact": "Contact",
-    "aboutThisTool": "About this tool"
+    "aboutThisTool": "About this tool",
+    "back": "Back",
+    "backToHome": "Back to Home"
   },
   "input": {
     "title": "Enter Date",
