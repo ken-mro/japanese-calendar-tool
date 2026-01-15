@@ -47,7 +47,7 @@ export default function EtoPage() {
                 </h2>
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
@@ -64,16 +64,16 @@ export default function EtoPage() {
                                     key={stem.romaji}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                                    <td style={{ textAlign: 'center', padding: '0.5rem' }} data-label="">
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                                             <div style={{ width: '48px', height: '48px' }}>
                                                 <Icon src={stem.icon} alt={stem.romaji} />
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }}>{stem.kanji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }}>{isJa ? stem.reading : stem.romaji}</td>
-                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }}>{isJa ? stem.meaningJa : stem.meaningEn}</td>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }} data-label={isJa ? "名称" : "Name"}>{stem.kanji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }} data-label={isJa ? "読み" : "Reading"}>{isJa ? stem.reading : stem.romaji}</td>
+                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }} data-label={isJa ? "意味" : "Meaning"}>{isJa ? stem.meaningJa : stem.meaningEn}</td>
                                 </tr>
                             ))}
                         </tbody>
@@ -89,7 +89,7 @@ export default function EtoPage() {
                 </h2>
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
@@ -107,19 +107,19 @@ export default function EtoPage() {
                                     key={branch.romaji}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                                    <td style={{ textAlign: 'center', padding: '0.5rem' }} data-label="">
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                                             <div style={{ width: '48px', height: '48px' }}>
                                                 <Icon src={branch.icon} alt={branch.animal} />
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }}>{branch.kanji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }}>{isJa ? branch.reading : branch.romaji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }}>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }} data-label={isJa ? "名称" : "Name"}>{branch.kanji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }} data-label={isJa ? "読み" : "Reading"}>{isJa ? branch.reading : branch.romaji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }} data-label={isJa ? "動物" : "Animal"}>
                                         {isJa ? branch.animalKanji : branch.animal}
                                     </td>
-                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }}>{isJa ? branch.meaningJa : branch.meaningEn}</td>
+                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }} data-label={isJa ? "意味" : "Meaning"}>{isJa ? branch.meaningJa : branch.meaningEn}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -49,7 +49,7 @@ export default function NineStarPage() {
 
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
@@ -67,17 +67,17 @@ export default function NineStarPage() {
                                     key={star.number}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td style={{ textAlign: 'center', padding: '0.5rem', verticalAlign: 'middle' }}>
+                                    <td style={{ textAlign: 'center', padding: '0.5rem', verticalAlign: 'middle' }} data-label="">
                                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                             <div style={{ width: '64px', height: '64px' }}>
                                                 <NineStarIcon colorName={star.color} className="w-full h-full" />
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>{star.kanji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>{isJa ? star.reading : star.romaji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }}>{isJa ? star.elementKanji : star.element}</td>
-                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem', verticalAlign: 'middle' }}>{isJa ? star.meaningJa : star.meaning}</td>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }} data-label={isJa ? "名称" : "Name"}>{star.kanji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }} data-label={isJa ? "読み" : "Reading"}>{isJa ? star.reading : star.romaji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', verticalAlign: 'middle', whiteSpace: 'nowrap' }} data-label={isJa ? "五行" : "Element"}>{isJa ? star.elementKanji : star.element}</td>
+                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem', verticalAlign: 'middle' }} data-label={isJa ? "意味" : "Meaning"}>{isJa ? star.meaningJa : star.meaning}</td>
                                 </tr>
                             ))}
                         </tbody>

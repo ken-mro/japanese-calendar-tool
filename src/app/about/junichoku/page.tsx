@@ -44,7 +44,7 @@ export default function JunichokuPage() {
 
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
@@ -60,9 +60,9 @@ export default function JunichokuPage() {
                                     key={choku.name}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }}>{choku.name}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }}>{isJa ? choku.reading : choku.romaji}</td>
-                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }}>{isJa ? choku.meaningJa : choku.meaning}</td>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }} data-label={isJa ? "名称" : "Name"}>{choku.name}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }} data-label={isJa ? "読み" : "Reading"}>{isJa ? choku.reading : choku.romaji}</td>
+                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }} data-label={isJa ? "意味" : "Meaning"}>{isJa ? choku.meaningJa : choku.meaning}</td>
                                 </tr>
                             ))}
                         </tbody>

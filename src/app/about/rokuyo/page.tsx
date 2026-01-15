@@ -44,7 +44,7 @@ export default function RokuyoPage() {
                 </h2>
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
@@ -62,16 +62,16 @@ export default function RokuyoPage() {
                                     key={type.name}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td style={{ textAlign: 'center', padding: '0.5rem' }}>
+                                    <td style={{ textAlign: 'center', padding: '0.5rem' }} data-label="">
                                         <div style={{ display: 'flex', justifyContent: 'center' }}>
                                             <div style={{ width: '48px', height: '48px' }}>
                                                 <Icon src={`/images/rokuyo/${type.reading}.svg`} alt={type.name} />
                                             </div>
                                         </div>
                                     </td>
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }}>{type.nameKanji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }}>{isJa ? type.readingHiragana : type.name}</td>
-                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }}>{isJa ? type.meaningJa : type.meaning}</td>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem' }} data-label={isJa ? "名称" : "Name"}>{type.nameKanji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.25rem 1.5rem', whiteSpace: 'nowrap' }} data-label={isJa ? "読み" : "Reading"}>{isJa ? type.readingHiragana : type.name}</td>
+                                    <td className="text-lg" style={{ textAlign: 'left', padding: '1.25rem 1.5rem' }} data-label={isJa ? "意味" : "Meaning"}>{isJa ? type.meaningJa : type.meaning}</td>
                                 </tr>
                             ))}
                         </tbody>

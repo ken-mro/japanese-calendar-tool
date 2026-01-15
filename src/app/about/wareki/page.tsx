@@ -52,12 +52,11 @@ export default function WarekiPage() {
                 {/* Responsive container with centered flex alignment */}
                 <div className="overflow-x-auto w-full flex justify-center pb-4">
                     <table
-                        className="border-collapse w-full max-w-[1200px]"
+                        className="border-collapse w-full max-w-[1200px] responsive-table"
                         style={{ margin: '0 auto' }}
                     >
                         <thead>
                             <tr className="border-b-2 border-[var(--card-border)] text-[var(--text-secondary)]">
-                                {/* Reduced padding to 2.5rem for better fit, removed strict large min-width */}
                                 <th className="font-bold text-lg" style={{ textAlign: 'center', padding: '1.5rem 2.5rem', whiteSpace: 'nowrap' }}>{isJa ? "元号" : "Era Name"}</th>
                                 <th className="font-bold text-lg" style={{ textAlign: 'center', padding: '1.5rem 2.5rem', whiteSpace: 'nowrap' }}>{isJa ? "読み" : "Romaji"}</th>
                                 <th className="font-bold text-lg" style={{ textAlign: 'center', padding: '1.5rem 2.5rem', whiteSpace: 'nowrap' }}>{isJa ? "開始日" : "Start"}</th>
@@ -71,15 +70,15 @@ export default function WarekiPage() {
                                     key={era.name}
                                     className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                                 >
-                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1rem 2rem' }}>{era.nameKanji}</td>
-                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1.5rem 2.5rem' }}>{isJa ? era.nameHiragana : era.name}</td>
-                                    <td className="text-lg font-mono" style={{ textAlign: 'center', padding: '1rem 2rem' }}>
+                                    <td className="font-bold text-2xl" style={{ textAlign: 'center', padding: '1rem 2rem' }} data-label={isJa ? "元号" : "Era Name"}>{era.nameKanji}</td>
+                                    <td className="text-xl" style={{ textAlign: 'center', padding: '1rem 2rem' }} data-label={isJa ? "読み" : "Romaji"}>{isJa ? era.nameHiragana : era.name}</td>
+                                    <td className="text-lg font-mono" style={{ textAlign: 'center', padding: '1rem 2rem' }} data-label={isJa ? "開始日" : "Start"}>
                                         {formatDate(era.startYear, era.startMonth, era.startDay)}
                                     </td>
-                                    <td className="text-lg font-mono" style={{ textAlign: 'center', padding: '1rem 2rem' }}>
+                                    <td className="text-lg font-mono" style={{ textAlign: 'center', padding: '1rem 2rem' }} data-label={isJa ? "終了日" : "End"}>
                                         {era.endYear === 9999 ? (isJa ? "現在" : "Present") : formatDate(era.endYear, era.endMonth, era.endDay)}
                                     </td>
-                                    <td className="text-lg text-[var(--text-secondary)]" style={{ textAlign: 'center', padding: '1rem 2rem' }}>
+                                    <td className="text-lg text-[var(--text-secondary)]" style={{ textAlign: 'center', padding: '1rem 2rem' }} data-label={isJa ? "年数" : "Duration"}>
                                         {era.endYear === 9999
                                             ? "-"
                                             : `${era.endYear - era.startYear + 1} ${isJa ? "年" : "yrs"}`}
