@@ -759,3 +759,100 @@ body {
   object-fit: contain;
 }
 
+
+/* Responsive Table Styles */
+@media (max-width: 768px) {
+  .responsive-table thead {
+    display: none;
+  }
+
+  .responsive-table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .responsive-table,
+  .responsive-table tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .responsive-table tbody td {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    align-items: center;
+    justify-items: center; /* Default center alignment for content */
+    padding: 0.75rem 0.5rem; /* Reduced padding */
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    min-height: 3rem;
+  }
+
+  .responsive-table tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .responsive-table tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-kogane);
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Grid item properties */
+    justify-self: start;
+  }
+
+  /* Meaning description: Left aligned content */
+  .responsive-table tbody td[data-label="Meaning"],
+  .responsive-table tbody td[data-label="意味"] {
+    justify-items: start;
+    text-align: left;
+  }
+  
+  .responsive-table tbody td[data-label="Meaning"]::before,
+  .responsive-table tbody td[data-label="意味"]::before {
+    /* No special override needed */
+  }
+
+  /* Center content for cells without labels (typically icons) */
+  .responsive-table tbody td[data-label=""] {
+    display: flex; /* Switch back to flex for single item centering */
+    justify-content: center;
+    padding-left: 0.5rem;
+  }
+
+  .responsive-table tbody td[data-label=""]::before {
+    display: none;
+  }
+  
+  /* Adjust container padding for mobile */
+  .description-container {
+    padding: 1rem !important; /* Override default 2rem/32px */
+  }
+  
+  .main-content {
+    padding: 0 0.5rem !important; /* Reduce side padding */
+  }
+}
+
+/* Home Description Grid */
+.about-links-grid {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .about-links-grid {
+    grid-template-columns: 1fr; /* Force single column full width on mobile */
+  }
+}

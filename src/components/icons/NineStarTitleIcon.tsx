@@ -58,7 +58,7 @@ export const NineStarTitleIcon = ({ className = "w-12 h-12" }: { className?: str
                 <path
                     fill={colors.Black}
                     stroke="#ffffff"
-                    strokeWidth="10"
+                    strokeWidth="2"
                     d="M438.5,2.305h-87.988c-7.755,0-14.038,6.283-14.038,14.04v87.989
 			c0,7.755,6.283,14.038,14.038,14.038H438.5c7.757,0,14.04-6.283,14.04-14.038V16.345C452.54,8.588,446.257,2.305,438.5,2.305z"
                 />
