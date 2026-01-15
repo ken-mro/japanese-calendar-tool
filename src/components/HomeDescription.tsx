@@ -35,7 +35,7 @@ export default function HomeDescription({
             }}
           >
             <span style={{ fontSize: "0.8em", opacity: 0.7 }}>▶</span>
-            {language === "ja" ? "このツールについて" : "About This Tool"}
+            {language === "ja" ? "ツールについて" : "About This Tool"}
           </h2>
         </div>
       </section>
@@ -57,7 +57,7 @@ export default function HomeDescription({
             }}
           >
             <span style={{ fontSize: "0.8em", opacity: 0.7 }}>▼</span>
-            このツールについて
+            ツールについて
           </h2>
           <p>
             この「暦計算ツール」は、西暦の日付から和暦（元号）、和風月名、干支（十干・十二支）、星座だけでなく、九星、六曜、十二直、月の満ち欠けを計算することができるツールです。
@@ -66,7 +66,7 @@ export default function HomeDescription({
             また、指定の日から前後何日かがいつかを計算することができるので、誕生日から1万日後がいつかなど、様々なシーンでお使いいただければと思います。ツールを利用することで、一日一日を大事に過ごす一助となれば幸いです。
           </p>
 
-          <div style={{ marginTop: '2rem', display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
+          <div className="about-links-grid">
             <Link href="/about/wareki" className="about-link-card">
               <h3>和暦とは</h3>
               <span className="arrow">→</span>
@@ -126,7 +126,7 @@ export default function HomeDescription({
           single day.
         </p>
 
-        <div style={{ marginTop: '2rem', display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))' }}>
+        <div className="about-links-grid">
           <Link href="/about/wareki" className="about-link-card">
             <h3>About Wareki (Japanese Era)</h3>
             <span className="arrow">→</span>
