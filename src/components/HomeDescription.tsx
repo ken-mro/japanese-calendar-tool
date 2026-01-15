@@ -3,6 +3,7 @@
 import { useLanguage } from "@/lib/i18n/config";
 import Link from "next/link";
 
+// Home description component
 export default function HomeDescription({
   isOpen = false,
   onToggle,
