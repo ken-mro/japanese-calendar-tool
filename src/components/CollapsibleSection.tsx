@@ -24,7 +24,7 @@ export function CollapsibleSection({
         style={{
           width: "100%",
           textAlign: "left",
-          padding: "1rem 0 0.5rem",
+          padding: "0.5rem 0 0.5rem",
           marginBottom: "1rem",
           borderBottom: "1px solid var(--card-border)",
           color: "var(--color-kogane)",

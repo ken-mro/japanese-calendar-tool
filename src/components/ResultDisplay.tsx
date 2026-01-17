@@ -152,7 +152,16 @@ export function ResultDisplay({
         {contextMessage}
       </p>
 
-      <div className="result-grid">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.5rem",
+          maxWidth: "1200px",
+          width: "100%",
+          margin: "0 auto",
+        }}
+      >
         {/* Year Section */}
         <CollapsibleSection
           title={t("result.year")}
