@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
 import {
   Header,
   DateInput,
@@ -62,13 +63,13 @@ export default function Home() {
       </main>
       <footer className="footer">
         <p className="footer-links">
-          <a href="/terms" className="footer-link">
+          <Link href="/terms" className="footer-link">
             {t("common.terms")}
-          </a>
+          </Link>
           <span className="footer-separator">|</span>
-          <a href="/privacy" className="footer-link">
+          <Link href="/privacy" className="footer-link">
             {t("common.privacy")}
-          </a>
+          </Link>
         </p>
         <p className="footer-contact">
           {t("common.contact")}: <ProtectedEmail />
