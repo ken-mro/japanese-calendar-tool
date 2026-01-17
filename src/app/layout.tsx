@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import { I18nProvider } from "@/lib/i18n/config";
+import { ScrollJoystick } from "@/components/ScrollJoystick";
 
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   keywords:
     "和暦,西暦,変換,干支,十干十二支,九星,星座,Japanese era,wareki, Sexagenary cycle, Heavenly Stems, Earthly Branches, Chinese zodiac",
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"
+    process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000",
   ),
   alternates: {
     canonical: "/",
@@ -73,7 +74,10 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={`${notoSerifJP.variable}`}>
-        <I18nProvider>{children}</I18nProvider>
+        <I18nProvider>
+          {children}
+          <ScrollJoystick />
+        </I18nProvider>
       </body>
     </html>
   );
