@@ -25,6 +25,7 @@ import { ElapsedTimeCard } from "./cards/ElapsedTimeCard";
 import { MonthCard } from "./cards/MonthCard";
 import { DayCard } from "./cards/DayCard";
 import { JuniChokuCard } from "./cards/JuniChokuCard";
+import { CollapsibleSection } from "./CollapsibleSection";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -82,12 +83,12 @@ export function ResultDisplay({
   const todayReset = new Date(
     today.getFullYear(),
     today.getMonth(),
-    today.getDate()
+    today.getDate(),
   );
   const targetReset = new Date(
     targetDate.getFullYear(),
     targetDate.getMonth(),
-    targetDate.getDate()
+    targetDate.getDate(),
   );
 
   const diffTime = todayReset.getTime() - targetReset.getTime();
@@ -135,23 +136,6 @@ export function ResultDisplay({
     }
   }
 
-  const renderSectionHeader = (title: string) => (
-    <div
-      style={{
-        width: "100%",
-        textAlign: "left",
-        padding: "1rem 0 0.5rem",
-        marginBottom: "1rem",
-        borderBottom: "1px solid var(--card-border)",
-        color: "var(--color-kogane)",
-        fontWeight: "bold",
-        fontSize: "1.2rem",
-      }}
-    >
-      {title}
-    </div>
-  );
-
   return (
     <div className="result-container">
       <h2 className="section-title">{t("result.title")}</h2>
@@ -170,32 +154,44 @@ export function ResultDisplay({
 
       <div className="result-grid">
         {/* Year Section */}
-        {renderSectionHeader(t("result.year"))}
-        <WesternYearCard date={targetDate} />
-        <JapaneseEraCard era={japaneseEra} />
-        <ChineseZodiacCard zodiac={chineseZodiac} variant="year" />
-        <NineStarCard nineStar={nineStar} />
+        <CollapsibleSection
+          title={t("result.year")}
+          contentClassName="result-grid"
+        >
+          <WesternYearCard date={targetDate} />
+          <JapaneseEraCard era={japaneseEra} />
+          <ChineseZodiacCard zodiac={chineseZodiac} variant="year" />
+          <NineStarCard nineStar={nineStar} />
+        </CollapsibleSection>
 
         {/* Month Section */}
-        {renderSectionHeader(t("result.month"))}
-        <MonthCard date={targetDate} />
-        <ZodiacSignCard sign={zodiacSign} />
-        <ChineseZodiacCard zodiac={monthZodiac} variant="month" />
-        <NineStarCard nineStar={monthNineStar} hideNote={true} />
+        <CollapsibleSection
+          title={t("result.month")}
+          contentClassName="result-grid"
+        >
+          <MonthCard date={targetDate} />
+          <ZodiacSignCard sign={zodiacSign} />
+          <ChineseZodiacCard zodiac={monthZodiac} variant="month" />
+          <NineStarCard nineStar={monthNineStar} hideNote={true} />
+        </CollapsibleSection>
 
         {/* Day Section */}
-        {renderSectionHeader(t("result.day"))}
-        <DayCard date={targetDate} />
-        <RokuyoCard rokuyo={rokuyo} />
-        <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
-        <NineStarCard nineStar={dayNineStar} hideNote={true} />
-        <MoonPhaseCard phase={moonPhase} />
-        <JuniChokuCard choku={juniChoku} />
-        <ElapsedTimeCard
-          totalDays={totalDays}
-          absTotalDays={absTotalDays}
-          duration={duration}
-        />
+        <CollapsibleSection
+          title={t("result.day")}
+          contentClassName="result-grid"
+        >
+          <DayCard date={targetDate} />
+          <RokuyoCard rokuyo={rokuyo} />
+          <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
+          <NineStarCard nineStar={dayNineStar} hideNote={true} />
+          <MoonPhaseCard phase={moonPhase} />
+          <JuniChokuCard choku={juniChoku} />
+          <ElapsedTimeCard
+            totalDays={totalDays}
+            absTotalDays={absTotalDays}
+            duration={duration}
+          />
+        </CollapsibleSection>
       </div>
     </div>
   );
