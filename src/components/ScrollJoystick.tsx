@@ -9,7 +9,7 @@ export const ScrollJoystick = () => {
     null,
   );
   const [speedMultiplier] = useState(15);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const animationFrameId = useRef<number | null>(null);
   const scrollDelta = useRef(0);
@@ -24,8 +24,8 @@ export const ScrollJoystick = () => {
   useEffect(() => {
     if (typeof window !== "undefined" && position === null) {
       setPosition({
-        x: window.innerWidth - 120, // 100px size + 20px padding
-        y: window.innerHeight - 180, // 100px joystick + 60px button space + padding
+        x: window.innerWidth - 120, // Tighter to corner
+        y: window.innerHeight - 80, // Lower position (approx 36px from bottom)
       });
     }
   }, [position]);
@@ -179,7 +179,7 @@ export const ScrollJoystick = () => {
       <button
         onClick={() => {
           if (!hasMoved.current) {
-            const offset = 120; // Joystick (100) + margins/gap (~20)
+            const offset = 108; // Joystick (100) + margins/gap (8) - Gap (0) = 108 diff
 
             if (isOpen) {
               // Closing: Content shrinks UP. Move container DOWN to keep button stationary.
