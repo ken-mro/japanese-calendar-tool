@@ -22,13 +22,21 @@ export const ScrollJoystick = () => {
 
   // Initialize position on client side only (bottom-right)
   useEffect(() => {
-    if (typeof window !== "undefined" && position === null) {
-      setPosition({
-        x: window.innerWidth - 120, // Tighter to corner
-        y: window.innerHeight - 80, // Lower position (approx 36px from bottom)
-      });
+    if (typeof window !== "undefined") {
+      // Only show on touch devices (coarse pointer)
+      const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+
+      if (isTouchDevice) {
+        // Use requestAnimationFrame to avoid synchronous setState warning
+        requestAnimationFrame(() => {
+          setPosition({
+            x: window.innerWidth - 120, // Tighter to corner
+            y: window.innerHeight - 80, // Lower position (approx 36px from bottom)
+          });
+        });
+      }
     }
-  }, [position]);
+  }, []);
 
   // Scroll loop
   useEffect(() => {
