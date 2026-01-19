@@ -103,7 +103,7 @@ export function DateInput({ onCalculate }: DateInputProps) {
     onCalculate(date, finalOffset, monthType);
   };
 
-  const [monthType, setMonthType] = useState<"calendar" | "solar">("calendar");
+  const [monthType, setMonthType] = useState<"calendar" | "solar">("solar");
 
   return (
     <div className="date-input-container">

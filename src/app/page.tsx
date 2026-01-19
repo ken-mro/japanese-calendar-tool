@@ -38,7 +38,7 @@ export default function Home() {
   const handleCalculate = (
     date: Date,
     offsetDays: number,
-    monthType: "calendar" | "solar" = "calendar"
+    monthType: "calendar" | "solar" = "solar"
   ) => {
     const target = new Date(date);
     target.setDate(date.getDate() + offsetDays);
