@@ -8,7 +8,7 @@ export const ScrollJoystick = () => {
   const [position, setPosition] = useState<{ x: number; y: number } | null>(
     null,
   );
-  const [speedMultiplier] = useState(15);
+  const [speedMultiplier] = useState(25);
   const [isOpen, setIsOpen] = useState(false);
 
   const animationFrameId = useRef<number | null>(null);
@@ -43,7 +43,8 @@ export const ScrollJoystick = () => {
     const loop = () => {
       if (isMoving.current && scrollDelta.current !== 0) {
         // scrollDelta is -1 to 1
-        const scrollAmount = scrollDelta.current * speedMultiplier;
+        const sign = scrollDelta.current > 0 ? 1 : -1;
+        const scrollAmount = sign * Math.pow(scrollDelta.current, 2) * speedMultiplier;
         window.scrollBy(0, scrollAmount);
       }
       animationFrameId.current = requestAnimationFrame(loop);
@@ -95,7 +96,7 @@ export const ScrollJoystick = () => {
     // Calculate distance moved from start of drag
     const moveDist = Math.sqrt(
       Math.pow(clientX - dragStartPos.current.x, 2) +
-        Math.pow(clientY - dragStartPos.current.y, 2),
+      Math.pow(clientY - dragStartPos.current.y, 2),
     );
 
     // Only consider it a "move" if dragged more than 5 pixels
