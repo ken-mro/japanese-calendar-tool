@@ -21,7 +21,7 @@ export default function TermsContent() {
         {language === "ja" ? (
           <div className="terms-content">
             <h1>利用規約</h1>
-            <p className="last-updated">最終更新日: 2026年1月12日</p>
+            <p className="last-updated">最終更新日: 2026年1月19日</p>
 
             <section>
               <h2>1. はじめに</h2>
@@ -127,8 +127,8 @@ export default function TermsContent() {
             <section>
               <h2>4. 各種計算の仕様と制約事項</h2>
               <p>
-                <strong>干支（月干支）:</strong>{" "}
-                月干支については、占いなどで用いられる伝統的な「節切り（二十四節気）」ではなく、現代の「新暦（グレゴリオ暦）」の月区切りに基づいて算出する方式を採用しています。
+                <strong>干支（年・月）:</strong>{" "}
+                「暦月（グレゴリオ暦）」と「節月（二十四節気）」を選択できます。節月を選択した場合、月の干支だけでなく、年の干支も立春（通常2月4日頃）を区切りとして切り替わります。デフォルトでは「暦月」が選択されています。
               </p>
               <p>
                 <strong>九星（年・月・日）:</strong> <br />・
@@ -165,7 +165,7 @@ export default function TermsContent() {
         ) : (
           <div className="terms-content">
             <h1>Terms of Service</h1>
-            <p className="last-updated">Last Updated: January 6, 2026</p>
+            <p className="last-updated">Last Updated: January 19, 2026</p>
 
             <section>
               <h2>1. Introduction</h2>
@@ -289,10 +289,7 @@ export default function TermsContent() {
             <section>
               <h2>4. Specifications and Constraints</h2>
               <p>
-                <strong>Month Eto:</strong> Calculated based on Gregorian
-                calendar month boundaries (Civil Month), not the traditional
-                Solar Term (Setsu-giri) boundaries used in some fortune-telling
-                methods.
+                <strong>Eto (Year & Month):</strong> You can choose between "Calendar Month" (Gregorian) and "Solar Month" (Solar Terms). When "Solar Month" is selected, the Year Eto also switches at Risshun (approx. Feb 4) instead of January 1st. The default is "Calendar Month".
               </p>
               <p>
                 <strong>Nine Star Ki (Year/Month/Day):</strong>
