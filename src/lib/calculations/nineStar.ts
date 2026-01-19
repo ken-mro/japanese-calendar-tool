@@ -1,4 +1,4 @@
-import { getStarDate, getSolarMonthBranchIndex, getSolarYear, getSolarTermStartDay } from './solarTerms';
+import { getStarDate, getSolarMonthBranchIndex } from './solarTerms';
 
 export const NINE_STARS = [
   { number: 1, name: '1 White Water', kanji: '一白水星', reading: 'いっぱくすいせい', romaji: 'Ippaku Suisei', element: 'Water', elementKanji: '水', color: 'White', colorKanji: '白', meaning: 'Flow like water, adaptability, and wisdom.', meaningJa: '水のような流動性と適応力、知性を象徴する。' },
@@ -106,7 +106,7 @@ export function getMonthNineStar(date: Date): NineStar {
   // Month stars descend: 8 -> 7 -> 6...
   // If solarMonth is 2 (Feb), star is baseStar.
   // If solarMonth is 3 (Mar), star is baseStar - 1.
-  const monthDiff = solarMonthIndex - 2;
+  // const monthDiff = solarMonthIndex - 2;
   // Handle wrap around: Month 0 (Dec of prev year? No, Dec is Month 0 or 12?)
   // solarMonthIndex logic: Jan->1, Feb->2 ... Dec->0 (Rat).
   // Let's adjust Dec (0) and Jan (1) to follow the sequence 11, 12, 13 relative to Feb?
