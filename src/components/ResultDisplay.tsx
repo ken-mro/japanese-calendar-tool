@@ -31,6 +31,7 @@ interface ResultDisplayProps {
   targetDate: Date;
   sourceDate: Date;
   offsetDays: number;
+  monthType?: "calendar" | "solar";
 }
 
 function calculateDuration(start: Date, end: Date) {
@@ -54,24 +55,31 @@ function calculateDuration(start: Date, end: Date) {
   return { years, months, days, isFuture };
 }
 
+import { getSolarYear } from "@/lib/calculations/solarTerms";
+
 export function ResultDisplay({
   targetDate,
   sourceDate,
   offsetDays,
+  monthType = "calendar",
 }: ResultDisplayProps) {
   const { t } = useI18n();
   const language = useLanguage();
   const useKanji = language === "ja";
 
   const japaneseEra = getJapaneseEra(targetDate);
-  const chineseZodiac = getChineseZodiac(targetDate.getFullYear());
+
+  // Year Eto depends on monthType
+  const chineseZodiacYear = monthType === "solar" ? getSolarYear(targetDate) : targetDate.getFullYear();
+  const chineseZodiac = getChineseZodiac(chineseZodiacYear);
+
   const zodiacSign = getZodiacSign(targetDate);
   const nineStar = getNineStar(targetDate);
   const rokuyo = getRokuyo(targetDate);
   const moonPhase = getMoonPhase(targetDate);
 
   // Additional Month/Day calculations
-  const monthZodiac = getMonthZodiac(targetDate);
+  const monthZodiac = getMonthZodiac(targetDate, monthType === "solar");
   const monthNineStar = getMonthNineStar(targetDate);
   const dayZodiac = getDayZodiac(targetDate);
   const dayNineStar = getDayNineStar(targetDate);
@@ -107,14 +115,11 @@ export function ResultDisplay({
     // Japanese format: "YYYY年M月D日 の X日後/前 は"
     const sourceEra = getJapaneseEra(sourceDate);
     const dateStr = sourceEra
-      ? `${sourceEra.nameKanji}${
-          sourceEra.year === 1 ? "元" : sourceEra.year
-        }年 (${sourceDate.getFullYear()}年) ${
-          sourceDate.getMonth() + 1
-        }月${sourceDate.getDate()}日`
-      : `${sourceDate.getFullYear()}年${
-          sourceDate.getMonth() + 1
-        }月${sourceDate.getDate()}日`;
+      ? `${sourceEra.nameKanji}${sourceEra.year === 1 ? "元" : sourceEra.year
+      }年 (${sourceDate.getFullYear()}年) ${sourceDate.getMonth() + 1
+      }月${sourceDate.getDate()}日`
+      : `${sourceDate.getFullYear()}年${sourceDate.getMonth() + 1
+      }月${sourceDate.getDate()}日`;
 
     if (offsetDays === 0) {
       contextMessage = `${dateStr} は、`;

@@ -9,7 +9,7 @@ import {
 } from "@/lib/calculations";
 
 interface DateInputProps {
-  onCalculate: (date: Date, offsetDays: number) => void;
+  onCalculate: (date: Date, offsetDays: number, monthType: "calendar" | "solar") => void;
 }
 
 type InputMode = "western" | "japanese";
@@ -100,31 +100,55 @@ export function DateInput({ onCalculate }: DateInputProps) {
 
     const finalOffset = offsetDirection === "after" ? offset : -offset;
 
-    onCalculate(date, finalOffset);
+    onCalculate(date, finalOffset, monthType);
   };
+
+  const [monthType, setMonthType] = useState<"calendar" | "solar">("calendar");
 
   return (
     <div className="date-input-container">
       <h2 className="section-title">{t("input.title")}</h2>
 
-      {/* Input Mode Toggle */}
-      <div className="input-mode-toggle">
-        <span className="toggle-label">{t("input.inputMode")}:</span>
-        <div className="toggle-buttons">
-          <button
-            type="button"
-            className={`toggle-btn ${inputMode === "western" ? "active" : ""}`}
-            onClick={() => setInputMode("western")}
-          >
-            {t("input.western")}
-          </button>
-          <button
-            type="button"
-            className={`toggle-btn ${inputMode === "japanese" ? "active" : ""}`}
-            onClick={() => setInputMode("japanese")}
-          >
-            {t("input.japaneseEra")}
-          </button>
+      <div className="input-settings-row">
+        {/* Input Mode Toggle */}
+        <div className="input-mode-toggle">
+          <span className="toggle-label">{t("input.inputMode")}:</span>
+          <div className="toggle-buttons">
+            <button
+              type="button"
+              className={`toggle-btn ${inputMode === "western" ? "active" : ""}`}
+              onClick={() => setInputMode("western")}
+            >
+              {t("input.western")}
+            </button>
+            <button
+              type="button"
+              className={`toggle-btn ${inputMode === "japanese" ? "active" : ""}`}
+              onClick={() => setInputMode("japanese")}
+            >
+              {t("input.japaneseEra")}
+            </button>
+          </div>
+        </div>
+
+        <div className="input-mode-toggle">
+          <span className="toggle-label">{t("input.monthType")}:</span>
+          <div className="toggle-buttons">
+            <button
+              type="button"
+              className={`toggle-btn ${monthType === "calendar" ? "active" : ""}`}
+              onClick={() => setMonthType("calendar")}
+            >
+              {t("input.calendarMonth")}
+            </button>
+            <button
+              type="button"
+              className={`toggle-btn ${monthType === "solar" ? "active" : ""}`}
+              onClick={() => setMonthType("solar")}
+            >
+              {t("input.solarMonth")}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -226,18 +250,16 @@ export function DateInput({ onCalculate }: DateInputProps) {
               <div className="offset-toggle">
                 <button
                   type="button"
-                  className={`toggle-btn small ${
-                    offsetDirection === "after" ? "active" : ""
-                  }`}
+                  className={`toggle-btn small ${offsetDirection === "after" ? "active" : ""
+                    }`}
                   onClick={() => setOffsetDirection("after")}
                 >
                   {t("input.daysAfter")}
                 </button>
                 <button
                   type="button"
-                  className={`toggle-btn small ${
-                    offsetDirection === "before" ? "active" : ""
-                  }`}
+                  className={`toggle-btn small ${offsetDirection === "before" ? "active" : ""
+                    }`}
                   onClick={() => setOffsetDirection("before")}
                 >
                   {t("input.daysBefore")}

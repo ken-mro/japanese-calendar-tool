@@ -37,7 +37,10 @@
     },
     "offsetLabel": "Date Offset",
     "daysAfter": "Days After",
-    "daysBefore": "Days Before"
+    "daysBefore": "Days Before",
+    "monthType": "Sexagenary Cycle",
+    "calendarMonth": "Calendar Month",
+    "solarMonth": "Solar Month"
   },
   "result": {
     "title": "Results",

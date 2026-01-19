@@ -37,7 +37,10 @@
     },
     "offsetLabel": "日数計算",
     "daysAfter": "日後",
-    "daysBefore": "日前"
+    "daysBefore": "日前",
+    "monthType": "干支",
+    "calendarMonth": "暦月",
+    "solarMonth": "節月"
   },
   "result": {
     "title": "計算結果",

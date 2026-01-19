@@ -18,6 +18,7 @@ export default function Home() {
     targetDate: Date;
     sourceDate: Date;
     offsetDays: number;
+    monthType: "calendar" | "solar";
   } | null>(null);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -34,10 +35,14 @@ export default function Home() {
     }
   }, [resultData]);
 
-  const handleCalculate = (date: Date, offsetDays: number) => {
+  const handleCalculate = (
+    date: Date,
+    offsetDays: number,
+    monthType: "calendar" | "solar" = "calendar"
+  ) => {
     const target = new Date(date);
     target.setDate(date.getDate() + offsetDays);
-    setResultData({ targetDate: target, sourceDate: date, offsetDays });
+    setResultData({ targetDate: target, sourceDate: date, offsetDays, monthType });
   };
 
   const toggleAbout = () => {
@@ -55,6 +60,7 @@ export default function Home() {
               targetDate={resultData.targetDate}
               sourceDate={resultData.sourceDate}
               offsetDays={resultData.offsetDays}
+              monthType={resultData.monthType}
             />
           )}
         </div>

@@ -232,12 +232,20 @@ body {
   border-right: 2px solid var(--color-kogane);
 }
 
+.input-settings-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .input-mode-toggle {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
 }
 
 .toggle-label {
