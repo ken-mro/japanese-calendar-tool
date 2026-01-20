@@ -99,12 +99,12 @@ export const ROKUYO_TYPES: Rokuyo[] = [
     { name: "Butsumetsu", nameKanji: "仏滅", reading: "butsumetsu", readingHiragana: "ぶつめつ", meaning: "Unlucky all day. Avoid celebrations. Appropriate for funerals.", meaningJa: "万事に凶。葬式や法事には適するが、祝い事は避ける。" },
 ];
 
-interface OldCalendarDate {
+export interface OldCalendarDate {
     month: number;
     day: number;
 }
 
-function getOldCalendarDate(date: Date): OldCalendarDate {
+export function getOldCalendarDate(date: Date): OldCalendarDate {
     const Y = date.getFullYear();
     // const M = date.getMonth() + 1; // Unused
 

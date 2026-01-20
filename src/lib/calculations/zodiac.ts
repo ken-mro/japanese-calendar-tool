@@ -399,7 +399,12 @@ export function getMonthZodiac(date: Date, isSolarMonth: boolean = false): Chine
   //
   // I will implement this fixed logic in `getMonthZodiac`.
 
-  const monthStemIndex = ((yearStemIndex % 5) * 2 + (monthBranchIndex < 2 ? monthBranchIndex + 12 : monthBranchIndex)) % 10;
+  // Fix for Rat/Ox months (Month 11/12)
+  // These months have branch indices 0 and 1, but they appear at the END of the cycle relative to Tiger (2).
+  // The standard formula works for branches monotonic from Tiger (2, 3... 11).
+  // For 0 and 1, we must treat them as 12 and 13 respectively to get the correct stem.
+  const effectiveBranch = monthBranchIndex < 2 ? monthBranchIndex + 12 : monthBranchIndex;
+  const monthStemIndex = ((yearStemIndex % 5) * 2 + effectiveBranch) % 10;
 
   return createZodiac(monthStemIndex, monthBranchIndex);
 }
