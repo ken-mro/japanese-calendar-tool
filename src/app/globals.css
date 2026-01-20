@@ -864,3 +864,59 @@ body {
     grid-template-columns: 1fr; /* Force single column full width on mobile */
   }
 }
+
+/* Tab Panel */
+.tab-panel {
+  width: 100%;
+}
+
+.tab-list {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--card-border);
+  justify-content: center;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.05em;
+}
+
+.tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.tab-button:hover {
+  color: var(--color-kogane);
+}
+
+.tab-button.active {
+  color: var(--color-kogane);
+}
+
+.tab-button.active::after {
+  background: var(--color-kogane);
+}
+
+@media (max-width: 768px) {
+  .tab-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+}
