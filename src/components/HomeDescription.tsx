@@ -91,6 +91,10 @@ export default function HomeDescription({
               <h3>十二直とは</h3>
               <span className="arrow">→</span>
             </Link>
+            <Link href="/about/senjitsu" className="about-link-card">
+              <h3>選日とは</h3>
+              <span className="arrow">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -149,6 +153,10 @@ export default function HomeDescription({
           </Link>
           <Link href="/about/junichoku" className="about-link-card">
             <h3>About 12 Choku</h3>
+            <span className="arrow">→</span>
+          </Link>
+          <Link href="/about/senjitsu" className="about-link-card">
+            <h3>About Senjitsu</h3>
             <span className="arrow">→</span>
           </Link>
         </div>
