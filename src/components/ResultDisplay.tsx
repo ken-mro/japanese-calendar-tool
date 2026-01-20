@@ -27,7 +27,7 @@ import { MonthCard } from "./cards/MonthCard";
 import { DayCard } from "./cards/DayCard";
 import { JuniChokuCard } from "./cards/JuniChokuCard";
 import { SenjitsuCard } from "./cards/SenjitsuCard";
-import { CollapsibleSection } from "./CollapsibleSection";
+import { TabPanel } from "./ui/TabPanel";
 
 interface ResultDisplayProps {
   targetDate: Date;
@@ -170,48 +170,54 @@ export function ResultDisplay({
           margin: "0 auto",
         }}
       >
-        {/* Year Section */}
-        <CollapsibleSection
-          title={t("result.year")}
+        <TabPanel
           contentClassName="result-grid"
-        >
-          <WesternYearCard date={targetDate} />
-          <JapaneseEraCard era={japaneseEra} />
-          <ChineseZodiacCard zodiac={chineseZodiac} variant="year" />
-          <NineStarCard nineStar={nineStar} />
-        </CollapsibleSection>
-
-        {/* Month Section */}
-        <CollapsibleSection
-          title={t("result.month")}
-          contentClassName="result-grid"
-        >
-          <MonthCard date={targetDate} />
-          <ZodiacSignCard sign={zodiacSign} />
-          <ChineseZodiacCard zodiac={monthZodiac} variant="month" />
-          <NineStarCard nineStar={monthNineStar} hideNote={true} />
-        </CollapsibleSection>
-
-        {/* Day Section */}
-        <CollapsibleSection
-          title={t("result.day")}
-          contentClassName="result-grid"
-        >
-          <DayCard date={targetDate} />
-          <RokuyoCard rokuyo={rokuyo} />
-          <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
-          <NineStarCard nineStar={dayNineStar} hideNote={true} />
-          <MoonPhaseCard phase={moonPhase} />
-          {senjitsuList.map((sen, index) => (
-            <SenjitsuCard key={`senjitsu-${index}`} senjitsu={sen} />
-          ))}
-          <JuniChokuCard choku={juniChoku} />
-          <ElapsedTimeCard
-            totalDays={totalDays}
-            absTotalDays={absTotalDays}
-            duration={duration}
-          />
-        </CollapsibleSection>
+          tabs={[
+            {
+              label: t("result.year"),
+              content: (
+                <>
+                  <WesternYearCard date={targetDate} />
+                  <JapaneseEraCard era={japaneseEra} />
+                  <ChineseZodiacCard zodiac={chineseZodiac} variant="year" />
+                  <NineStarCard nineStar={nineStar} />
+                </>
+              ),
+            },
+            {
+              label: t("result.month"),
+              content: (
+                <>
+                  <MonthCard date={targetDate} />
+                  <ZodiacSignCard sign={zodiacSign} />
+                  <ChineseZodiacCard zodiac={monthZodiac} variant="month" />
+                  <NineStarCard nineStar={monthNineStar} hideNote={true} />
+                </>
+              ),
+            },
+            {
+              label: t("result.day"),
+              content: (
+                <>
+                  <DayCard date={targetDate} />
+                  <RokuyoCard rokuyo={rokuyo} />
+                  <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
+                  <NineStarCard nineStar={dayNineStar} hideNote={true} />
+                  <MoonPhaseCard phase={moonPhase} />
+                  {senjitsuList.map((sen, index) => (
+                    <SenjitsuCard key={`senjitsu-${index}`} senjitsu={sen} />
+                  ))}
+                  <JuniChokuCard choku={juniChoku} />
+                  <ElapsedTimeCard
+                    totalDays={totalDays}
+                    absTotalDays={absTotalDays}
+                    duration={duration}
+                  />
+                </>
+              ),
+            },
+          ]}
+        />
       </div>
     </div>
   );
