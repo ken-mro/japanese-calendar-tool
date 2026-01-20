@@ -67,7 +67,8 @@
     "rokuyo": "六曜",
     "junichoku": "十二直",
     "moonPhase": "月の満ち欠け",
-    "moonAge": "月齢"
+    "moonAge": "月齢",
+    "senjitsu": "選日"
   },
   "months": {
     "1": "1月",

@@ -67,7 +67,8 @@
     "rokuyo": "Rokuyo",
     "junichoku": "12 Choku",
     "moonPhase": "Moon Phase",
-    "moonAge": "Moon Age"
+    "moonAge": "Moon Age",
+    "senjitsu": "Senjitsu (Selected Days)"
   },
   "months": {
     "1": "January",
