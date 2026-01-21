@@ -27,8 +27,8 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
     },
     FUSHOJU: {
         name: "不成就日",
-        reading: "ふじょうじゅにち",
-        romaji: "Fushoju-nichi",
+        reading: "ふじょうじゅび",
+        romaji: "Fujouju-bi",
         meaning: "Nothing succeeds. Bad for starting new things.",
         meaningJa: "何事も成就しない凶日。事を起こすのによくない。",
     },
