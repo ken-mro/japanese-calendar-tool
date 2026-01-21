@@ -33,14 +33,13 @@ export function SenjitsuCard({ senjitsu }: SenjitsuCardProps) {
     // The user can add images later.
 
     const iconName = senjitsu.romaji.toLowerCase().replace("-", "_");
-    const isFushoju = senjitsu.romaji === "Fushoju-nichi";
 
     return (
         <ResultCard
             icon={
                 <div
                     className="flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl select-none shrink-0"
-                    style={{ backgroundColor: isFushoju ? "var(--color-ginnezumi, #718096)" : "var(--accent-color, #d44d60)" }}
+                    style={{ backgroundColor: senjitsu.isLucky ? "var(--accent-color, #d44d60)" : "var(--color-ginnezumi, #718096)" }}
                 >
                     {senjitsu.name[0]}
                 </div>

@@ -65,7 +65,6 @@ export default function SenjitsuPage() {
                         </thead>
                         <tbody>
                             {senjitsuList.map((type) => {
-                                const isUnlucky = type.romaji === "Fushoju-nichi";
                                 return (
                                     <tr
                                         key={type.romaji}
@@ -75,7 +74,7 @@ export default function SenjitsuPage() {
                                             <div style={{ display: 'flex', justifyContent: 'center' }}>
                                                 <div
                                                     className="flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl select-none shrink-0"
-                                                    style={{ backgroundColor: isUnlucky ? "var(--color-ginnezumi, #718096)" : "var(--accent-color, #d44d60)" }}
+                                                    style={{ backgroundColor: type.isLucky ? "var(--accent-color, #d44d60)" : "var(--color-ginnezumi, #718096)" }}
                                                 >
                                                     {type.name[0]}
                                                 </div>

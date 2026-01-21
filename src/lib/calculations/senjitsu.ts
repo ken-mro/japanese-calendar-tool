@@ -8,6 +8,7 @@ export interface Senjitsu {
     romaji: string;
     meaning: string;
     meaningJa: string;
+    isLucky: boolean;
 }
 
 export const SENJITSU_TYPES: Record<string, Senjitsu> = {
@@ -17,6 +18,7 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
         romaji: "Ichiryumanbai-bi",
         meaning: "One grain grows ten thousand times. Good for starting things.",
         meaningJa: "一粒の籾（もみ）が万倍にも実るという吉日。事始めによい。",
+        isLucky: true,
     },
     TENSHA: {
         name: "天赦日",
@@ -24,6 +26,7 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
         romaji: "Tensha-nichi",
         meaning: "The heavens forgive everything. The best lucky day.",
         meaningJa: "天が万物の罪を赦す日。最上の大吉日。",
+        isLucky: true,
     },
     FUSHOJU: {
         name: "不成就日",
@@ -31,6 +34,7 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
         romaji: "Fujouju-bi",
         meaning: "Nothing succeeds. Bad for starting new things.",
         meaningJa: "何事も成就しない凶日。事を起こすのによくない。",
+        isLucky: false,
     },
 };
 
