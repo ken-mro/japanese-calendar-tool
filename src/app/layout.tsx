@@ -11,11 +11,27 @@ const notoSerifJP = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  title: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
+  title: {
+    default: "暦計算ツール - 和暦・干支(十干十二支)・星座・九星",
+    template: "%s | 暦計算ツール",
+  },
   description:
-    "年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Sexagenary cycle(Heavenly Stems and Earthly Branches), zodiac sign, and Nine Star Ki from a date.",
-  keywords:
-    "和暦,西暦,変換,干支,十干十二支,九星,星座,Japanese era,wareki, Sexagenary cycle, Heavenly Stems, Earthly Branches, Chinese zodiac",
+    "年月日から西暦・和暦・十干十二支・星座・九星を自動計算。江戸時代からの元号に対応。Calculate Japanese era, Sexagenary cycle, zodiac sign, and Nine Star Ki.",
+  keywords: [
+    "和暦",
+    "西暦",
+    "変換",
+    "干支",
+    "十干十二支",
+    "九星",
+    "星座",
+    "Japanese era",
+    "wareki",
+    "Sexagenary cycle",
+    "Heavenly Stems",
+    "Earthly Branches",
+    "Chinese zodiac",
+  ],
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000",
   ),
@@ -28,6 +44,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     alternateLocale: "en_US",
+    siteName: "暦計算ツール",
   },
   twitter: {
     card: "summary_large_image",
@@ -37,6 +54,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -45,26 +69,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "和暦・干支・九星 計算ツール",
+    description:
+      "年月日から西暦・和暦・十干十二支・星座・九星を自動計算するツール",
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+    },
+  };
+
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              name: "和暦・干支・九星 計算ツール",
-              description:
-                "年月日から西暦・和暦・十干十二支・星座・九星を自動計算するツール",
-              applicationCategory: "UtilityApplication",
-              operatingSystem: "All",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "JPY",
-              },
-            }),
+            __html: JSON.stringify(jsonLd),
           }}
         />
         <script
