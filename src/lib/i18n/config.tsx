@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import en from "./en.json";
 import ja from "./ja.json";
 
@@ -34,21 +35,31 @@ function getNestedValue(obj: Translations, path: string): string {
   return typeof current === "string" ? current : path;
 }
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(() => {
-    // Use lazy initialization - runs once during initial render
-    if (typeof window === "undefined") return "ja";
-    const stored = localStorage.getItem("language");
-    if (stored === "en" || stored === "ja") return stored;
-    const browserLang = navigator.language.toLowerCase();
-    return browserLang.startsWith("ja") ? "ja" : "en";
-  });
+export function I18nProvider({
+  children,
+  locale,
+}: {
+  children: ReactNode;
+  locale: Language;
+}) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const language = locale;
 
   const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("language", lang);
+    if (lang === language) return;
+
+    // Replace current locale in pathname with new locale
+    const segments = pathname.split("/");
+    // path is starts with /, so segments[0] is empty, segments[1] is locale
+    if (segments[1] === "ja" || segments[1] === "en") {
+      segments[1] = lang;
+    } else {
+      // Should not happen if middleware works, but fallback
+      segments.splice(1, 0, lang);
     }
+    const newPath = segments.join("/");
+    router.push(newPath);
   };
 
   const t = (key: string): string => {

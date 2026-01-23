@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif_JP } from "next/font/google";
-import "./globals.css";
-import { I18nProvider } from "@/lib/i18n/config";
+import "../globals.css";
+import { I18nProvider, Language } from "@/lib/i18n/config";
 import { ScrollJoystick } from "@/components/ScrollJoystick";
 
 const notoSerifJP = Noto_Serif_JP({
@@ -64,11 +64,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<unknown>;
 }>) {
+  const { lang } = (await params) as { lang: Language };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -82,10 +86,11 @@ export default function RootLayout({
       price: "0",
       priceCurrency: "JPY",
     },
+    inLanguage: lang,
   };
 
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -100,7 +105,7 @@ export default function RootLayout({
         ></script>
       </head>
       <body className={`${notoSerifJP.variable}`}>
-        <I18nProvider>
+        <I18nProvider locale={lang}>
           {children}
           <ScrollJoystick />
         </I18nProvider>
