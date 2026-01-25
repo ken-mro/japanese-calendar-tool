@@ -34,6 +34,8 @@ interface ResultDisplayProps {
   sourceDate: Date;
   offsetDays: number;
   monthType?: "calendar" | "solar";
+  activeTabIndex?: number; // Added
+  onTabChange?: (index: number) => void; // Added
 }
 
 function calculateDuration(start: Date, end: Date) {
@@ -64,6 +66,8 @@ export function ResultDisplay({
   sourceDate,
   offsetDays,
   monthType = "calendar",
+  activeTabIndex,
+  onTabChange,
 }: ResultDisplayProps) {
   const { t } = useI18n();
   const language = useLanguage();
@@ -72,7 +76,8 @@ export function ResultDisplay({
   const japaneseEra = getJapaneseEra(targetDate);
 
   // Year Eto depends on monthType
-  const chineseZodiacYear = monthType === "solar" ? getSolarYear(targetDate) : targetDate.getFullYear();
+  const chineseZodiacYear =
+    monthType === "solar" ? getSolarYear(targetDate) : targetDate.getFullYear();
   const chineseZodiac = getChineseZodiac(chineseZodiacYear);
 
   const zodiacSign = getZodiacSign(targetDate);
@@ -118,11 +123,14 @@ export function ResultDisplay({
     // Japanese format: "YYYY年M月D日 の X日後/前 は"
     const sourceEra = getJapaneseEra(sourceDate);
     const dateStr = sourceEra
-      ? `${sourceEra.nameKanji}${sourceEra.year === 1 ? "元" : sourceEra.year
-      }年 (${sourceDate.getFullYear()}年) ${sourceDate.getMonth() + 1
-      }月${sourceDate.getDate()}日`
-      : `${sourceDate.getFullYear()}年${sourceDate.getMonth() + 1
-      }月${sourceDate.getDate()}日`;
+      ? `${sourceEra.nameKanji}${
+          sourceEra.year === 1 ? "元" : sourceEra.year
+        }年 (${sourceDate.getFullYear()}年) ${
+          sourceDate.getMonth() + 1
+        }月${sourceDate.getDate()}日`
+      : `${sourceDate.getFullYear()}年${
+          sourceDate.getMonth() + 1
+        }月${sourceDate.getDate()}日`;
 
     if (offsetDays === 0) {
       contextMessage = `${dateStr} は、`;
@@ -171,6 +179,8 @@ export function ResultDisplay({
         }}
       >
         <TabPanel
+          activeTabIndex={activeTabIndex}
+          onTabChange={onTabChange}
           contentClassName="result-grid"
           tabs={[
             {

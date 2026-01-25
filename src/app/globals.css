@@ -25,6 +25,11 @@
   
   --glass-effect: blur(12px) saturate(180%);
   --font-main: var(--font-noto-serif-jp), serif; /* Serif font */
+  --font-main-en: "Futura", "Century Gothic", "Tw Cen MT", sans-serif;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-main-en);
 }
 
 * {

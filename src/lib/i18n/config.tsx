@@ -58,8 +58,16 @@ export function I18nProvider({
       // Should not happen if middleware works, but fallback
       segments.splice(1, 0, lang);
     }
+
+    // Set flag to indicate language switch (for state persistence)
+    if (typeof window !== "undefined") {
+      // Dispatch event to allow components to save state synchronously before navigation
+      window.dispatchEvent(new Event("beforeLanguageSwitch"));
+      sessionStorage.setItem("languageSwitchPending", "true");
+    }
+
     const newPath = segments.join("/");
-    router.push(newPath);
+    router.push(newPath, { scroll: false });
   };
 
   const t = (key: string): string => {

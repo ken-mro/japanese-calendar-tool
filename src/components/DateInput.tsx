@@ -8,34 +8,64 @@ import {
   getJapaneseEra,
 } from "@/lib/calculations";
 
+export interface InputState {
+  inputMode: "western" | "japanese";
+  year: string;
+  era: string;
+  eraYear: string;
+  month: string;
+  day: string;
+  offsetDays: string;
+  offsetDirection: "after" | "before";
+  monthType: "calendar" | "solar";
+}
+
 interface DateInputProps {
-  onCalculate: (date: Date, offsetDays: number, monthType: "calendar" | "solar") => void;
+  onCalculate: (
+    date: Date,
+    offsetDays: number,
+    monthType: "calendar" | "solar",
+    inputState: InputState,
+  ) => void;
+  initialState?: InputState;
 }
 
 type InputMode = "western" | "japanese";
 
-export function DateInput({ onCalculate }: DateInputProps) {
+export function DateInput({ onCalculate, initialState }: DateInputProps) {
   const { t } = useI18n();
   const language = useLanguage();
-  const [inputMode, setInputMode] = useState<InputMode>("western");
-  const [year, setYear] = useState(() => new Date().getFullYear().toString());
+  const [inputMode, setInputMode] = useState<InputMode>(
+    initialState?.inputMode || "western",
+  );
+  const [year, setYear] = useState(
+    () => initialState?.year || new Date().getFullYear().toString(),
+  );
   const [era, setEra] = useState(() => {
+    if (initialState?.era) return initialState.era;
     const e = getJapaneseEra(new Date());
     return e ? e.nameKanji : "令和";
   });
   const [eraYear, setEraYear] = useState(() => {
+    if (initialState?.eraYear) return initialState.eraYear;
     const e = getJapaneseEra(new Date());
     return e ? e.year.toString() : "";
   });
-  const [month, setMonth] = useState(() =>
-    (new Date().getMonth() + 1).toString()
+  const [month, setMonth] = useState(
+    () => initialState?.month || (new Date().getMonth() + 1).toString(),
   );
-  const [day, setDay] = useState(() => new Date().getDate().toString());
-  const [offsetDays, setOffsetDays] = useState("0");
+  const [day, setDay] = useState(
+    () => initialState?.day || new Date().getDate().toString(),
+  );
+  const [offsetDays, setOffsetDays] = useState(initialState?.offsetDays || "0");
   const [offsetDirection, setOffsetDirection] = useState<"after" | "before">(
-    "after"
+    initialState?.offsetDirection || "after",
   );
   const [error, setError] = useState("");
+
+  const [monthType, setMonthType] = useState<"calendar" | "solar">(
+    initialState?.monthType || "solar",
+  );
 
   const eraList = getEraList();
 
@@ -100,10 +130,20 @@ export function DateInput({ onCalculate }: DateInputProps) {
 
     const finalOffset = offsetDirection === "after" ? offset : -offset;
 
-    onCalculate(date, finalOffset, monthType);
-  };
+    const currentState: InputState = {
+      inputMode,
+      year,
+      era,
+      eraYear,
+      month,
+      day,
+      offsetDays,
+      offsetDirection,
+      monthType,
+    };
 
-  const [monthType, setMonthType] = useState<"calendar" | "solar">("solar");
+    onCalculate(date, finalOffset, monthType, currentState);
+  };
 
   return (
     <div className="date-input-container">
@@ -250,16 +290,18 @@ export function DateInput({ onCalculate }: DateInputProps) {
               <div className="offset-toggle">
                 <button
                   type="button"
-                  className={`toggle-btn small ${offsetDirection === "after" ? "active" : ""
-                    }`}
+                  className={`toggle-btn small ${
+                    offsetDirection === "after" ? "active" : ""
+                  }`}
                   onClick={() => setOffsetDirection("after")}
                 >
                   {t("input.daysAfter")}
                 </button>
                 <button
                   type="button"
-                  className={`toggle-btn small ${offsetDirection === "before" ? "active" : ""
-                    }`}
+                  className={`toggle-btn small ${
+                    offsetDirection === "before" ? "active" : ""
+                  }`}
                   onClick={() => setOffsetDirection("before")}
                 >
                   {t("input.daysBefore")}
