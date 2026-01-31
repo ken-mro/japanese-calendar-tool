@@ -77,7 +77,7 @@ export function getNineStar(birthDate: Date): NineStar {
   };
 }
 
-// Imports consolidated at top
+
 
 export function getMonthNineStar(date: Date): NineStar {
   const solarMonthIndex = getSolarMonthBranchIndex(date); // Tiger=2, etc.
@@ -106,16 +106,9 @@ export function getMonthNineStar(date: Date): NineStar {
   // Month stars descend: 8 -> 7 -> 6...
   // If solarMonth is 2 (Feb), star is baseStar.
   // If solarMonth is 3 (Mar), star is baseStar - 1.
-  // const monthDiff = solarMonthIndex - 2;
-  // Handle wrap around: Month 0 (Dec of prev year? No, Dec is Month 0 or 12?)
-  // solarMonthIndex logic: Jan->1, Feb->2 ... Dec->0 (Rat).
-  // Let's adjust Dec (0) and Jan (1) to follow the sequence 11, 12, 13 relative to Feb?
-  // Feb=2, Mar=3, ..., Nov=11, Dec=12 (Rat), Jan=13 (Ox) ?
-  // Let's re-normalize diff.
-  // Actually, just subtract diff.
-  // If Feb (2): base - 0.
-  // If Jan (1): This is month BEFORE Feb. So base - (-1) = base + 1. (Ascending backwards -> Descending forwards).
+
   let currentStar = baseStar - (solarMonthIndex - 2);
+
 
   // Adjust for the index wrapping behavior if necessary.
   // getSolarMonthBranchIndex returns: Jan=1, Feb=2, ..., Nov=11, Dec=0.

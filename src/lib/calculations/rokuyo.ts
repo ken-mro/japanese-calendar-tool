@@ -106,7 +106,7 @@ export interface OldCalendarDate {
 
 export function getOldCalendarDate(date: Date): OldCalendarDate {
     const Y = date.getFullYear();
-    // const M = date.getMonth() + 1; // Unused
+
 
     const jdTarget = getJulianDay(date);
 
