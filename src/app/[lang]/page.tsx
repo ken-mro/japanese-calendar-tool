@@ -27,7 +27,7 @@ export async function generateMetadata({
   params: Promise<{ lang: Language }>;
 }): Promise<Metadata> {
   const { lang } = await params;
-  const t = dictionary[lang];
+  const t = dictionary[lang] || dictionary.ja;
 
   return {
     title: t.title,
