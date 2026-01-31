@@ -10,6 +10,7 @@ A web application that calculates Japanese era (和暦), Sexagenary cycle (十�
 
 ## Features | 機能
 
+- **Daily Calendar (Himekuri)**: Interactive daily calendar with "tear-off" animation, displaying daily Eto, Nine Star Ki, and customized details.
 - **Daily Calendar (日めくりカレンダー)**: Traditional daily view with Rokuyo, Senjitsu, Moon phase, and responsive design.
 - **Western Year (西暦)**: Display the Gregorian calendar year
 - **Japanese Era (和暦)**: Calculate Japanese era names from Keicho (1596) to Reiwa
