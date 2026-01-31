@@ -67,31 +67,49 @@ export default function HomeDescription({
           </p>
 
           <div className="about-links-grid">
-            <Link href="/about/wareki" className="about-link-card">
+            <Link
+              href={`/${language}/about/wareki`}
+              className="about-link-card"
+            >
               <h3>和暦とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/wafu-getsumei" className="about-link-card">
+            <Link
+              href={`/${language}/about/wafu-getsumei`}
+              className="about-link-card"
+            >
               <h3>和風月名とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/eto" className="about-link-card">
+            <Link href={`/${language}/about/eto`} className="about-link-card">
               <h3>干支とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/nine-star" className="about-link-card">
+            <Link
+              href={`/${language}/about/nine-star`}
+              className="about-link-card"
+            >
               <h3>九星とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/rokuyo" className="about-link-card">
+            <Link
+              href={`/${language}/about/rokuyo`}
+              className="about-link-card"
+            >
               <h3>六曜とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/junichoku" className="about-link-card">
+            <Link
+              href={`/${language}/about/junichoku`}
+              className="about-link-card"
+            >
               <h3>十二直とは</h3>
               <span className="arrow">→</span>
             </Link>
-            <Link href="/about/senjitsu" className="about-link-card">
+            <Link
+              href={`/${language}/about/senjitsu`}
+              className="about-link-card"
+            >
               <h3>選日とは</h3>
               <span className="arrow">→</span>
             </Link>
@@ -131,31 +149,43 @@ export default function HomeDescription({
         </p>
 
         <div className="about-links-grid">
-          <Link href="/about/wareki" className="about-link-card">
+          <Link href={`/${language}/about/wareki`} className="about-link-card">
             <h3>About Wareki (Japanese Era)</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/wafu-getsumei" className="about-link-card">
+          <Link
+            href={`/${language}/about/wafu-getsumei`}
+            className="about-link-card"
+          >
             <h3>About Wafu Getsumei</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/eto" className="about-link-card">
+          <Link href={`/${language}/about/eto`} className="about-link-card">
             <h3>About Sexagenary Cycle (Eto)</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/nine-star" className="about-link-card">
+          <Link
+            href={`/${language}/about/nine-star`}
+            className="about-link-card"
+          >
             <h3>About Nine Star Ki</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/rokuyo" className="about-link-card">
+          <Link href={`/${language}/about/rokuyo`} className="about-link-card">
             <h3>About Rokuyo</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/junichoku" className="about-link-card">
+          <Link
+            href={`/${language}/about/junichoku`}
+            className="about-link-card"
+          >
             <h3>About 12 Choku</h3>
             <span className="arrow">→</span>
           </Link>
-          <Link href="/about/senjitsu" className="about-link-card">
+          <Link
+            href={`/${language}/about/senjitsu`}
+            className="about-link-card"
+          >
             <h3>About Senjitsu</h3>
             <span className="arrow">→</span>
           </Link>

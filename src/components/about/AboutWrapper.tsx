@@ -13,13 +13,13 @@ interface AboutWrapperProps {
 }
 
 export function AboutWrapper({ title, icon, children }: AboutWrapperProps) {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
 
   return (
     <div className="app-container">
       <header className="header">
         <div className="header-content">
-          <Link href="/" className="back-link">
+          <Link href={`/${language}`} className="back-link">
             ← {t("common.backToHome")}
           </Link>
           <div>

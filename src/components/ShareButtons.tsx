@@ -28,7 +28,10 @@ export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
 
   useEffect(() => {
     setTimeout(() => {
-      setUrl(window.location.href);
+      // Get the current URL
+      const currentUrl = window.location.href;
+      setUrl(currentUrl);
+
       if (resultData) {
         setShareText(
           generateShareText({
@@ -144,7 +147,10 @@ export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
               shareText,
-            )}&url=${encodeURIComponent(url)}`}
+            )}&url=${encodeURIComponent(
+              // Remove language path from URL for Twitter sharing
+              url.replace(/\/(ja|en)(\/|$)/, "/"),
+            )}`}
             target="_blank"
             rel="noopener noreferrer"
             className="share-btn share-btn-x"

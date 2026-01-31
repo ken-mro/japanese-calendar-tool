@@ -10,7 +10,7 @@ export default function PrivacyContent() {
   return (
     <div className="app-container">
       <header className="header">
-        <Link href="/" className="back-link">
+        <Link href={`/${language}`} className="back-link">
           ← {language === "ja" ? "ホームに戻る" : "Back to Home"}
         </Link>
       </header>

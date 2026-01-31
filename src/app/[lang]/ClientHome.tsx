@@ -26,7 +26,7 @@ interface AppState {
 }
 
 export default function Home() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const [resultData, setResultData] = useState<AppState["resultData"]>(null);
   const [activeTabIndex, setActiveTabIndex] = useState(0);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
@@ -201,11 +201,11 @@ export default function Home() {
       </main>
       <footer className="footer">
         <p className="footer-links">
-          <Link href="/terms" className="footer-link">
+          <Link href={`/${language}/terms`} className="footer-link">
             {t("common.terms")}
           </Link>
           <span className="footer-separator">|</span>
-          <Link href="/privacy" className="footer-link">
+          <Link href={`/${language}/privacy`} className="footer-link">
             {t("common.privacy")}
           </Link>
         </p>
