@@ -86,17 +86,26 @@ This project is optimized for deployment on [Vercel](https://vercel.com).
 
 ## Internationalization | 多言語対応
 
-The application supports both Japanese and English:
+The application supports both Japanese and English with URL-based routing:
 
-- Default language is detected from browser settings
-- Users can switch languages using the toggle in the header
-- Language preference is saved in localStorage
+- **Automatic language detection**: Users are redirected to `/ja` or `/en` based on browser language preferences
+- **Language switcher**: Users can switch languages using the toggle in the header
+- **Persistent language**: Selected language is maintained across all navigation via URL paths (`/ja/...`, `/en/...`)
+- **SEO-friendly**: Each language version has its own URL with proper hreflang tags
 
-アプリケーションは日本語と英語に対応しています：
+アプリケーションは日本語と英語に対応しています（URL ベースのルーティング）：
 
-- デフォルトはブラウザの言語設定を検出
-- ヘッダーのトグルで言語切り替え可能
-- 言語設定は localStorage に保存
+- **自動言語検出**: ブラウザの言語設定に基づいて `/ja` または `/en` にリダイレクト
+- **言語切り替え**: ヘッダーのトグルで言語切り替え可能
+- **言語の永続化**: 選択した言語は URL パス（`/ja/...`、`/en/...`）を通じて全ナビゲーションで維持
+- **SEO フレンドリー**: 各言語版は独自の URL を持ち、適切な hreflang タグを使用
+
+### Social Sharing
+
+- **Twitter sharing**: Uses base URL (without language path) to allow automatic language detection for each viewer
+- **Other platforms**: Share current language-specific URL
+
+**Twitter シェア**: ベース URL（言語パスなし）を使用し、各閲覧者に対して自動言語検出を可能にします
 
 ## Project Structure | プロジェクト構成
 
