@@ -4,12 +4,13 @@ A web application that calculates Japanese era (和暦), Sexagenary cycle (十�
 
 生年月日から西暦・和暦・十干十二支・星座・九星を計算するウェブアプリケーションです。
 
-![Japanese Calendar Tool](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![Japanese Calendar Tool](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat-square&logo=typescript)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ## Features | 機能
 
+- **Daily Calendar (日めくりカレンダー)**: Traditional daily view with Rokuyo, Senjitsu, Moon phase, and responsive design.
 - **Western Year (西暦)**: Display the Gregorian calendar year
 - **Japanese Era (和暦)**: Calculate Japanese era names from Keicho (1596) to Reiwa
 - **Sexagenary cycle (十干十二支)**: Calculate the 60-year cycle including Heavenly Stems and Earthly Branches
@@ -23,7 +24,7 @@ A web application that calculates Japanese era (和暦), Sexagenary cycle (十�
 
 ## Tech Stack | 技術スタック
 
-- **Framework**: [Next.js](https://nextjs.org/) 15 (App Router)
+- **Framework**: [Next.js](https://nextjs.org/) 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + Custom CSS (Japanese Traditional "Wafu" Design)
 - **Font**: Noto Serif JP
@@ -100,12 +101,20 @@ The application supports both Japanese and English:
 ```
 src/
 ├── app/
+│   ├── [lang]/
+│   │   ├── daily/      # Daily Calendar feature
+│   │   │   └── page.tsx
+│   │   ├── about/      # About pages
+│   │   └── page.tsx    # Home page
 │   ├── globals.css     # Global styles
-│   ├── layout.tsx      # Root layout with SEO
-│   └── page.tsx        # Main page
+│   └── layout.tsx      # Root layout
 ├── components/
+│   ├── cards/          # Display cards (Refactored)
+│   ├── icons/          # Icon components (Senjitsu, NineStar, etc.)
 │   ├── DateInput.tsx   # Date input form
-│   ├── Header.tsx      # Header with language switcher
+│   ├── DailyCalendar.tsx # Main Daily View Component
+│   ├── DetailHeader.tsx # Header for sub-pages
+│   ├── Header.tsx      # Main Header
 │   ├── LanguageSwitcher.tsx
 │   └── ResultDisplay.tsx  # Results display
 ├── lib/
