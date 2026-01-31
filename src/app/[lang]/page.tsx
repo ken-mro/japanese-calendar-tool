@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
+import ClientHome from "./ClientHome";
 
 import { Language } from "@/lib/i18n/config";
 
