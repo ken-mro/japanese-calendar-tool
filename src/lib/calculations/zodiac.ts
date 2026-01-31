@@ -84,45 +84,7 @@ export function getMonthZodiac(date: Date, isSolarMonth: boolean = false): Chine
   const yearZodiac = getChineseZodiac(year);
   const yearStemIndex = HEAVENLY_STEMS.findIndex(s => s.kanji === yearZodiac.heavenlyStemKanji);
 
-  // Month Branch Index for Stem calculation must be relative to Tiger=1?
-  // Standard formula:
-  // Year Stem:
-  // 甲(0) or 己(5) -> Month 1 (Feb/Tiger) is 丙(2) (Tiger is 3rd branch?)
-  // Let's re-verify the formula in existing code.
-  // Existing: const monthStemIndex = ((yearStemIndex % 5) * 2 + monthBranchIndex) % 10;
-  // Year 2024 (Kinoe/0). Jan (Tiger/2).
-  // (0%5 * 2 + 2) = 2 (Hinoe).
-  // Jan 2024 is Hinoe-Tora. Matches.
-  // So the formula works directly with Branch Index where Tiger=2.
 
-  // Solar Month: Feb (Tiger/2). Year Stem same.
-  // Result should be same for Feb (after Risshun).
-  // What about Jan (Ox/1)?
-  // (0%5 * 2 + 1) = 1 (Kinoto). Jan is Kinoto-Ushi.
-  // Is this correct?
-  // 2024 Jan is before Risshun. So it belongs to 2023 (Mizunoto/9).
-  // Year Stem 9.
-  // (9%5 * 2 + 1) = (4*2 + 1) = 9 (Mizunoto).
-  // Check reference: 2024 Jan (Calendar) -> Hinoe-Tora.
-  // 2024 Jan (Solar, before Feb 4) -> 2023 Dec (Solar) -> Kibisu-Ushi (Mizunoto-Ushi wrong? let me check reference).
-
-  // Wait. Solar Month Jan (before Feb 4) corresponds to "Late Winter" or "Dec" of previous year?
-  // getSolarMonthBranchIndex(Jan 1) -> before Risshun -> returns month-1.
-  // If Jan 1 -> month 1. setsu is Jan 6. Jan 1 < Jan 6 -> month 0.
-  // month 0 -> returns 0 (Rat).
-  // So Jan 1 (Solar) is Rat.
-  // Wait, I thought Jan is Ox.
-  // Risshun (Feb) is Tiger.
-  // Shokan (Jan) is Ox.
-  // Taisetsu (Dec) is Rat.
-  // Jan 1 is before Shokan (Jan 6). So it is Taisetsu (Rat).
-  // So Jan 1 Solar is Rat.
-  // Stem: Year 2023 (9). Branch 0 (Rat).
-  // (9%5 * 2 + 0) = 8 (Mizunoe).
-  // Result: Mizunoe-Ne.
-
-
-  // Fix for Rat/Ox months (Month 11/12)
 
 
   // Fix for Rat/Ox months (Month 11/12)
