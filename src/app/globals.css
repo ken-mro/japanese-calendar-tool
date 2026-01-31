@@ -90,6 +90,36 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 1rem; /* Add gap for when they wrap */
+}
+
+.header-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .header-content {
+    justify-content: center; /* Center items when wrapped? Or keep space-between? */
+    /* User said: "next row of the title row". */
+  }
+  
+  .logo-section {
+    /* Ensure title takes full width if we want a clean break, 
+       but flex-wrap with space-between might just drop the icons if they don't fit.
+       To force a new row, we might need to set width: 100% on the logo or icons container. */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-icons {
+    width: 100%;
+    justify-content: center; /* Center icons on the second row */
+    margin-top: 0.5rem;
+  }
 }
 
 .logo-link {
@@ -945,3 +975,158 @@ body {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+/* Day Center Section Responsive Styling */
+.day-center-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* Tight gap on mobile */
+  margin-bottom: 2rem;
+}
+
+.day-divider {
+  width: 2px;
+  height: 120px; /* Slightly shorter for mobile fit? User said equal length. Let's stick to 140px or maybe responsive height? */
+  /* Let's keep 140px but ensure it doesn't overflow height-wise? No, height is fine. */
+  height: 140px;
+  background-color: #eee;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.day-number {
+  font-size: 10rem;
+  font-weight: 900;
+  line-height: 0.9;
+  font-family: 'Century Gothic', 'Futura', sans-serif;
+  color: #2c3e50;
+}
+
+.day-week {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #34495e;
+}
+
+@media (min-width: 768px) {
+  .day-center-section {
+    gap: 2rem;
+  }
+  .day-divider {
+    margin: 0 1rem;
+  }
+}
+
+/* Responsive Layout for Day Center (All Languages) */
+@media (max-width: 768px) {
+  .day-center-section {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas:
+      'day day day'
+      'rokuyo div1 choku';
+    gap: 1.5rem 0.5rem;
+    justify-items: center;
+  }
+
+  .day-center-section .item-day {
+    grid-area: day;
+  }
+
+  .day-center-section .item-rokuyo {
+    grid-area: rokuyo;
+    justify-self: end;
+  }
+
+  .day-center-section .item-choku {
+    grid-area: choku;
+    justify-self: start;
+  }
+
+  .day-center-section .divider-1 {
+    grid-area: div1;
+    height: 100px; /* Shorter divider for stacked view */
+  }
+
+  .day-center-section .divider-2 {
+    display: none;
+  }
+}
+
+
+/* Slide Animations */
+@keyframes slideInRight {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-slide-next {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+.animate-slide-prev {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+/* Tap Zones */
+.tap-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 20;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  opacity: 0; /* Hidden by default on desktop */
+}
+
+.tap-zone.left-zone {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+.tap-zone.right-zone {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+/* Hover Effects (Desktop) */
+@media (hover: hover) {
+  .tap-zone.left-zone:hover {
+    opacity: 1;
+    background: linear-gradient(to right, rgba(0,0,0,0.05), transparent);
+  }
+  .tap-zone.right-zone:hover {
+    opacity: 1;
+    background: linear-gradient(to left, rgba(0,0,0,0.05), transparent);
+  }
+}
+
+/* Mobile Visibility (Touch Devices) */
+@media (hover: none), (max-width: 768px) {
+  .tap-zone {
+    opacity: 1; /* Always visible slightly on mobile */
+  }
+  /* Apply a default weak gradient or just keep the icon visible? */
+  /* The icon container has its own background styling in component, 
+     but maybe we should control it here too? 
+     Let's keep the internal icon visible. 
+     The user said "make it visible a bit".
+     If opacity is 1, the arrow and its bubble are fully visible.
+     Maybe 1 is too strong if the bubble is dark. 
+     Let's use 1 but maybe the icon bubble itself is what matters.
+     The bubble has rgba(0,0,0,0.3) background in TSX.
+     This seems fine. */
+}
+

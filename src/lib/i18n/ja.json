@@ -16,7 +16,9 @@
     "back": "戻る",
     "backToHome": "ホームに戻る",
     "prev": "前へ",
-    "next": "次へ"
+    "next": "次へ",
+    "today": "今日",
+    "dailyCalendar": "日めくりカレンダー"
   },
   "input": {
     "title": "年月日を入力",

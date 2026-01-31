@@ -3,6 +3,7 @@
 import { useI18n } from "@/lib/i18n/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface HeaderProps {
@@ -38,7 +39,81 @@ export function Header({ onToggleAbout }: HeaderProps) {
           </h1>
         </div>
 
-        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <div className="header-icons">
+          {/* Daily Calendar Link (Mini Tear-off) */}
+          <Link
+            href={`/${language}/daily`}
+            title={t("common.dailyCalendar")}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "32px",
+              height: "36px", // Slightly taller to account for header
+              backgroundColor: "#fff",
+              textDecoration: "none",
+              borderRadius: "4px",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              overflow: "hidden",
+              transition: "transform 0.2s ease",
+              border: "1px solid #e5e7eb",
+              marginRight: "0.5rem",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
+            {/* Header Strip */}
+            <div
+              style={{
+                width: "100%",
+                height: "8px",
+                background: "#ef4444",
+                display: "flex",
+                justifyContent: "center",
+                gap: "3px",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  width: "2px",
+                  height: "2px",
+                  borderRadius: "50%",
+                  background: "#fff",
+                  opacity: 0.8,
+                }}
+              />
+              <div
+                style={{
+                  width: "2px",
+                  height: "2px",
+                  borderRadius: "50%",
+                  background: "#fff",
+                  opacity: 0.8,
+                }}
+              />
+            </div>
+            {/* Date Number */}
+            <div
+              style={{
+                flexGrow: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "#1f2937",
+                fontWeight: "bold",
+                fontSize: "0.9rem",
+                fontFamily: "'Times New Roman', serif",
+                lineHeight: 1,
+              }}
+            >
+              {new Date().getDate()}
+            </div>
+          </Link>
           <button
             onClick={() => {
               if (onToggleAbout) {

@@ -63,24 +63,13 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
     }
   }, [currentDate, pathname, router, searchParams]);
 
-  const handlePrevDay = () => {
-    const prev = new Date(currentDate);
-    prev.setDate(prev.getDate() - 1);
-    setCurrentDate(prev);
-  };
-
-  const handleNextDay = () => {
-    const next = new Date(currentDate);
-    next.setDate(next.getDate() + 1);
-    setCurrentDate(next);
-  };
-
   // Calculations
   const targetDate = currentDate;
 
   // Year
   const japaneseEra = getJapaneseEra(targetDate);
-  const chineseZodiacYear = getSolarYear(targetDate);
+  const chineseZodiacYear =
+    monthType === "solar" ? getSolarYear(targetDate) : targetDate.getFullYear();
   const chineseZodiac = getChineseZodiac(chineseZodiacYear);
   const nineStar = getNineStar(targetDate);
   const nineStarName = isJa ? nineStar.nameKanji : nineStar.name;
@@ -103,9 +92,10 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
   const moonPhaseName = isJa ? moonPhase.phaseKanji : moonPhase.phase;
 
   const juniChoku = getJuniChoku(targetDate);
-  const juniChokuName = isJa
-    ? juniChoku.name
-    : `${juniChoku.romaji} (${juniChoku.name})`;
+  const juniChokuName = isJa ? `${juniChoku.name}` : `${juniChoku.name}`;
+  const juniChokuNameRomaji = isJa
+    ? `${juniChoku.reading}`
+    : `${juniChoku.romaji}`;
 
   const senjitsuList = getSenjitsu(targetDate);
 
@@ -123,10 +113,73 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
   });
   const yearStr = targetDate.getFullYear();
 
+  // Animation Direction
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev" | null>(
+    null,
+  );
+
+  // Swipe Logic
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNextDay();
+    } else if (isRightSwipe) {
+      handlePrevDay();
+    }
+  };
+
+  // Enhanced Navigation Handlers with Direction
+  const handleNextDay = () => {
+    setSlideDirection("next");
+    const next = new Date(currentDate);
+    next.setDate(next.getDate() + 1);
+    setCurrentDate(next);
+  };
+
+  const handlePrevDay = () => {
+    setSlideDirection("prev");
+    const prev = new Date(currentDate);
+    prev.setDate(prev.getDate() - 1);
+    setCurrentDate(prev);
+  };
+
+  const handleToday = () => {
+    setSlideDirection("next"); // Or null/fade? using next for now as it's likely moving forward or just reset
+    const today = new Date();
+    // Reset to today. Note: If we want to support user's local time vs server time needed?
+    // Using new Date() is client usage as well.
+    setCurrentDate(today);
+  };
+
   return (
     <div
       className="daily-calendar-container"
-      style={{ maxWidth: "800px", margin: "0 auto" }}
+      style={{
+        maxWidth: "800px",
+        margin: "1rem auto",
+        position: "relative", // Needed for absolute positioning of tap zones
+        touchAction: "pan-y", // Allow vertical scroll, handle horizontal swipe in JS
+      }}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     >
       {/* Controls & Navigation */}
       <div
@@ -137,6 +190,8 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
           marginBottom: "1rem",
           flexWrap: "wrap",
           gap: "1rem",
+          position: "relative",
+          zIndex: 20,
         }}
       >
         <div
@@ -174,92 +229,77 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
           </div>
         </div>
 
-        {/* Enhanced Navigation Buttons */}
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <button
-            onClick={handlePrevDay}
-            className="btn-nav-styled"
-            title={t("common.prev") || "Previous"}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-              border: "1px solid #c0392b",
-              backgroundColor: "#fff",
-              color: "#c0392b",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#c0392b";
-              e.currentTarget.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#fff";
-              e.currentTarget.style.color = "#c0392b";
-            }}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-          <button
-            onClick={handleNextDay}
-            className="btn-nav-styled"
-            title={t("common.next") || "Next"}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "40px",
-              height: "40px",
-              borderRadius: "50%",
-              border: "1px solid #c0392b",
-              backgroundColor: "#fff",
-              color: "#c0392b",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#c0392b";
-              e.currentTarget.style.color = "#fff";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#fff";
-              e.currentTarget.style.color = "#c0392b";
-            }}
-          >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
+        {/* Today Button */}
+        <button
+          onClick={handleToday}
+          disabled={
+            currentDate.getDate() === new Date().getDate() &&
+            currentDate.getMonth() === new Date().getMonth() &&
+            currentDate.getFullYear() === new Date().getFullYear()
+          }
+          className="btn-today"
+          style={{
+            fontWeight: "bold",
+            padding: "0.5rem 1rem",
+            backgroundColor:
+              currentDate.getDate() === new Date().getDate() &&
+              currentDate.getMonth() === new Date().getMonth() &&
+              currentDate.getFullYear() === new Date().getFullYear()
+                ? "#f0f0f0"
+                : "#fff",
+            border: "1px solid #d4d4d4",
+            borderRadius: "4px",
+            height: "100%", // Match height of toggle
+            cursor:
+              currentDate.getDate() === new Date().getDate() &&
+              currentDate.getMonth() === new Date().getMonth() &&
+              currentDate.getFullYear() === new Date().getFullYear()
+                ? "default"
+                : "pointer",
+            fontSize: "0.9rem",
+            color:
+              currentDate.getDate() === new Date().getDate() &&
+              currentDate.getMonth() === new Date().getMonth() &&
+              currentDate.getFullYear() === new Date().getFullYear()
+                ? "#aaa"
+                : "#555",
+            opacity:
+              currentDate.getDate() === new Date().getDate() &&
+              currentDate.getMonth() === new Date().getMonth() &&
+              currentDate.getFullYear() === new Date().getFullYear()
+                ? 0.7
+                : 1,
+            transition: "all 0.2s ease",
+            display: "flex", // Ensure flex alignment if needed
+            alignItems: "center",
+          }}
+          onMouseEnter={(e) => {
+            if (e.currentTarget.disabled) return;
+            e.currentTarget.style.backgroundColor = "#f5f5f5";
+            e.currentTarget.style.borderColor = "#c0392b";
+            e.currentTarget.style.color = "#c0392b";
+          }}
+          onMouseLeave={(e) => {
+            if (e.currentTarget.disabled) return;
+            e.currentTarget.style.backgroundColor = "#fff";
+            e.currentTarget.style.borderColor = "#d4d4d4";
+            e.currentTarget.style.color = "#555";
+          }}
+        >
+          {t("common.today") || "Today"}
+        </button>
       </div>
 
-      {/* Himekuri Paper Sheet */}
+      {/* Himekuri Paper Sheet with Animation */}
       <div
-        className="himekuri-sheet"
+        key={targetDate.toISOString()} // Trigger re-render/animation on date change
+        className={`himekuri-sheet ${
+          slideDirection === "next"
+            ? "animate-slide-next"
+            : slideDirection === "prev"
+              ? "animate-slide-prev"
+              : ""
+        }`}
         style={{
           backgroundColor: "#fdfdf6",
           backgroundImage:
@@ -275,8 +315,75 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
           position: "relative",
           overflow: "hidden",
           fontFamily: "'Noto Serif JP', serif",
+          zIndex: 5,
         }}
       >
+        {/* Tap Zone Left (Prev) - Overlay on Card */}
+        <div
+          onClick={handlePrevDay}
+          className="tap-zone left-zone"
+          aria-label={t("common.prev") || "Previous Day"}
+        >
+          <div
+            style={{
+              background: "rgba(0,0,0,0.3)",
+              color: "white",
+              borderRadius: "50%",
+              width: "32px",
+              height: "32px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        {/* Tap Zone Right (Next) - Overlay on Card */}
+        <div
+          onClick={handleNextDay}
+          className="tap-zone right-zone"
+          aria-label={t("common.next") || "Next Day"}
+        >
+          <div
+            style={{
+              background: "rgba(0,0,0,0.3)",
+              color: "white",
+              borderRadius: "50%",
+              width: "32px",
+              height: "32px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+        {/* ... (Existing Content Structure) ... */}
         {/* Top Header: Date Context */}
         <div
           style={{
@@ -443,27 +550,16 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
         </div>
 
         {/* Center: The Day */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "2rem",
-            marginBottom: "2rem",
-          }}
-        >
+        <div className="day-center-section">
           {/* Left Vertical: Rokuyo */}
           <div
+            className="item-rokuyo"
             style={{
               display: "flex",
               flexDirection: "column",
               gap: "1rem",
               alignItems: "center",
-              borderRight: isJa ? "2px solid #eee" : "none",
-              paddingRight: isJa ? "1.5rem" : "0",
-              borderBottom: isJa ? "none" : "2px solid #eee",
-              paddingBottom: isJa ? "0" : "1rem",
-              minWidth: "80px",
+              minWidth: "60px", // Reduced min-width closer to content
             }}
           >
             <Icon src={rokuyoIconSrc} alt={rokuyoName} size={48} />
@@ -475,62 +571,56 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
                 fontWeight: "bold",
                 color: "#c0392b",
                 letterSpacing: "0.2rem",
-                whiteSpace: "nowrap",
+                whiteSpace: "normal", // Changed from nowrap to normal
+                wordBreak: "break-word", // Enable breaking
+                textAlign: "center",
               }}
             >
               {rokuyoName}
             </div>
           </div>
 
+          {/* Divider 1 */}
+          <div className="day-divider divider-1" />
+
           {/* Main Day Number */}
-          <div style={{ textAlign: "center" }}>
-            <div
-              style={{
-                fontSize: "10rem",
-                fontWeight: "900",
-                lineHeight: 0.9,
-                fontFamily: "'Century Gothic', 'Futura', sans-serif",
-                color: "#2c3e50",
-              }}
-            >
-              {dayNumber}
-            </div>
-            <div
-              style={{
-                fontSize: "2.5rem",
-                fontWeight: "bold",
-                marginTop: "1rem",
-                color: "#34495e",
-              }}
-            >
-              {dayOfWeek.replace("日", "")}
-            </div>
+          <div className="item-day" style={{ textAlign: "center" }}>
+            <div className="day-number">{dayNumber}</div>
+            <div className="day-week">{dayOfWeek.replace("日", "")}</div>
           </div>
+
+          {/* Divider 2 */}
+          <div className="day-divider divider-2" />
 
           {/* Right Vertical: Choku */}
           <div
+            className="item-choku"
             style={{
               writingMode: isJa ? "vertical-rl" : "horizontal-tb",
               textOrientation: "upright",
               fontSize: "1.2rem",
               color: "#555",
               letterSpacing: "0.2rem",
-              borderLeft: isJa ? "2px solid #eee" : "none",
-              paddingLeft: isJa ? "1.5rem" : "0",
-              borderTop: isJa ? "none" : "2px solid #eee",
-              paddingTop: isJa ? "0" : "1rem",
               display: "flex",
               flexDirection: isJa ? "row" : "column",
               gap: "1rem",
-              minWidth: "60px",
+              minWidth: "40px",
               alignItems: "center",
+              wordBreak: "break-word", // Enable breaking
+              textAlign: "center",
             }}
           >
             <div
               className="font-brush"
-              style={{ fontSize: isJa ? "2rem" : "1.2rem" }}
+              style={{ fontSize: "2rem", fontWeight: "bold" }}
             >
               {juniChokuName}
+            </div>
+            <div
+              className="font-brush"
+              style={{ fontSize: "1.2rem", fontWeight: "bold" }}
+            >
+              {juniChokuNameRomaji}
             </div>
           </div>
         </div>

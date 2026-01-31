@@ -16,7 +16,9 @@
     "back": "Back",
     "backToHome": "Back to Home",
     "prev": "Prev",
-    "next": "Next"
+    "next": "Next",
+    "today": "Today",
+    "dailyCalendar": "Daily Calendar"
   },
   "input": {
     "title": "Enter Date",
