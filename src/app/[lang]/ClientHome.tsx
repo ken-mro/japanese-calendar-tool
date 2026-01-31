@@ -186,6 +186,7 @@ export default function Home() {
   return (
     <div className="app-container">
       <Header onToggleAbout={toggleAbout} />
+
       <main className="main-content">
         {isRestored && (
           <DateInput
