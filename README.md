@@ -135,10 +135,53 @@ src/
 
 ## SEO | SEO 対策
 
-- Optimized meta tags for both Japanese and English
-- Open Graph and Twitter Card support
-- Structured data (JSON-LD) for WebApplication schema
-- Semantic HTML structure
+### Comprehensive SEO Implementation
+
+This application implements industry-standard SEO best practices for maximum search engine visibility and social media engagement:
+
+#### Meta Tags & Open Graph
+
+- **Locale-specific metadata** for Japanese (ja) and English (en) versions
+- **Open Graph tags** for rich social media previews (Facebook, LinkedIn)
+- **Twitter Card support** with `summary_large_image` format
+- **Dynamic Open Graph images** (1200x630px) for all major pages
+- **Comprehensive keywords** tailored to each page and locale
+- **Canonical URLs** to prevent duplicate content issues
+- **Hreflang tags** for proper language/region targeting
+
+#### Structured Data (JSON-LD)
+
+- **WebApplication schema** with detailed feature lists and localized descriptions
+- **Organization schema** for brand identity
+- **BreadcrumbList schema** for navigation hierarchy (utility available)
+- Support for **FAQPage schema** on informational pages
+
+#### Technical SEO
+
+- **XML Sitemap** (`/sitemap.xml`) with:
+  - All routes in both Japanese and English
+  - Proper `changeFrequency` values (daily, always, monthly, yearly)
+  - Optimized priority values (1.0 for home, 0.9 for daily, 0.7 for about pages)
+  - Language alternates for each URL
+- **Robots.txt** (`/robots.txt`) with sitemap reference
+- **Middleware-based locale detection** for automatic language redirection
+- **Resource hints** (preconnect, dns-prefetch) for performance optimization
+
+#### Performance Optimizations
+
+- Preconnect to Google Fonts and AdSense for faster loading
+- Edge runtime for Open Graph image generation
+- Optimized favicon and app icons
+
+#### Configuration
+
+Set the base URL in `.env.local` for production:
+
+```env
+NEXT_PUBLIC_BASE_URL=https://your-domain.com
+```
+
+This ensures all metadata, sitemaps, and structured data use the correct production URLs.
 
 ## License | ライセンス
 
