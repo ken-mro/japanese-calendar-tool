@@ -6,7 +6,11 @@ interface NineStarIconProps {
   style?: React.CSSProperties;
 }
 
-export const NineStarIcon = ({ colorName, className = "w-[1em] h-[1em]", style }: NineStarIconProps) => {
+export const NineStarIcon = ({
+  colorName,
+  className = "w-[1em] h-[1em]",
+  style,
+}: NineStarIconProps) => {
   const colorMap: Record<string, string> = {
     White: "#ffffff",
     Black: "#000000",
@@ -18,8 +22,14 @@ export const NineStarIcon = ({ colorName, className = "w-[1em] h-[1em]", style }
   };
 
   const color = colorMap[colorName] || "#bdc3c7";
-  const stroke = colorName === "Black" ? "white" : "none";
-  const strokeWidth = colorName === "Black" ? "2px" : "0";
+  const stroke =
+    colorName === "Black"
+      ? "white"
+      : colorName === "White"
+        ? "#999999"
+        : "none";
+  const strokeWidth =
+    colorName === "Black" || colorName === "White" ? "2px" : "0";
 
   return (
     <svg
@@ -47,4 +57,4 @@ export const NineStarIcon = ({ colorName, className = "w-[1em] h-[1em]", style }
       />
     </svg>
   );
-}
+};

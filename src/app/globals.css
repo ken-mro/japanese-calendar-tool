@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
+
+.font-brush {
+  font-family: 'Yuji Syuku', serif;
+}
+
 :root {
   /* Traditional Japanese Colors (Wafu) */
   --color-kachiiro: #1e2a4a; /* Deep Indigo (Win Color) */
@@ -923,5 +929,19 @@ body {
   .tab-button {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;
+  }
+}
+
+/* Daily Calendar Details Grid */
+.daily-details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .daily-details-grid {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

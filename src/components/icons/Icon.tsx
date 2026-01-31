@@ -4,19 +4,22 @@ export default function Icon({
   src,
   alt,
   title,
+  size = 48,
 }: {
   src: string;
   alt: string;
   title?: string;
+  size?: number;
 }) {
   return (
     <Image
       src={src}
       alt={alt}
       title={title}
-      width={48}
-      height={48}
-      className="w-12 h-12 object-contain"
+      width={size}
+      height={size}
+      className={`object-contain`}
+      style={{ width: size, height: size }}
     />
   );
 }

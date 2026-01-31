@@ -14,7 +14,9 @@
     "contact": "Contact",
     "aboutThisTool": "About this tool",
     "back": "Back",
-    "backToHome": "Back to Home"
+    "backToHome": "Back to Home",
+    "prev": "Prev",
+    "next": "Next"
   },
   "input": {
     "title": "Enter Date",

@@ -59,10 +59,15 @@ export default function Home() {
 
     // Check if we are coming from a language switch
     const pending = sessionStorage.getItem("languageSwitchPending");
+    console.log("[ClientHome] Mount - Pending:", pending);
 
     if (pending) {
       try {
         const savedJson = sessionStorage.getItem("appState");
+        console.log(
+          "[ClientHome] Mount - Saved JSON length:",
+          savedJson?.length,
+        );
         if (savedJson) {
           const savedState: AppState = JSON.parse(savedJson);
 
@@ -85,6 +90,7 @@ export default function Home() {
           // Restore scroll position after a brief delay to allow layout to settle
           // Increased delay slightly to be safe
           setTimeout(() => {
+            console.log("[ClientHome] Restoring scroll:", savedState.scrollY);
             window.scrollTo({ top: savedState.scrollY, behavior: "auto" });
           }, 100);
         }
@@ -97,6 +103,7 @@ export default function Home() {
         sessionStorage.removeItem("languageSwitchPending");
       }, 500);
     } else {
+      console.log("[ClientHome] No pending switch. Resetting.");
       // If not a language switch (e.g. refresh), clear any stale state
       sessionStorage.removeItem("appState");
       // Force reset to top on refresh
@@ -107,6 +114,7 @@ export default function Home() {
 
     // Save state on unmount (navigation or refresh)
     const handleSaveState = () => {
+      console.log("[ClientHome] handleSaveState triggered");
       // Use the tracked scroll position instead of window.scrollY which might be 0 during unmount
       const currentScrollY = stateRef.current.scrollY;
       const stateToSave: AppState = {
@@ -114,6 +122,11 @@ export default function Home() {
         activeTabIndex: stateRef.current.activeTabIndex,
         scrollY: currentScrollY,
       };
+      if (stateRef.current.resultData) {
+        console.log("[ClientHome] Saving non-null resultData");
+      } else {
+        console.log("[ClientHome] Saving NULL resultData");
+      }
       sessionStorage.setItem("appState", JSON.stringify(stateToSave));
     };
 

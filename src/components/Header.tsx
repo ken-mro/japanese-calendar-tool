@@ -1,17 +1,37 @@
+"use client";
+
 import { useI18n } from "@/lib/i18n/config";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+
+import { useRouter } from "next/navigation";
 
 interface HeaderProps {
   onToggleAbout?: () => void;
 }
 
 export function Header({ onToggleAbout }: HeaderProps) {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
+  const router = useRouter();
+
+  const handleHomeClick = () => {
+    // Dispatch event to save state (similar to language switching)
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("beforeLanguageSwitch"));
+      sessionStorage.setItem("languageSwitchPending", "true");
+    }
+
+    // Navigate to home with scroll: false to allow restoration
+    router.push(`/${language}`, { scroll: false });
+  };
 
   return (
     <header className="header">
       <div className="header-content">
-        <div className="logo-section">
+        <div
+          className="logo-section"
+          onClick={handleHomeClick}
+          style={{ cursor: "pointer" }}
+        >
           <h1 className="site-title">
             <span className="mobile-title">{t("common.titleMobile")}</span>
             <span className="desktop-title">{t("common.title")}</span>

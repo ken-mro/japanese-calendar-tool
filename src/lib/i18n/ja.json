@@ -14,7 +14,9 @@
     "contact": "お問い合わせ",
     "aboutThisTool": "ツールについて",
     "back": "戻る",
-    "backToHome": "ホームに戻る"
+    "backToHome": "ホームに戻る",
+    "prev": "前へ",
+    "next": "次へ"
   },
   "input": {
     "title": "年月日を入力",

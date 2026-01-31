@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, ReactNode } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import en from "./en.json";
 import ja from "./ja.json";
 
@@ -46,6 +46,8 @@ export function I18nProvider({
   const pathname = usePathname();
   const language = locale;
 
+  const searchParams = useSearchParams();
+
   const setLanguage = (lang: Language) => {
     if (lang === language) return;
 
@@ -67,7 +69,10 @@ export function I18nProvider({
     }
 
     const newPath = segments.join("/");
-    router.push(newPath, { scroll: false });
+    const params = searchParams.toString();
+    const fullPath = params ? `${newPath}?${params}` : newPath;
+
+    router.push(fullPath, { scroll: false });
   };
 
   const t = (key: string): string => {

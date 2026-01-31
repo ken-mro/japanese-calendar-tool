@@ -9,13 +9,13 @@ export interface MoonPhase {
 // 8 Phases
 const MOON_PHASES = [
   { name: "New Moon", kanji: "新月", id: "new-moon" },        // 0
-  { name: "Waxing Crescent", kanji: "三日月", id: "waxing-crescent" }, // 1
-  { name: "First Quarter", kanji: "上弦の月", id: "first-quarter" },   // 2
-  { name: "Waxing Gibbous", kanji: "十三夜月", id: "waxing-gibbous" }, // 3 (Approx name)
+  { name: "Waxing Crescent", kanji: "三日月", id: "waxing-crescent-moon" }, // 1
+  { name: "First Quarter", kanji: "上弦の月", id: "first-quarter-moon" },   // 2
+  { name: "Waxing Gibbous", kanji: "十三夜月", id: "waxing-gibbous-moon" }, // 3 (Approx name)
   { name: "Full Moon", kanji: "満月", id: "full-moon" },          // 4
-  { name: "Waning Gibbous", kanji: "寝待月", id: "waning-gibbous" }, // 5 (Approx name)
-  { name: "Last Quarter", kanji: "下弦の月", id: "last-quarter" },    // 6
-  { name: "Waning Crescent", kanji: "有明月", id: "waning-crescent" }, // 7
+  { name: "Waning Gibbous", kanji: "寝待月", id: "waning-gibbous-moon" }, // 5 (Approx name)
+  { name: "Last Quarter", kanji: "下弦の月", id: "last-quarter-moon" },    // 6
+  { name: "Waning Crescent", kanji: "有明月", id: "waning-crescent-moon" }, // 7
 ];
 
 export function getMoonPhase(date: Date): MoonPhase {
