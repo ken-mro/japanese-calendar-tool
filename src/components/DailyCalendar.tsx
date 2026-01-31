@@ -448,8 +448,7 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
                 />
               </div>
               <div style={{ fontSize: "1rem" }}>
-                {isJa ? chineseZodiac.combined : chineseZodiac.combinedRomaji} (
-                {isJa ? chineseZodiac.animalKanji : chineseZodiac.animal})
+                {isJa ? chineseZodiac.combined : chineseZodiac.combinedRomaji}
               </div>
 
               {/* Nine Star Row - Center icon in 48px space */}
