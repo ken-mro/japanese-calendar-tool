@@ -22,13 +22,17 @@ export const OmikujiModal: React.FC<OmikujiModalProps> = ({
 
   // Mounted state for portal
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setTimeout(() => setMounted(true), 0);
+  }, []);
 
   // Reset state when opening
   useEffect(() => {
     if (isOpen) {
-      setStep("start");
-      setResult(null);
+      setTimeout(() => {
+        setStep("start");
+        setResult(null);
+      }, 0);
     }
   }, [isOpen]);
 

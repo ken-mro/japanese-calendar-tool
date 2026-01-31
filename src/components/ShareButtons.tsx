@@ -27,19 +27,21 @@ export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
   const [shareText, setShareText] = useState("");
 
   useEffect(() => {
-    setUrl(window.location.href);
-    if (resultData) {
-      setShareText(
-        generateShareText({
-          targetDate: resultData.targetDate,
-          sourceDate: resultData.sourceDate,
-          offsetDays: resultData.offsetDays,
-          language,
-        })
-      );
-    } else {
-      setShareText(document.title);
-    }
+    setTimeout(() => {
+      setUrl(window.location.href);
+      if (resultData) {
+        setShareText(
+          generateShareText({
+            targetDate: resultData.targetDate,
+            sourceDate: resultData.sourceDate,
+            offsetDays: resultData.offsetDays,
+            language,
+          }),
+        );
+      } else {
+        setShareText(document.title);
+      }
+    }, 0);
   }, [resultData, t, language]);
 
   // Load LINE script
@@ -126,6 +128,7 @@ export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
             data-hatena-bookmark-lang={language}
             title={t("common.share")}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
               alt={t("common.share")}
@@ -140,7 +143,7 @@ export const ShareButtons = ({ resultData }: ShareButtonsProps) => {
         <div style={{ height: "20px", display: "flex", alignItems: "center" }}>
           <a
             href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-              shareText
+              shareText,
             )}&url=${encodeURIComponent(url)}`}
             target="_blank"
             rel="noopener noreferrer"
