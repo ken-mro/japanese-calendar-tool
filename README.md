@@ -111,7 +111,7 @@ src/
 │   ├── globals.css     # Global styles
 │   └── layout.tsx      # Root layout
 ├── components/
-│   ├── cards/          # Display cards (Refactored)
+│   ├── cards/          # Display cards
 │   ├── icons/          # Icon components (Senjitsu, NineStar, etc.)
 │   ├── DateInput.tsx   # Date input form
 │   ├── DailyCalendar.tsx # Main Daily View Component
