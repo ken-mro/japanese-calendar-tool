@@ -1,0 +1,171 @@
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal {
+  background-color: #fffaf0; /* Warm paper-like color */
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  border-radius: 12px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  border: 4px solid #b91c1c; /* Traditional Red */
+  display: flex;
+  flex-direction: column;
+  color: #374151; /* Default dark text color for entire modal */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.content {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: "Yuji Syuku", "Times New Roman", serif;
+  font-size: 2rem;
+  color: #b91c1c;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #b91c1c; /* Underline */
+  padding-bottom: 0.5rem;
+}
+
+.drawButton {
+  background-color: #b91c1c;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+  font-family: inherit;
+}
+
+.drawButton:hover {
+  background-color: #991b1b;
+  transform: scale(1.05);
+}
+
+.boxImage {
+  width: 120px;
+  height: auto;
+  margin: 2rem auto;
+}
+
+.shaking {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0) rotate(-1deg); }
+  20%, 80% { transform: translate3d(2px, 0, 0) rotate(2deg); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0) rotate(-4deg); }
+  40%, 60% { transform: translate3d(4px, 0, 0) rotate(4deg); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Result Styles */
+.resultContainer {
+  width: 100%;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.resultTitle {
+  font-size: 2.5rem;
+  color: #b91c1c;
+  margin: 1rem 0;
+  font-weight: bold;
+  font-family: "Yuji Syuku", serif;
+}
+
+.quote {
+  font-style: italic;
+  margin: 1rem 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.source {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #1f2937; /* Explicit dark color for visibility against light background */
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  text-align: left;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.detailItem {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #e5e7eb;
+  padding-bottom: 0.4rem;
+}
+
+.detailLabel {
+  font-weight: bold;
+  color: #b91c1c;
+  margin-right: 1rem;
+  min-width: 80px;
+}
+
+.detailValue {
+  color: #374151;
+  text-align: right;
+  flex: 1;
+}
+
+@media (min-width: 640px) {
+  .detailsGrid {
+    grid-template-columns: 1fr; /* Keep 1 col for narrow modal */
+  }
+}
