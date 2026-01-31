@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Noto_Serif_JP } from "next/font/google";
 import "../globals.css";
 import { I18nProvider, Language } from "@/lib/i18n/config";
@@ -105,10 +106,12 @@ export default async function RootLayout({
         ></script>
       </head>
       <body className={`${notoSerifJP.variable}`}>
-        <I18nProvider locale={lang}>
-          {children}
-          <ScrollJoystick />
-        </I18nProvider>
+        <Suspense fallback={null}>
+          <I18nProvider locale={lang}>
+            {children}
+            <ScrollJoystick />
+          </I18nProvider>
+        </Suspense>
       </body>
     </html>
   );
