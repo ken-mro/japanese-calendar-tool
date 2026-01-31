@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ClientHome from "./ClientHome";
+
 import { Language } from "@/lib/i18n/config";
 
 const dictionary = {
@@ -46,5 +46,9 @@ export async function generateMetadata({
 }
 
 export default function Page() {
-  return <ClientHome />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientHome />
+    </Suspense>
+  );
 }
