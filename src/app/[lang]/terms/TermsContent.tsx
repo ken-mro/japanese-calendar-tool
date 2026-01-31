@@ -290,10 +290,11 @@ export default function TermsContent() {
               <h2>4. Specifications and Constraints</h2>
               <p>
                 <strong>Eto (Year & Month):</strong> You can choose between
-                "Calendar Month" (Gregorian) and "Solar Month" (Solar Terms).
-                When "Solar Month" is selected, the Year Eto also switches at
-                Risshun (approx. Feb 4) instead of January 1st. The default is
-                "Calendar Month".
+                &quot;Calendar Month&quot; (Gregorian) and &quot;Solar
+                Month&quot; (Solar Terms). When &quot;Solar Month&quot; is
+                selected, the Year Eto also switches at Risshun (approx. Feb 4)
+                instead of January 1st. The default is &quot;Calendar
+                Month&quot;.
               </p>
               <p>
                 <strong>Nine Star Ki (Year/Month/Day):</strong>

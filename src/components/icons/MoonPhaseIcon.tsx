@@ -7,10 +7,7 @@ interface MoonPhaseIconProps {
   size?: number;
 }
 
-export const MoonPhaseIcon: React.FC<MoonPhaseIconProps> = ({
-  phase,
-  size = 48,
-}) => {
+export const MoonPhaseIcon: React.FC<MoonPhaseIconProps> = ({ phase }) => {
   const { iconType } = phase;
 
   // Map iconType to filename

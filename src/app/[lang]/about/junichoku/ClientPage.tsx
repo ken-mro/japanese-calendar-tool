@@ -35,9 +35,9 @@ export default function JunichokuPage() {
               types.
             </p>
             <p className="text-lg">
-              It relies on the direction of the Big Dipper's handle relative to
-              the Earthly Branches and was considered even more important than
-              Rokuyo until the Edo period.
+              It relies on the direction of the Big Dipper&apos;s handle
+              relative to the Earthly Branches and was considered even more
+              important than Rokuyo until the Edo period.
             </p>
           </>
         )}
