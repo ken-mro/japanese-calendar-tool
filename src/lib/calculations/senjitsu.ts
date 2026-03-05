@@ -36,10 +36,10 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
         meaningJa: "何事も成就しない凶日。事を起こすのによくない。",
         isLucky: false,
     },
-    SANRINBO: {
+    SANRIMBO: {
         name: "三隣亡",
         reading: "さんりんぼう",
-        romaji: "Sanrinbō",
+        romaji: "Sanrimbo",
         meaning: "Disaster spreads to three neighbors. Bad for construction.",
         meaningJa: "建築に関する大凶日。この日に建築すれば三軒隣まで滅ぼすとされる。",
         isLucky: false,
@@ -115,10 +115,10 @@ const FUSHOJU_TABLE: Record<number, number[]> = {
     12: [6, 14, 22, 30],
 };
 
-// Sanrinbo Rules (Solar Month -> Earthly Branch Index)
+// Sanrimbo Rules (Solar Month -> Earthly Branch Index)
 // Uses setsu-giri (節切り) solar months, shifted from traditional numbering:
 // solarMonth 2 = trad. 正月(亥), solarMonth 3 = trad. 二月(寅), etc.
-const SANRINBO_TABLE: Record<number, number> = {
+const SANRIMBO_TABLE: Record<number, number> = {
     1: 6,  2: 11, 3: 2,
     4: 6,  5: 11, 6: 2,
     7: 6,  8: 11, 9: 2,
@@ -168,10 +168,10 @@ export function getSenjitsu(date: Date): Senjitsu[] {
         result.push(SENJITSU_TYPES.FUSHOJU);
     }
 
-    // Check Sanrinbo (Solar Month -> Day Earthly Branch)
-    const sanrinboTarget = SANRINBO_TABLE[solarMonth];
-    if (sanrinboTarget !== undefined && dayBranchIndex === sanrinboTarget) {
-        result.push(SENJITSU_TYPES.SANRINBO);
+    // Check Sanrimbo (Solar Month -> Day Earthly Branch)
+    const sanrimboTarget = SANRIMBO_TABLE[solarMonth];
+    if (sanrimboTarget !== undefined && dayBranchIndex === sanrimboTarget) {
+        result.push(SENJITSU_TYPES.SANRIMBO);
     }
 
     return result;

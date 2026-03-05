@@ -11,7 +11,7 @@ const dictionary = {
   en: {
     title: "About Senjitsu (Selected Days) | Japanese Calendar Tool",
     description:
-      "Explanation of selected auspicious and inauspicious days like Ichiryumanbai-bi (One Grain Ten Thousand Times Day), Tensha-nichi (Heavenly Forgiveness Day), and Sanrinbō (Three Neighbors Destroyed).",
+      "Explanation of selected auspicious and inauspicious days like Ichiryumanbai-bi (One Grain Ten Thousand Times Day), Tensha-nichi (Heavenly Forgiveness Day), and Sanrimbo (Three Neighbors Destroyed).",
   },
 };
 

@@ -47,7 +47,7 @@ export default function SenjitsuPage() {
               Days like &quot;Ichiryumanbai-bi&quot; (One Grain Ten Thousand
               Times Day) and &quot;Tensha-nichi&quot; (Heavenly Pardon Day) are
               considered highly auspicious for new beginnings, while others like
-              &quot;Fushoju-nichi&quot; and &quot;Sanrinbō&quot; are considered unlucky.
+              &quot;Fushoju-nichi&quot; and &quot;Sanrimbo&quot; are considered unlucky.
             </p>
           </>
         )}

@@ -1,7 +1,7 @@
 import { test, expect } from './helpers/fixtures';
 
-test.describe('Senjitsu (Selected Days) - Sanrinbo', () => {
-  const sanrinboDates = [
+test.describe('Senjitsu (Selected Days) - Sanrimbo', () => {
+  const sanrimboDates = [
     { day: 2, label: '2026-03-02' },
     { day: 5, label: '2026-03-05' },
     { day: 17, label: '2026-03-17' },
@@ -9,7 +9,7 @@ test.describe('Senjitsu (Selected Days) - Sanrinbo', () => {
   ];
 
   test.describe('Daily Calendar page (Japanese)', () => {
-    for (const { day, label } of sanrinboDates) {
+    for (const { day, label } of sanrimboDates) {
       test(`should display 三隣亡 on ${label}`, async ({ page }) => {
         await page.goto(`/ja/daily?date=2026-03-${String(day).padStart(2, '0')}`);
         await page.waitForLoadState('networkidle');
@@ -27,12 +27,12 @@ test.describe('Senjitsu (Selected Days) - Sanrinbo', () => {
   });
 
   test.describe('Daily Calendar page (English)', () => {
-    for (const { day, label } of sanrinboDates) {
-      test(`should display Sanrinbō on ${label}`, async ({ page }) => {
+    for (const { day, label } of sanrimboDates) {
+      test(`should display Sanrimbo on ${label}`, async ({ page }) => {
         await page.goto(`/en/daily?date=2026-03-${String(day).padStart(2, '0')}`);
         await page.waitForLoadState('networkidle');
 
-        await expect(page.getByText('Sanrinbō')).toBeVisible();
+        await expect(page.getByText('Sanrimbo')).toBeVisible();
       });
     }
   });
