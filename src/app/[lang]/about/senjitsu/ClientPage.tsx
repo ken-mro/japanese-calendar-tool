@@ -33,7 +33,7 @@ export default function SenjitsuPage() {
               選日（せんじつ）とは、六曜や七十二候などの暦注（暦の注釈）に含まれない、特定の吉凶日の総称です。
             </p>
             <p className="text-lg">
-              現代でも「一粒万倍日」や「天赦日」などは宝くじの購入や財布の買い替え、結婚などの吉日として非常に人気があります。一方で「不成就日」のような凶日も存在し、重要なイベントの日取りを決める際の参考にされています。
+              現代でも「一粒万倍日」や「天赦日」などは宝くじの購入や財布の買い替え、結婚などの吉日として非常に人気があります。一方で「不成就日」や「三隣亡」のような凶日も存在し、重要なイベントの日取りを決める際の参考にされています。
             </p>
           </>
         ) : (
@@ -47,7 +47,7 @@ export default function SenjitsuPage() {
               Days like &quot;Ichiryumanbai-bi&quot; (One Grain Ten Thousand
               Times Day) and &quot;Tensha-nichi&quot; (Heavenly Pardon Day) are
               considered highly auspicious for new beginnings, while others like
-              &quot;Fushoju-nichi&quot; are considered unlucky.
+              &quot;Fushoju-nichi&quot; and &quot;Sanrinbō&quot; are considered unlucky.
             </p>
           </>
         )}

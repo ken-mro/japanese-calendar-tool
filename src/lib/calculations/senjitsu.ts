@@ -36,6 +36,14 @@ export const SENJITSU_TYPES: Record<string, Senjitsu> = {
         meaningJa: "何事も成就しない凶日。事を起こすのによくない。",
         isLucky: false,
     },
+    SANRINBO: {
+        name: "三隣亡",
+        reading: "さんりんぼう",
+        romaji: "Sanrinbō",
+        meaning: "Disaster spreads to three neighbors. Bad for construction.",
+        meaningJa: "建築に関する大凶日。この日に建築すれば三軒隣まで滅ぼすとされる。",
+        isLucky: false,
+    },
 };
 
 // Earthly Branches Map
@@ -107,6 +115,16 @@ const FUSHOJU_TABLE: Record<number, number[]> = {
     12: [6, 14, 22, 30],
 };
 
+// Sanrinbo Rules (Solar Month -> Earthly Branch Index)
+// Uses setsu-giri (節切り) solar months, shifted from traditional numbering:
+// solarMonth 2 = trad. 正月(亥), solarMonth 3 = trad. 二月(寅), etc.
+const SANRINBO_TABLE: Record<number, number> = {
+    1: 6,  2: 11, 3: 2,
+    4: 6,  5: 11, 6: 2,
+    7: 6,  8: 11, 9: 2,
+    10: 6, 11: 11, 12: 2,
+};
+
 export function getSenjitsu(date: Date): Senjitsu[] {
     const result: Senjitsu[] = [];
 
@@ -138,8 +156,8 @@ export function getSenjitsu(date: Date): Senjitsu[] {
 
     // Check Fushoju (Old Calendar Month -> Day Number checks)
     const oldDate = getOldCalendarDate(date);
-    // Note: oldDate.month might be > 12 if leap month logic was different? 
-    // In rokuyo.ts it assumes 1-12 or similar. 
+    // Note: oldDate.month might be > 12 if leap month logic was different?
+    // In rokuyo.ts it assumes 1-12 or similar.
     // I should handle leap months if rokuyo.ts returns them as separate numbers or handle mapping.
     // getOldCalendarDate returns 1..12 roughly.
     // If leap month, logic usually says: "Use the same rules as the previous month"
@@ -148,6 +166,12 @@ export function getSenjitsu(date: Date): Senjitsu[] {
     const targets = FUSHOJU_TABLE[oldDate.month];
     if (targets && targets.includes(oldDate.day)) {
         result.push(SENJITSU_TYPES.FUSHOJU);
+    }
+
+    // Check Sanrinbo (Solar Month -> Day Earthly Branch)
+    const sanrinboTarget = SANRINBO_TABLE[solarMonth];
+    if (sanrinboTarget !== undefined && dayBranchIndex === sanrinboTarget) {
+        result.push(SENJITSU_TYPES.SANRINBO);
     }
 
     return result;

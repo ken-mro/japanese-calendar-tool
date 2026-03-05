@@ -6,12 +6,12 @@ const dictionary = {
   ja: {
     title: "選日（せんじつ）とは | 暦計算ツール",
     description:
-      "一粒万倍日（いちりゅうまんばいび）や天赦日（てんしゃにち）、不成就日などの選日について解説します。",
+      "一粒万倍日（いちりゅうまんばいび）や天赦日（てんしゃにち）、不成就日、三隣亡などの選日について解説します。",
   },
   en: {
     title: "About Senjitsu (Selected Days) | Japanese Calendar Tool",
     description:
-      "Explanation of selected auspicious and inauspicious days like Ichiryumanbai-bi (One Grain Ten Thousand Times Day) and Tensha-nichi (Heavenly Forgiveness Day).",
+      "Explanation of selected auspicious and inauspicious days like Ichiryumanbai-bi (One Grain Ten Thousand Times Day), Tensha-nichi (Heavenly Forgiveness Day), and Sanrinbō (Three Neighbors Destroyed).",
   },
 };
 
