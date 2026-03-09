@@ -15,11 +15,13 @@ import {
   getDayNineStar,
   getJuniChoku,
   getSenjitsu,
+  getNijushiSekki,
 } from "@/lib/calculations";
 import { getSolarYear } from "@/lib/calculations/solarTerms";
 import Icon from "./icons/Icon";
 import { SenjitsuIcon } from "./icons/SenjitsuIcon";
 import { NineStarIcon } from "./icons/NineStarIcon";
+import { SekkiIcon } from "./icons/SekkiIcon";
 
 interface DailyCalendarProps {
   initialDate?: Date;
@@ -92,12 +94,21 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
   const moonPhaseName = isJa ? moonPhase.phaseKanji : moonPhase.phase;
 
   const juniChoku = getJuniChoku(targetDate);
-  const juniChokuName = isJa ? `${juniChoku.name}` : `${juniChoku.name}`;
+  const juniChokuName = juniChoku.name;
   const juniChokuNameRomaji = isJa
     ? `${juniChoku.reading}`
     : `${juniChoku.romaji}`;
 
   const senjitsuList = getSenjitsu(targetDate);
+  const nijushiSekki = getNijushiSekki(targetDate);
+  const sekkiTerm = nijushiSekki.isExactDate ? nijushiSekki.exactTerm! : nijushiSekki.current;
+
+  // Today check for button state
+  const today = new Date();
+  const isToday =
+    currentDate.getDate() === today.getDate() &&
+    currentDate.getMonth() === today.getMonth() &&
+    currentDate.getFullYear() === today.getFullYear();
 
   // Icons
   const rokuyoIconSrc = `/images/rokuyo/${rokuyo.name.toLowerCase()}.svg`;
@@ -232,43 +243,19 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
         {/* Today Button */}
         <button
           onClick={handleToday}
-          disabled={
-            currentDate.getDate() === new Date().getDate() &&
-            currentDate.getMonth() === new Date().getMonth() &&
-            currentDate.getFullYear() === new Date().getFullYear()
-          }
+          disabled={isToday}
           className="btn-today"
           style={{
             fontWeight: "bold",
             padding: "0.5rem 1rem",
-            backgroundColor:
-              currentDate.getDate() === new Date().getDate() &&
-              currentDate.getMonth() === new Date().getMonth() &&
-              currentDate.getFullYear() === new Date().getFullYear()
-                ? "#f0f0f0"
-                : "#fff",
+            backgroundColor: isToday ? "#f0f0f0" : "#fff",
             border: "1px solid #d4d4d4",
             borderRadius: "4px",
             height: "100%", // Match height of toggle
-            cursor:
-              currentDate.getDate() === new Date().getDate() &&
-              currentDate.getMonth() === new Date().getMonth() &&
-              currentDate.getFullYear() === new Date().getFullYear()
-                ? "default"
-                : "pointer",
+            cursor: isToday ? "default" : "pointer",
             fontSize: "0.9rem",
-            color:
-              currentDate.getDate() === new Date().getDate() &&
-              currentDate.getMonth() === new Date().getMonth() &&
-              currentDate.getFullYear() === new Date().getFullYear()
-                ? "#aaa"
-                : "#555",
-            opacity:
-              currentDate.getDate() === new Date().getDate() &&
-              currentDate.getMonth() === new Date().getMonth() &&
-              currentDate.getFullYear() === new Date().getFullYear()
-                ? 0.7
-                : 1,
+            color: isToday ? "#aaa" : "#555",
+            opacity: isToday ? 0.7 : 1,
             transition: "all 0.2s ease",
             display: "flex", // Ensure flex alignment if needed
             alignItems: "center",
@@ -693,6 +680,24 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
               </div>
               <div style={{ fontWeight: "bold", fontSize: "1rem" }}>
                 {dayNineStarName}
+              </div>
+
+              {/* Nijushi Sekki Row */}
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "64px" }}>
+                <SekkiIcon termIndex={sekkiTerm.index} size={32} isExactDate={nijushiSekki.isExactDate} />
+              </div>
+              <div>
+                <div style={{ fontWeight: "bold", fontSize: "1rem" }}>
+                  {isJa ? sekkiTerm.kanji : sekkiTerm.romaji}
+                  {nijushiSekki.isExactDate && (
+                    <span style={{ fontSize: "0.75rem", marginLeft: "0.4rem" }}>
+                      {isJa ? "（節入り）" : "(Exact date)"}
+                    </span>
+                  )}
+                </div>
+                <div style={{ fontSize: "0.85rem", color: "#666" }}>
+                  {isJa ? sekkiTerm.reading : sekkiTerm.kanji}
+                </div>
               </div>
             </div>
           </div>

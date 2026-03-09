@@ -14,6 +14,7 @@ import {
   getDayNineStar,
   getJuniChoku,
   getSenjitsu,
+  getNijushiSekki,
 } from "@/lib/calculations";
 import { WesternYearCard } from "./cards/WesternYearCard";
 import { JapaneseEraCard } from "./cards/JapaneseEraCard";
@@ -27,6 +28,7 @@ import { MonthCard } from "./cards/MonthCard";
 import { DayCard } from "./cards/DayCard";
 import { JuniChokuCard } from "./cards/JuniChokuCard";
 import { SenjitsuCard } from "./cards/SenjitsuCard";
+import { SekkiCard } from "./cards/SekkiCard";
 import { TabPanel } from "./ui/TabPanel";
 
 interface ResultDisplayProps {
@@ -92,6 +94,7 @@ export function ResultDisplay({
   const dayNineStar = getDayNineStar(targetDate);
   const juniChoku = getJuniChoku(targetDate);
   const senjitsuList = getSenjitsu(targetDate);
+  const nijushiSekki = getNijushiSekki(targetDate);
 
   // Elapsed Time Calculation
   const today = new Date();
@@ -214,6 +217,7 @@ export function ResultDisplay({
                   <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
                   <NineStarCard nineStar={dayNineStar} hideNote={true} />
                   <MoonPhaseCard phase={moonPhase} />
+                  <SekkiCard sekki={nijushiSekki} />
                   {senjitsuList.map((sen, index) => (
                     <SenjitsuCard key={`senjitsu-${index}`} senjitsu={sen} />
                   ))}
