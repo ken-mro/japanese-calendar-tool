@@ -100,6 +100,13 @@ export default function HomeDescription({
               <span className="arrow">→</span>
             </Link>
             <Link
+              href={`/${language}/about/nijushi-sekki`}
+              className="about-link-card"
+            >
+              <h3>二十四節気とは</h3>
+              <span className="arrow">→</span>
+            </Link>
+            <Link
               href={`/${language}/about/junichoku`}
               className="about-link-card"
             >
@@ -173,6 +180,13 @@ export default function HomeDescription({
           </Link>
           <Link href={`/${language}/about/rokuyo`} className="about-link-card">
             <h3>About Rokuyo</h3>
+            <span className="arrow">→</span>
+          </Link>
+          <Link
+            href={`/${language}/about/nijushi-sekki`}
+            className="about-link-card"
+          >
+            <h3>About 24 Solar Terms</h3>
             <span className="arrow">→</span>
           </Link>
           <Link

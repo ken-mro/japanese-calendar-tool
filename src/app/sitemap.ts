@@ -7,6 +7,7 @@ const routes = [
   { path: '/about/nine-star', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/about/rokuyo', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/about/senjitsu', changeFrequency: 'monthly' as const, priority: 0.7 },
+  { path: '/about/nijushi-sekki', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/about/wafu-getsumei', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/about/junichoku', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/about/wareki', changeFrequency: 'monthly' as const, priority: 0.7 },
