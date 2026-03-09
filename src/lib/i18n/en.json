@@ -72,7 +72,8 @@
     "junichoku": "12 Choku",
     "moonPhase": "Moon Phase",
     "moonAge": "Moon Age",
-    "senjitsu": "Senjitsu (Selected Days)"
+    "senjitsu": "Senjitsu (Selected Days)",
+    "nijushiSekki": "24 Solar Terms"
   },
   "months": {
     "1": "January",

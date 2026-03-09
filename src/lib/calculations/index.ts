@@ -16,4 +16,5 @@ export { getMoonPhase, type MoonPhase } from './moon';
 export { getWafuGetsumei, type WafuGetsumei } from './wafuGetsumei';
 export { getJuniChoku, type JuniChoku } from './junichoku';
 export { getSenjitsu, type Senjitsu } from './senjitsu';
+export { getNijushiSekki, getSekkiColor, type NijushiSekki, type NijushiSekkiResult } from './solarTerms';
 

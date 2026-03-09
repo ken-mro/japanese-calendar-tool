@@ -72,7 +72,8 @@
     "junichoku": "十二直",
     "moonPhase": "月の満ち欠け",
     "moonAge": "月齢",
-    "senjitsu": "選日"
+    "senjitsu": "選日",
+    "nijushiSekki": "二十四節気"
   },
   "months": {
     "1": "1月",
