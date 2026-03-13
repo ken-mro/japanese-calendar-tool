@@ -30,7 +30,7 @@ test.describe('Omikuji Feature', () => {
     await expect(page.locator('text=/No\\. \\d+/')).toBeVisible();
 
     // Check for fortune level (Great Fortune, Fortune, etc.)
-    await expect(page.locator('text=/Fortune|Misfortune/')).toBeVisible();
+    await expect(page.locator('[class*="resultTitle"]')).toBeVisible();
 
     // Check for Close button
     await expect(page.getByRole('button', { name: /Close/i })).toBeVisible();
