@@ -22,6 +22,7 @@ import Icon from "./icons/Icon";
 import { SenjitsuIcon } from "./icons/SenjitsuIcon";
 import { NineStarIcon } from "./icons/NineStarIcon";
 import { SekkiIcon } from "./icons/SekkiIcon";
+import { MoonPhaseIcon } from "./icons/MoonPhaseIcon";
 
 interface DailyCalendarProps {
   initialDate?: Date;
@@ -112,7 +113,6 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
 
   // Icons
   const rokuyoIconSrc = `/images/rokuyo/${rokuyo.name.toLowerCase()}.svg`;
-  const moonIconSrc = `/images/moon/${moonPhase.iconType}.svg`;
 
   // Main Display
   const dayNumber = targetDate.getDate();
@@ -723,7 +723,7 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
                 marginBottom: "0.8rem",
               }}
             >
-              <Icon src={moonIconSrc} alt={moonPhaseName} size={32} />
+              <MoonPhaseIcon phase={moonPhase} size={32} />
               <div>
                 <div style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
                   {moonPhaseName}
