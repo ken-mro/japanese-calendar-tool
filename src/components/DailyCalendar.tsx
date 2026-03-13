@@ -289,9 +289,7 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
         }`}
         style={{
           backgroundColor: "#fdfdf6",
-          backgroundImage:
-            "url('/images/washi-texture.png'), linear-gradient(to bottom, #fdfdf6, #f4f4e8)",
-          backgroundBlendMode: "multiply",
+          backgroundImage: "linear-gradient(to bottom, #fdfdf6, #f4f4e8)",
           border: "1px solid #d4d4d4",
           borderTop: "8px solid #c0392b",
           borderRadius: "4px",
