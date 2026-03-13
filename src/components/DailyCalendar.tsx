@@ -23,6 +23,7 @@ import { SenjitsuIcon } from "./icons/SenjitsuIcon";
 import { NineStarIcon } from "./icons/NineStarIcon";
 import { SekkiIcon } from "./icons/SekkiIcon";
 import { MoonPhaseIcon } from "./icons/MoonPhaseIcon";
+import { RokuyoIcon } from "./icons/RokuyoIcon";
 
 interface DailyCalendarProps {
   initialDate?: Date;
@@ -112,7 +113,6 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
     currentDate.getFullYear() === today.getFullYear();
 
   // Icons
-  const rokuyoIconSrc = `/images/rokuyo/${rokuyo.name.toLowerCase()}.svg`;
 
   // Main Display
   const dayNumber = targetDate.getDate();
@@ -548,7 +548,7 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
               minWidth: "60px", // Reduced min-width closer to content
             }}
           >
-            <Icon src={rokuyoIconSrc} alt={rokuyoName} size={48} />
+            <RokuyoIcon rokuyo={rokuyo} size={48} />
             <div
               style={{
                 writingMode: isJa ? "vertical-rl" : "horizontal-tb",

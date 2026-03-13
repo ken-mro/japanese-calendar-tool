@@ -3,7 +3,7 @@
 import { useI18n, useLanguage } from "@/lib/i18n/config";
 import { type Rokuyo } from "@/lib/calculations";
 import { ResultCard } from "./ResultCard";
-import Icon from "../icons/Icon";
+import { RokuyoIcon } from "../icons/RokuyoIcon";
 
 interface RokuyoCardProps {
   rokuyo: Rokuyo;
@@ -17,9 +17,7 @@ export function RokuyoCard({ rokuyo }: RokuyoCardProps) {
   return (
     <ResultCard
       className="rokuyo"
-      icon={
-        <Icon src={`/images/rokuyo/${rokuyo.reading}.svg`} alt={rokuyo.name} />
-      }
+      icon={<RokuyoIcon rokuyo={rokuyo} />}
       title={t("result.rokuyo")}
       value={useKanji ? rokuyo.nameKanji : rokuyo.name}
       subtitle={!useKanji ? rokuyo.nameKanji : undefined}
