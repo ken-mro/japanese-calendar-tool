@@ -20,7 +20,6 @@ export function SenjitsuCard({ senjitsu }: SenjitsuCardProps) {
       title={t("result.senjitsu")}
       value={useKanji ? senjitsu.name : senjitsu.romaji}
       subtitle={!useKanji ? senjitsu.name : undefined}
-      note={useKanji ? senjitsu.meaningJa : senjitsu.meaning}
     />
   );
 }

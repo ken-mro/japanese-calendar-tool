@@ -3,6 +3,7 @@
 import { AboutWrapper } from "@/components/about/AboutWrapper";
 import { useLanguage } from "@/lib/i18n/config";
 import { SENJITSU_TYPES } from "@/lib/calculations/senjitsu";
+import { SenjitsuIcon } from "@/components/icons/SenjitsuIcon";
 
 export default function SenjitsuPage() {
   const language = useLanguage();
@@ -13,14 +14,10 @@ export default function SenjitsuPage() {
   return (
     <AboutWrapper
       title={isJa ? "選日（せんじつ）とは" : "About Senjitsu (Selected Days)"}
-      // Use Ichiryumanbai icon logic (first char) as generic icon or just a generic calendar one
       icon={
-        <div
-          className="flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl select-none shrink-0"
-          style={{ backgroundColor: "var(--accent-color, #d44d60)" }}
-        >
-          {"選"}
-        </div>
+        <SenjitsuIcon
+          senjitsu={{ name: "選", reading: "", romaji: "", meaning: "", meaningJa: "", isLucky: true }}
+        />
       }
     >
       <div
@@ -119,16 +116,7 @@ export default function SenjitsuPage() {
                       <div
                         style={{ display: "flex", justifyContent: "center" }}
                       >
-                        <div
-                          className="flex items-center justify-center w-12 h-12 rounded-full text-white font-bold text-xl select-none shrink-0"
-                          style={{
-                            backgroundColor: type.isLucky
-                              ? "var(--accent-color, #d44d60)"
-                              : "var(--color-ginnezumi, #718096)",
-                          }}
-                        >
-                          {type.name[0]}
-                        </div>
+                        <SenjitsuIcon senjitsu={type} />
                       </div>
                     </td>
                     <td

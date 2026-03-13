@@ -767,7 +767,7 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
                       gap: "0.5rem",
                     }}
                   >
-                    <SenjitsuIcon senjitsu={s} />
+                    <SenjitsuIcon senjitsu={s} size={32} />
                     <span
                       style={{
                         fontWeight: "bold",
