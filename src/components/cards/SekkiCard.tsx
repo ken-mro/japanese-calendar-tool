@@ -18,7 +18,7 @@ export function SekkiCard({ sekki }: SekkiCardProps) {
 
   const value = useKanji ? term.kanji : term.romaji;
   const subtitle = useKanji ? term.reading : term.kanji;
-  const note = sekki.isExactDate ? (useKanji ? "節入り" : "Exact date of term") : undefined;
+  const note = undefined;
 
   return (
     <ResultCard

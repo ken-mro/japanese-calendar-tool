@@ -217,7 +217,7 @@ export function ResultDisplay({
                   <ChineseZodiacCard zodiac={dayZodiac} variant="day" />
                   <NineStarCard nineStar={dayNineStar} hideNote={true} />
                   <MoonPhaseCard phase={moonPhase} />
-                  <SekkiCard sekki={nijushiSekki} />
+                  {nijushiSekki.isExactDate && <SekkiCard sekki={nijushiSekki} />}
                   {senjitsuList.map((sen, index) => (
                     <SenjitsuCard key={`senjitsu-${index}`} senjitsu={sen} />
                   ))}

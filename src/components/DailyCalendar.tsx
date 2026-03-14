@@ -680,23 +680,22 @@ export function DailyCalendar({ initialDate }: DailyCalendarProps) {
                 {dayNineStarName}
               </div>
 
-              {/* Nijushi Sekki Row */}
-              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "64px" }}>
-                <SekkiIcon termIndex={sekkiTerm.index} size={32} isExactDate={nijushiSekki.isExactDate} />
-              </div>
-              <div>
-                <div style={{ fontWeight: "bold", fontSize: "1rem" }}>
-                  {isJa ? sekkiTerm.kanji : sekkiTerm.romaji}
-                  {nijushiSekki.isExactDate && (
-                    <span style={{ fontSize: "0.75rem", marginLeft: "0.4rem" }}>
-                      {isJa ? "（節入り）" : "(Exact date)"}
-                    </span>
-                  )}
-                </div>
-                <div style={{ fontSize: "0.85rem", color: "#666" }}>
-                  {isJa ? sekkiTerm.reading : sekkiTerm.kanji}
-                </div>
-              </div>
+              {/* Nijushi Sekki Row - only shown on exact date */}
+              {nijushiSekki.isExactDate && (
+                <>
+                  <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "64px" }}>
+                    <SekkiIcon termIndex={sekkiTerm.index} size={32} isExactDate={nijushiSekki.isExactDate} />
+                  </div>
+                  <div>
+                    <div style={{ fontWeight: "bold", fontSize: "1rem" }}>
+                      {isJa ? sekkiTerm.kanji : sekkiTerm.romaji}
+                    </div>
+                    <div style={{ fontSize: "0.85rem", color: "#666" }}>
+                      {isJa ? sekkiTerm.reading : sekkiTerm.kanji}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
 
